@@ -15,12 +15,98 @@ a {
   box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  html {
-    color-scheme: dark;
-  }
-  body {
-    color: white;
-    background: black;
-  }
+.blockContainer a {
+	text-decoration: underline;
+	color: blue;
+}
+
+.container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 Aspect Ratio (divide 9 by 16 = 0.5625) */
+}
+
+/* Then style the iframe to fit in the container div with full height and width */
+.responsive-iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+}
+
+table.detailsTable {
+  width: 100%;
+  background-color: #ffffff;
+  border-collapse: collapse;
+  border-width: 2px;
+  border-style: solid;
+	overflow-x: auto;
+}
+
+table.detailsTable td, table.detailsTable th {
+  border-width: 2px;
+  border-color: #dee2e6;
+	vertical-align: bottom;
+  border-bottom: 2px solid #dee2e6;
+  border-style: solid;
+	padding: 0.75rem;
+	text-align: left;
+}
+
+table.detailsTable td {
+	color: #000;
+	font-weight: 500;
+	font-size: 15px;
+}
+
+table.detailsTable tbody tr:nth-of-type(odd) {
+	background-color: rgba(0,0,0,.05);
+}
+
+table.detailsTable thead {
+  background: linear-gradient(90deg,#71e2b3,#58d1c3 35%,#48bcd1);
+	color: #000;
+	font-weight: 600;
+	font-size: 17px;
+	font-family: Open Sans;
+	line-height: 28px;
+}
+
+.serializerTitle {
+	font-size: 34px;
+	margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.faq h5 {
+	font-size: 20px;
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.home-container {
+	height: 100vh;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.page-container {
+	width: min-content;
+	margin: 0 auto;
+}
+
+.banner {
+	width: -webkit-fill-available;
+}
+
+@media (max-width: 960px) {
+	.page-container {
+		width: auto;
+		margin: 0 auto;
+	}
 }
