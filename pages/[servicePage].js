@@ -3,13 +3,17 @@ import TextSerializer from "../components/TextSerializer";
 import Faq from "../components/Faq";
 import ResponsiveYoutube from "../components/ResponsiveYoutube";
 import Head from "next/head";
+import { Typography, Grid, Box } from '@mui/material';
+import TOC from "../components/Shared/TOC";
+import CollegeModal from '../components/Shared/CollegeModal';
+import Testimonials from "../components/HomePage/Testimonials";
 
 const apiHost = process.env.NEXT_PUBLIC_API_HOST;
 
 function servicePage(props) {
-	const {data, faq, youtubeEmbedRes} = props;
+	const {data, faq, youtubeEmbedRes, collegeList, testimonials} = props;
 	return (
-		<div>
+		<Box sx={{ padding: '0px 0px 15px 0px' }}>
 			<Head>
 				<title>{data.metaTitle}</title>
 				<meta name="description" content={data.metaDescription} />
@@ -17,32 +21,33 @@ function servicePage(props) {
 				<link rel="canonical" href={data.canonical} />
 				<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 			</Head>
+			<Grid container>
+				<Grid item xs={12} className="globalTitleBg">
+					<Typography variant="h1">{data.title}</Typography>
+				</Grid>
+				<Grid item xs={12}>
+					<img src={urlFor(data.bannerImage)} className="banner" alt={data.title} />
+				</Grid>
+			</Grid>
 			<div className="page-container">
-				{data.hasOwnProperty("countryImage") && (
-					<div style={{display: "flex", alignItems: "center", justifyContent: "center", margin: "30px 0px"}}>
-						<img src={urlFor(data.countryImage)} alt={data.title} style={{width: "200px", marginRight: "20px"}} />
-						<h1>{data.title}</h1>
-					</div>
-				)}
-				<img src={urlFor(data.bannerImage)} className="banner" alt={data.title} />
 				<div className="blockContainer">
+					<div className="tocContainer">
+						{data && <TOC />}
+					</div>
+					{data.isBlog !== true && <CollegeModal collegeList={collegeList} title={data.title} btnText="Click Here To Apply" />}
 					<TextSerializer data={data.pageContent} />
 				</div>
 
-				{faq.length > 0 && (
-					<>
-						<h4>{data.title} FAQ</h4>
-						<Faq data={faq} />
-					</>
-				)}
+				{faq.length > 0 && <Faq data={faq} title={data.title} />}
 				{youtubeEmbedRes.length > 0 && (
 					<>
-						<h4>{data.title} Videos</h4>
+						<h6 className='serializerTitle'>{data.title} Videos</h6>
 						<ResponsiveYoutube data={youtubeEmbedRes} />
 					</>
 				)}
+				<Testimonials testimonials={testimonials} />
 			</div>
-		</div>
+		</Box>
 	);
 }
 

@@ -1,23 +1,11 @@
-import Link from 'next/link';
+import Slider from '../components/HomePage/Slider'
+import HomePage from '../components/HomePage'
 
-function index() {
+function index({sliderData, testimonials}) {
 	return (
-		<div className="home-container">
-			<Link href="/mbbs-admission-in-austria-for-indian-students">
-				<a>
-					<h2>MBBS in Austria</h2>
-				</a>
-			</Link>
-			<Link href="/blog">
-				<a>
-					<h2>Blog</h2>
-				</a>
-			</Link>
-			<Link href="/why-is-mbbs-cheap-in-russia">
-				<a>
-					<h2>Why MBBS is cheap in Russia</h2>
-				</a>
-			</Link>
+		<div>
+			<Slider sliderData={sliderData} />
+			<HomePage testimonials={testimonials} />
 		</div>
 	)
 }

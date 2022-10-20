@@ -9,6 +9,11 @@ export default {
 			type: 'boolean'
 		},
 		{
+			name: 'blogCategory',
+			title: 'Blog Category',
+			type: 'string'
+		},
+		{
 			name: 'title',
 			title: 'Title',
 			type: 'string'
