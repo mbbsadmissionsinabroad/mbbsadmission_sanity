@@ -1,5 +1,5 @@
 import { useState, forwardRef, useEffect } from 'react';
-import { Button, Dialog, Slide, ListItemText, DialogTitle, Box, Divider, Grid, TextField, FormControl, Select, InputLabel, MenuItem, Checkbox, OutlinedInput, Typography } from '@mui/material';
+import { Button, Dialog, Slide, ListItemText, DialogTitle, Box, Divider, Grid, TextField, FormControl, Select, InputLabel, MenuItem, Checkbox, OutlinedInput, Typography, Snackbar } from '@mui/material';
 import { CloseCircleOutline } from 'mdi-material-ui';
 import styles from './modal.module.css'
 
@@ -23,7 +23,8 @@ function index({ collegeList, title, btnText }) {
 	});
 	const [list, setList] = useState({});
 	const [college, setCollege] = useState([]);
-	const [actionBusy, setActionBusy] = useState(false)
+	const [actionBusy, setActionBusy] = useState(false);
+	const [snackBar, setSnackBar] = useState(false);
 
 	const { name, email, num, country, message } = state;
 
@@ -97,12 +98,17 @@ function index({ collegeList, title, btnText }) {
 		.then((res) => res.json())
 		.then((data) => {
 			console.log(data)
-			setActionBusy(false)
+			setActionBusy(false);
+			setSnackBar(true);
 		})
 		.catch((err) => {
 			console.log(err);
 			setActionBusy(false)
 		});
+	}
+
+	const closeSnackBar = () => {
+		setSnackBar(false);
 	}
 
 	return (
@@ -113,47 +119,49 @@ function index({ collegeList, title, btnText }) {
 			<Dialog open={open} TransitionComponent={Transition} keepMounted onClose={handleClose} fullWidth={true} maxWidth="md">
 				<Box display="flex" alignItems="center" justifyContent="space-between">
 					<DialogTitle>{title}</DialogTitle>
-					<CloseCircleOutline onClick={handleClose} sx={{ mr: 1.2 }} />
+					<CloseCircleOutline onClick={handleClose} sx={{ mr: 1.2, cursor: 'pointer' }} />
 				</Box>
 				<Divider />
 				<Box className={styles.container}>
 					<Grid container spacing={2}>
 						<Grid item xs={12} md={6}>
-							<TextField variant="outlined" value={name} label="Name" name="name" fullWidth onChange={handleFields} sx={{ mb: 2 }} />
-							<TextField variant="outlined" value={email} label="Email" name="email" fullWidth onChange={handleFields} sx={{ mb: 2 }} />
-							<TextField variant="outlined" value={num} label="Phone No" name="num" fullWidth onChange={handleFields} sx={{ mb: 2 }} />
-							<FormControl fullWidth sx={{ mb: 2 }}>
-								<InputLabel>Country</InputLabel>
-								<Select
-									value={country}
-									label="Select Country"
-									name="country"
-									onChange={handleFields}
-								>
-									{
-										collegeList !== undefined && collegeList.map((item, i) => <MenuItem key={i} value={item.title}>{item.title}</MenuItem>)
-									}
-								</Select>
-							</FormControl>
-							<FormControl fullWidth sx={{ mb: 2 }}>
-								<InputLabel>College</InputLabel>
+							<form onSubmit={handleSubmit}>
+								<TextField variant="outlined" value={name} label="Name" name="name" fullWidth onChange={handleFields} required sx={{ mb: 2 }} />
+								<TextField variant="outlined" value={email} label="Email" name="email" fullWidth onChange={handleFields} required sx={{ mb: 2 }} />
+								<TextField variant="outlined" value={num} label="Phone No" name="num" fullWidth onChange={handleFields} required sx={{ mb: 2 }} />
+								<FormControl fullWidth sx={{ mb: 2 }}>
+									<InputLabel>Country</InputLabel>
 									<Select
-										multiple
-										value={college}
-										onChange={handleCollege}
-										input={<OutlinedInput label="Select College" />}
-										renderValue={(selected) => selected.join(', ')}
+										value={country}
+										label="Select Country"
+										name="country"
+										onChange={handleFields}
 									>
-									{"collegeList" in list && list.collegeList.map((item, i) => (
-										<MenuItem key={i} value={item.title}>
-											<Checkbox checked={college.indexOf(item.title) > -1} />
-											<ListItemText primary={item.title} />
-										</MenuItem>
-									))}
-								</Select>
-							</FormControl>
-							<TextField variant="outlined" value={message} label="Message" name="message" fullWidth multiline rows={4} onChange={handleFields} sx={{ mb: 2 }} />
-							<Button variant="contained" sx={{ color: '#fff', mb: 1 }} onClick={handleSubmit} disabled={actionBusy}>Submit</Button>
+										{
+											collegeList !== undefined && collegeList.map((item, i) => <MenuItem key={i} value={item.title}>{item.title}</MenuItem>)
+										}
+									</Select>
+								</FormControl>
+								<FormControl fullWidth sx={{ mb: 2 }}>
+									<InputLabel>College</InputLabel>
+										<Select
+											multiple
+											value={college}
+											onChange={handleCollege}
+											input={<OutlinedInput label="Select College" />}
+											renderValue={(selected) => selected.join(', ')}
+										>
+										{"collegeList" in list && list.collegeList.map((item, i) => (
+											<MenuItem key={i} value={item.title}>
+												<Checkbox checked={college.indexOf(item.title) > -1} />
+												<ListItemText primary={item.title} />
+											</MenuItem>
+										))}
+									</Select>
+								</FormControl>
+								<TextField variant="outlined" value={message} label="Message" name="message" fullWidth multiline rows={4} onChange={handleFields} sx={{ mb: 2 }} />
+								<Button variant="contained" type='submit' sx={{ color: '#fff', mb: 1 }} disabled={actionBusy}>Submit</Button>
+							</form>
 						</Grid>
 						<Grid item xs={12} md={6}>
 							<Box sx={{ mb: 1.5 }}>
@@ -172,6 +180,13 @@ function index({ collegeList, title, btnText }) {
 					</Grid>
 				</Box>
 			</Dialog>
+			<Snackbar
+        open={snackBar}
+				anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        autoHideDuration={5000}
+        onClose={closeSnackBar}
+        message="Your submission has been received"
+      />
 		</div>
 	);
 }
