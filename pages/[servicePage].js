@@ -35,7 +35,7 @@ function servicePage(props) {
 						{data && <TOC />}
 					</div>
 					{data.isBlog !== true && <CollegeModal collegeList={collegeList} title={data.title} btnText="Click Here To Apply" />}
-					<TextSerializer data={data.pageContent} />
+					<TextSerializer data={data.pageContent} className="serializerTitle"  />
 				</div>
 
 				{faq.length > 0 && <Faq data={faq} title={data.title} />}

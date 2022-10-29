@@ -3,7 +3,7 @@ import Footer from "./Footer";
 
 export default function Layout({children, data}) {
 	let footerData = data !== undefined ? data.result.find((item) => item.title === 'Footer') : []
-	let headerData = data !== undefined ? data.result.filter((item) => item.title !== 'Footer' && item.title !== 'Home Page Slider' && item.title !== 'Testimonials') : []
+	let headerData = data !== undefined ? data.result.filter((item) => item.title !== 'Footer' && item.title !== 'Home Page Slider' && item.title !== 'Testimonials' && item.title !== 'Contents') : []
 	return (
 		<>
 			<Navbar headerData={headerData} />

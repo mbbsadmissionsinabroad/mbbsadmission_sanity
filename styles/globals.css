@@ -1,7 +1,7 @@
-@import '@fontsource/roboto/300.css';
+/* @import '@fontsource/roboto/300.css';
 @import '@fontsource/roboto/400.css';
 @import '@fontsource/roboto/500.css';
-@import '@fontsource/roboto/700.css';
+@import '@fontsource/roboto/700.css'; */
 
 html,
 body {
@@ -17,6 +17,10 @@ a {
 
 * {
   box-sizing: border-box;
+}
+
+h1, h2, h3, h4, h5, h6, p, span, strong{
+	font-family: "Roboto","Helvetica","Arial",sans-serif !important;
 }
 
 .container {
@@ -91,6 +95,16 @@ table.detailsTable thead {
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+}
+
+.homePageTitle {
+	font-size: 50px;
+	font-weight: 700;
+	line-height: 58px;
+	text-transform: uppercase;
+	text-align: center;
+	padding: 15px 0px;
+	color: #71e2b3;
 }
 
 .page-container {

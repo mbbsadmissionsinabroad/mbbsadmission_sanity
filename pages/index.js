@@ -1,11 +1,12 @@
 import Slider from '../components/HomePage/Slider'
 import HomePage from '../components/HomePage'
 
-function index({sliderData, testimonials}) {
+function index(props) {
+	const { sliderData, testimonials, homePageContents } = props;
 	return (
 		<div>
 			<Slider sliderData={sliderData} />
-			<HomePage testimonials={testimonials} />
+			<HomePage testimonials={testimonials} homePageContents={homePageContents} />
 		</div>
 	)
 }

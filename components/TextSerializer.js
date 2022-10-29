@@ -3,7 +3,7 @@ import {PortableText} from '@portabletext/react';
 
 function TextSerializer(props) {
 
-	const { data } = props;
+	const { data, className } = props;
 	const addId = (children) => {
 		const str = children;
 		const strUnderscores = str.length > 0 && str.toString().replace(/[\s0-9-()&:?]/g,"_").toLowerCase();
@@ -17,12 +17,12 @@ function TextSerializer(props) {
 		},
 		block: {
 			p: ({children}) => <p>{children}</p>,
-			h1: ({children}) => <h1 className='serializerTitle'>{children}</h1>,
-			h2: ({children}) => <h2 className='serializerTitle' id={addId(children)}>{children}</h2>,
-			h3: ({children}) => <h3 className='serializerTitle' id={addId(children)}>{children}</h3>,
-			h4: ({children}) => <h4 className='serializerTitle' id={addId(children)}>{children}</h4>,
-			h5: ({children}) => <h5 className='serializerTitle' id={addId(children)}>{children}</h5>,
-			h6: ({children}) => <h6 className='serializerTitle' id={addId(children)}>{children}</h6>,
+			h1: ({children}) => <h1 className={className}>{children}</h1>,
+			h2: ({children}) => <h2 className={className} id={addId(children)}>{children}</h2>,
+			h3: ({children}) => <h3 className={className} id={addId(children)}>{children}</h3>,
+			h4: ({children}) => <h4 className={className} id={addId(children)}>{children}</h4>,
+			h5: ({children}) => <h5 className={className} id={addId(children)}>{children}</h5>,
+			h6: ({children}) => <h6 className={className} id={addId(children)}>{children}</h6>,
 			blockquote: ({children}) => <blockquote>{children}</blockquote>,
 		},
 		list: {

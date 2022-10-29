@@ -8,6 +8,7 @@ import FoundersMessage from "./FoundersMessage";
 import Testimonials from "./Testimonials";
 import StaticComponent from "./StaticComponent";
 import Faq from "./Faq";
+import TextSerializer from "../TextSerializer";
 import styles from "./homePage.module.css";
 
 const studyAbroadList = [
@@ -122,7 +123,7 @@ const faq = [
 ];
 
 function index(props) {
-	const {testimonials} = props;
+	const {testimonials, homePageContents} = props;
 	return (
 		<>
 			<Grid container sx={{justifyContent: "center", mb: 2}}>
@@ -164,6 +165,12 @@ function index(props) {
 			<StudyMbbsInAbroad />
 			<Faq title="HOW CAN WE ASSIST YOU" data={howCanWeAssistYou} />
 			<CountriesList />
+			{
+				homePageContents &&
+				<Box className={styles.testimonialsContainer}>
+					<TextSerializer data={homePageContents.homePageContent} className="homePageTitle" />
+				</Box>
+			}
 			<FoundersMessage />
 			<Box className={styles.testimonialsContainer}>
 				<Testimonials testimonials={testimonials} />

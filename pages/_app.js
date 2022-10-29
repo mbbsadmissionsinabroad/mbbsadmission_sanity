@@ -4,9 +4,15 @@ import '../styles/slider.css'
 import Layout from '../components/Layout';
 import { ThemeProvider } from '@mui/system';
 import { createMuiTheme } from '../lib/createMuiTheme';
+import { CacheProvider } from '@emotion/react';
+import createEmotionCache from '../lib/createEmotionCache';
+import PropTypes from 'prop-types';
 
 const apiHost = process.env.NEXT_PUBLIC_API_HOST;
-function MyApp({ Component, pageProps }) {
+const clientSideEmotionCache = createEmotionCache();
+
+function MyApp(props) {
+	const { Component, emotionCache = clientSideEmotionCache, pageProps } = props;
 	const [data, setData] = useState();
 	const [collegeList, setCollegeList] = useState();
 	const fetchDataRef = useRef(false);
@@ -28,13 +34,23 @@ function MyApp({ Component, pageProps }) {
 
 	let sliderData = data !== undefined && data.result.find((item) => item.title === 'Home Page Slider');
 	let testimonials = data !== undefined && data.result.find((item) => item.title === 'Testimonials');
+	let homePageContents = data !== undefined && data.result.find((item) => item.title === 'Contents');
+
   return (
-		<ThemeProvider theme={createMuiTheme}>
-			<Layout data={data}>
-				<Component {...pageProps} sliderData={sliderData} testimonials={testimonials} collegeList={collegeList} />
-			</Layout>
-		</ThemeProvider>
+		<CacheProvider value={emotionCache}>
+			<ThemeProvider theme={createMuiTheme}>
+				<Layout data={data}>
+					<Component {...pageProps} sliderData={sliderData} testimonials={testimonials} collegeList={collegeList} homePageContents={homePageContents} />
+				</Layout>
+			</ThemeProvider>
+		</CacheProvider>
 	)
 }
 
 export default MyApp
+
+MyApp.propTypes = {
+  Component: PropTypes.elementType.isRequired,
+  emotionCache: PropTypes.object,
+  pageProps: PropTypes.object.isRequired,
+};
