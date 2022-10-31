@@ -1,5 +1,5 @@
-import { Box, Grid, Typography } from "@mui/material"
-import { Phone, MapMarker, Facebook, Instagram, Twitter, Youtube } from 'mdi-material-ui';
+import { Box, Grid, Typography, Button } from "@mui/material"
+import { Phone, MapMarker, Facebook, Instagram, Twitter, Youtube, Whatsapp } from 'mdi-material-ui';
 
 function TopBar() {
 	return (
@@ -20,10 +20,7 @@ function TopBar() {
 							<Typography variant="body1" sx={{ fontWeight: 500 }}>404, 1st floor, 4th A Cross Rd, HRBR Layout 2nd Block, Kalyan Nagar, Bengaluru - 560043</Typography>
 						</Box>
 						<Box display="flex" alignItems="center">
-							<a href="https://www.facebook.com/pg/mbbsadmissionsinabroad/" target="_blank"><Facebook className="social-icon" /></a>
-							<a href="https://twitter.com/_mbbsabroad" target="_blank"><Twitter className="social-icon" /></a>
-							<a href="https://www.instagram.com/mbbsadmissionsinabroad/" target="_blank"><Instagram className="social-icon" /></a>
-							<a href="https://www.youtube.com/channel/UCzTBawHuvJcQdGizhBgJPwA" target="_blank"><Youtube className="social-icon" /></a>
+							<Button sx={{ backgroundColor: '#003770', color: '#fff' }} endIcon={<Whatsapp />}><a href="https://api.whatsapp.com/send?phone=918147030030" target="_blank">Click Here to Chat on WhatsApp</a></Button>
 						</Box>
 					</Box>
 				</Grid>

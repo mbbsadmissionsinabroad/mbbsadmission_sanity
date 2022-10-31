@@ -1,6 +1,6 @@
 import { Box, Typography } from "@mui/material"
 import Link from "next/link";
-import { Stethoscope } from 'mdi-material-ui';
+import { Stethoscope, Facebook, Instagram, Twitter, Youtube } from 'mdi-material-ui';
 
 function Footer({footerData}) {
 	const navItems = Object.keys(footerData).length > 0 && footerData.navItems;
@@ -15,6 +15,12 @@ function Footer({footerData}) {
 						)
 					}
 				</ul>
+				<Box display="flex" alignItems="center" justifyContent="center" sx={{ mt: 2.5, "a": { color: '#fff !important' } }}>
+					<a href="https://www.facebook.com/pg/mbbsadmissionsinabroad/" target="_blank"><Facebook className="social-icon" /></a>
+					<a href="https://twitter.com/_mbbsabroad" target="_blank"><Twitter className="social-icon" /></a>
+					<a href="https://www.instagram.com/mbbsadmissionsinabroad/" target="_blank"><Instagram className="social-icon" /></a>
+					<a href="https://www.youtube.com/channel/UCzTBawHuvJcQdGizhBgJPwA" target="_blank"><Youtube className="social-icon" /></a>
+				</Box>
 			</Box>
 			<Box className="footer-subContainer" display="flex" alignItems="center" justifyContent="space-between">
 				<Link href="/blog">
