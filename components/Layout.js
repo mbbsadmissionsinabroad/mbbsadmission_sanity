@@ -1,5 +1,6 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
+import { Whatsapp } from "mdi-material-ui";
 
 export default function Layout({children, data}) {
 	let footerData = data !== undefined ? data.result.find((item) => item.title === 'Footer') : []
@@ -7,8 +8,13 @@ export default function Layout({children, data}) {
 	return (
 		<>
 			<Navbar headerData={headerData} />
-			<main>{children}</main>
+			<main className="mainDiv">{children}</main>
 			<Footer footerData={footerData} />
+			<div className="whatsappBtn" style={{ position: "fixed", zIndex: 9, bottom: '3em', left: '20px' }}>
+				<a href="https://api.whatsapp.com/send?phone=918147030030" target="_blank">
+					<img src="/assests/whatsapp.png" />
+				</a>
+			</div>
 		</>
 	);
 }

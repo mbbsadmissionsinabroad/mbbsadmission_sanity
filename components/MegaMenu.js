@@ -16,7 +16,7 @@ function MegaMenu(props) {
 		>
 			<Grid container sx={{ padding: '0px 10px' }}>
 				{navItems.map((item, i) => (
-					<Grid item key={i} xs={12} md={4}>
+					<Grid item key={i} xs={12} md={4} lg={3} sx={{ padding: '5px' }}>
 						<Link href={item.slug}>
 							<a style={{ color: "#000" }}>
 								<Box display="flex" alignItems="center" onClick={handleClose}>
