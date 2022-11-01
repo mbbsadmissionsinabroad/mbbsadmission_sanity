@@ -213,7 +213,7 @@ table.detailsTable thead {
 .navBar {
 	position: fixed;
 	top: 56px;
-	z-index: 99999999;
+	z-index: 9;
 	background: #fff;
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
