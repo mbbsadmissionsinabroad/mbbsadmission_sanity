@@ -3,10 +3,8 @@ import { Button, Dialog, Slide, ListItemText, DialogTitle, Box, Divider, Grid, T
 import { CloseCircleOutline } from 'mdi-material-ui';
 import styles from './modal.module.css'
 
-
-const leadApiHost = process.env.NEXT_PUBLIC_LEAD_API_HOST;
-const accessKey = process.env.NEXT_PUBLIC_ACCESS_KEY;
-const secretKey = process.env.NEXT_PUBLIC_SECRET_KEY
+const accessKey = process.env.NEXT_PUBLIC_LEAD_ACCESS_ID;
+const secretKey = process.env.NEXT_PUBLIC_LEAD_SECRET_KEY
 
 const Transition = forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -94,10 +92,9 @@ function index({ collegeList, title, btnText }) {
 		};
 
 
-		fetch('https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.Capture?accessKey=u$rfcceb09cec1f247d7d3084ef759a741b&secretKey=e9d8107992684560dcec1feae63458503b976890', requestOptions)
+		fetch('https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.Capture?accessKey=' + accessKey + '&secretKey=' + secretKey, requestOptions)
 		.then((res) => res.json())
 		.then((data) => {
-			console.log(data)
 			setActionBusy(false);
 			setSnackBar(true);
 		})
