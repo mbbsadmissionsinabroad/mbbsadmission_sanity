@@ -80,6 +80,13 @@ function Navbar({headerData}) {
 							{item.title} <MenuDown />
 						</Typography>
 					))}
+					<Link href="/learn-german-language-course-in-bangalore">
+						<a>
+							<Typography variant="body1" sx={{padding: "5px", fontWeight: 500, color: "#000", cursor: "pointer"}}>
+							Learn German
+							</Typography>
+						</a>
+					</Link>
 					<Link href="/contact">
 						<a>
 							<Typography variant="body1" sx={{padding: "5px", fontWeight: 500, color: "#000", cursor: "pointer"}}>
@@ -96,18 +103,20 @@ function Navbar({headerData}) {
 			<Drawer anchor="left" open={drawerOpen} onClose={toggleDrawer}>
 				<Box className="mainDiv" sx={{width: "250px"}}>
 					<List>
-						<ListItem>
-							<ListItemText
-								button="true"
-								primary={
-									<>
-										<Typography variant="body1" sx={{fontWeight: 500}}>
-											Home
-										</Typography>
-									</>
-								}
-							/>
-						</ListItem>
+						<Link href="/" passHref>
+							<ListItem>
+								<ListItemText
+									button="true"
+									primary={
+										<>
+											<Typography variant="body1" sx={{fontWeight: 500}}>
+												Home
+											</Typography>
+										</>
+									}
+								/>
+							</ListItem>
+						</Link>
 						{sortedData().map((item, i) => {
 							return (
 								<>
@@ -149,18 +158,34 @@ function Navbar({headerData}) {
 								</>
 							);
 						})}
-						<ListItem>
-							<ListItemText
-								button="true"
-								primary={
-									<>
-										<Typography variant="body1" sx={{fontWeight: 500}}>
-											Contact
-										</Typography>
-									</>
-								}
-							/>
-						</ListItem>
+						<Link href="/learn-german-language-course-in-bangalore" passHref>
+							<ListItem>
+								<ListItemText
+									button="true"
+									primary={
+										<>
+											<Typography variant="body1" sx={{fontWeight: 500}}>
+												Learn German
+											</Typography>
+										</>
+									}
+								/>
+							</ListItem>
+						</Link>
+						<Link href="/contact" passHref>
+							<ListItem>
+								<ListItemText
+									button="true"
+									primary={
+										<>
+											<Typography variant="body1" sx={{fontWeight: 500}}>
+												Contact
+											</Typography>
+										</>
+									}
+								/>
+							</ListItem>
+						</Link>
 					</List>
 				</Box>
 			</Drawer>
