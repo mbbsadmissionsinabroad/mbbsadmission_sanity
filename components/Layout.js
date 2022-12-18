@@ -11,7 +11,7 @@ export default function Layout({children, data}) {
 			<main className="mainDiv">{children}</main>
 			<Footer footerData={footerData} />
 			<div className="whatsappBtn" style={{ position: "fixed", zIndex: 9, bottom: '3em', left: '20px' }}>
-				<a href="https://api.whatsapp.com/send?phone=918147030030" target="_blank">
+				<a href="https://api.whatsapp.com/send?phone=918050575767" target="_blank">
 					<img src="/assests/whatsapp.png" />
 				</a>
 			</div>

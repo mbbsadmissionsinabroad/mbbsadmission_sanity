@@ -234,8 +234,10 @@ table.detailsTable thead {
 
 .topBarContents {
 	display: flex;
-	justify-content: space-around;
+	justify-content: space-between;
 	align-items: center;
+	margin: 0 auto;
+	width: 90%;
 }
 
 .topBarContents a {

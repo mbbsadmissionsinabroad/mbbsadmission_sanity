@@ -191,18 +191,10 @@ function Navbar({headerData}) {
 			</Drawer>
 			<Box className={styles.secondaryMobileBar}>
 				<Box display="flex" alignItems="center" sx={{ a: {color: "#fff"} }}>
-					<Phone />
-					<a href="tel:9341666667" target="_blank">
+					<Phone sx={{ mr: 1 }} />
+					<a href="tel:8050575767" target="_blank">
 						<Typography variant="body1" sx={{fontWeight: 500}}>
-							+91 (934) 166-6667
-						</Typography>
-					</a>
-				</Box>
-				<Box display="flex" alignItems="center" sx={{ a: {color: "#fff"} }}>
-					<Phone />
-					<a href="tel:9343787475" target="_blank">
-						<Typography variant="body1" sx={{fontWeight: 500}}>
-							+91 (934) 378-7475
+							+91 (805) 057-5767
 						</Typography>
 					</a>
 				</Box>

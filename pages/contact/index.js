@@ -1,7 +1,7 @@
 import {Grid, Typography, Box, Tabs, Tab, CircularProgress} from "@mui/material";
 import {useEffect, useState} from "react";
 import styles from "./contact.module.css";
-import {Phone} from "mdi-material-ui";
+import {Phone, EmailOutline} from "mdi-material-ui";
 import CollegeModal from '../../components/Shared/CollegeModal';
 
 const apiHost = process.env.NEXT_PUBLIC_API_HOST;
@@ -103,9 +103,9 @@ function index({collegeList}) {
 															<Box display="flex" alignItems="center">
 																{item.branchMobNo.map((item, i) => (
 																	<Box key={i} className={styles.mobNoContainer}>
-																		<Phone sx={{fontSize: "18px"}} />
+																		<Phone sx={{fontSize: "18px", mr: 1}} />
 																		<Typography variant="body1" sx={{padding: "10px 30px 10px 0px"}}>
-																			<a href={`tel:${item.mobNum}`}>{item.mobNum}</a>
+																			<a href={`tel:${item.mobNum}`} target="_blank">{item.mobNum}</a>
 																		</Typography>
 																	</Box>
 																))}
@@ -116,7 +116,13 @@ function index({collegeList}) {
 								</Box>
 							</>
 						)}
-						<CollegeModal collegeList={collegeList} title="Contact" btnText="Book Now" />
+						<Box className={styles.mobNoContainer}>
+							<EmailOutline sx={{fontSize: "18px", mr: 1}} />
+							<Typography variant="body1" sx={{padding: "10px 30px 10px 0px"}}>
+								<a href="mailto:info@new-lyf.com" target="_blank">info@new-lyf.com</a>
+							</Typography>
+						</Box>
+						<CollegeModal collegeList={collegeList} title="Contact" btnText="Apply Now" />
 					</Grid>
 				</Grid>
 			</Box>

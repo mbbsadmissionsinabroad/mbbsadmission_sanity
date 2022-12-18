@@ -163,15 +163,11 @@ function index({ collegeList, title, btnText }) {
 						<Grid item xs={12} md={6}>
 							<Box sx={{ mb: 1.5 }}>
 								<Typography variant="h4" gutterBottom>Contact Us:</Typography>
-								<a href="tel:9341666667">+91 (934) 166-6667</a>
+								<a href="tel:8050575767" target="_blank">+91 (805) 057-5767</a>
 							</Box>
 							<Box sx={{ mb: 1.5 }}>
 								<Typography variant="h4" gutterBottom>For Enquiry:</Typography>
-								<a href="mailto:info@mbbsadmissionsinabroad.com">info@mbbsadmissionsinabroad.com</a>
-							</Box>
-							<Box sx={{ mb: 1.5 }}>
-								<Typography variant="h4" gutterBottom>Address:</Typography>
-								<Typography variant="body1">404, 1st floor, 4th A Cross Rd, HRBR Layout 2nd Block, Kalyan Nagar, Bengaluru - 560043</Typography>
+								<a href="mailto:info@new-lyf.com" target="_blank">info@new-lyf.com</a>
 							</Box>
 						</Grid>
 					</Grid>
