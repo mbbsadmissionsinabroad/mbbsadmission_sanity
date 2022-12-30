@@ -26,7 +26,9 @@ function servicePage(props) {
 					<Typography variant="h1">{data.title}</Typography>
 				</Grid>
 				<Grid item xs={12}>
-					<img src={urlFor(data.bannerImage)} className="banner" alt={data.title} />
+					{
+						"bannerImage" in data && <img src={urlFor(data.bannerImage)} className="banner" alt={data.title} />
+					}
 				</Grid>
 			</Grid>
 			<div className="page-container">
@@ -34,7 +36,7 @@ function servicePage(props) {
 					<div className="tocContainer">
 						{data && <TOC />}
 					</div>
-					{data.isBlog !== true && <CollegeModal collegeList={collegeList} title={data.title} btnText="Click Here To Apply" />}
+					{data.isBlog !== true && "bannerImage" in data && <CollegeModal collegeList={collegeList} title={data.title} btnText="Click Here To Apply" />}
 					<TextSerializer data={data.pageContent} className="serializerTitle"  />
 				</div>
 
