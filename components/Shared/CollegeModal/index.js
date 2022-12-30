@@ -16,10 +16,13 @@ import {
 	Typography,
 	Snackbar,
 	Autocomplete,
+	Checkbox,
+	Stack,
 } from "@mui/material";
 import {CloseCircleOutline} from "mdi-material-ui";
 import styles from "./modal.module.css";
 import CountryList from "./countriesAndStates.json";
+import Link from "next/link";
 
 const accessKey = process.env.NEXT_PUBLIC_LEAD_ACCESS_ID;
 const secretKey = process.env.NEXT_PUBLIC_LEAD_SECRET_KEY;
@@ -46,6 +49,7 @@ function index({collegeList, title, btnText}) {
 
 	const [residentCountry, setResidentCountry] = useState("");
 	const [residentState, setResidentState] = useState("");
+	const [pPolicy, setPpolicy] = useState(true);
 
 	const {name, email, num, country, message} = state;
 
@@ -151,6 +155,10 @@ function index({collegeList, title, btnText}) {
 	const closeSnackBar = () => {
 		setSnackBar(false);
 	};
+
+	const handlePpolicy = () => {
+		setPpolicy(prev => !prev);
+	}
 
 	return (
 		<div>
@@ -273,6 +281,10 @@ function index({collegeList, title, btnText}) {
 									onChange={handleFields}
 									sx={{mb: 2}}
 								/>
+								<Stack direction="row" alignItems="center" gap={1} sx={{mb: 2}}>
+									<Checkbox checked={pPolicy} onChange={handlePpolicy} />
+									<Typography variant="h6">I Agree to the <Link href="/privacy-policy"><a target="_blank">Privacy Policy</a></Link></Typography>
+								</Stack>
 								<Button variant="contained" type="submit" sx={{color: "#fff", mb: 1}} disabled={actionBusy}>
 									Submit
 								</Button>
