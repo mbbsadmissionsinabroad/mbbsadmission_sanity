@@ -23,6 +23,7 @@ import {CloseCircleOutline} from "mdi-material-ui";
 import styles from "./modal.module.css";
 import CountryList from "./countriesAndStates.json";
 import Link from "next/link";
+import MuiPhoneNumber from 'material-ui-phone-number';
 
 const accessKey = process.env.NEXT_PUBLIC_LEAD_ACCESS_ID;
 const secretKey = process.env.NEXT_PUBLIC_LEAD_SECRET_KEY;
@@ -51,7 +52,7 @@ function index({collegeList, title, btnText}) {
 	const [residentState, setResidentState] = useState("");
 	const [pPolicy, setPpolicy] = useState(true);
 
-	const {name, email, num, country, message} = state;
+	const {name, email, num, country} = state;
 
 	const handleClickOpen = () => {
 		setOpen(true);
@@ -62,15 +63,23 @@ function index({collegeList, title, btnText}) {
 	};
 
 	const handleFields = (e) => {
-		const {name, value} = e.target;
-		setState({
-			...state,
-			[name]: value,
-		});
-		if (name == "country") {
-			if (collegeList !== undefined) {
-				let filterCollege = collegeList.find((item) => item.title == value);
-				setList(filterCollege);
+		if(typeof e === 'string') {
+			setState({
+				...state,
+				num: e,
+			});
+		} else {
+			setState({
+				...state,
+				[e.target.name]: e.target.value,
+			});
+		}
+		if(typeof e !== 'string') {
+			if (e.target.name == "country") {
+				if (collegeList !== undefined) {
+					let filterCollege = collegeList.find((item) => item.title == e.target.value);
+					setList(filterCollege);
+				}
 			}
 		}
 	};
@@ -119,10 +128,6 @@ function index({collegeList, title, btnText}) {
 			{
 				Attribute: "mx_States",
 				Value: residentState.toString(),
-			},
-			{
-				Attribute: "mx_Student_Message",
-				Value: message.toString(),
 			},
 		];
 
@@ -202,16 +207,7 @@ function index({collegeList, title, btnText}) {
 									required
 									sx={{mb: 2}}
 								/>
-								<TextField
-									variant="outlined"
-									value={num}
-									label="Phone No"
-									name="num"
-									fullWidth
-									onChange={handleFields}
-									required
-									sx={{mb: 2}}
-								/>
+								<MuiPhoneNumber defaultCountry={'in'} fullWidth required variant="outlined" value={num} name="num" onChange={handleFields} sx={{mb: 2}}/>
 								<FormControl fullWidth sx={{mb: 2}} required>
 									<InputLabel>Course / Job Interested</InputLabel>
 									<Select
@@ -270,17 +266,6 @@ function index({collegeList, title, btnText}) {
 									}}
 								/>
 
-								<TextField
-									variant="outlined"
-									value={message}
-									label="Message"
-									name="message"
-									fullWidth
-									multiline
-									rows={4}
-									onChange={handleFields}
-									sx={{mb: 2}}
-								/>
 								<Stack direction="row" alignItems="center" gap={1} sx={{mb: 2}}>
 									<Checkbox checked={pPolicy} onChange={handlePpolicy} />
 									<Typography variant="h6">I Agree to the <Link href="/privacy-policy"><a target="_blank">Privacy Policy</a></Link></Typography>

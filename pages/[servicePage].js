@@ -3,15 +3,25 @@ import TextSerializer from "../components/TextSerializer";
 import Faq from "../components/Faq";
 import ResponsiveYoutube from "../components/ResponsiveYoutube";
 import Head from "next/head";
-import { Typography, Grid, Box } from '@mui/material';
+import { Typography, Grid, Box, Button } from '@mui/material';
 import TOC from "../components/Shared/TOC";
 import CollegeModal from '../components/Shared/CollegeModal';
 import Testimonials from "../components/HomePage/Testimonials";
+import { useRouter } from "next/router";
 
 const apiHost = process.env.NEXT_PUBLIC_API_HOST;
 
 function servicePage(props) {
 	const {data, faq, youtubeEmbedRes, collegeList, testimonials} = props;
+	const router = useRouter();
+
+	const handleDownloadCTA = async () => {
+		const query = encodeURIComponent(`*[_type == 'pages'] {"uploadFile": uploadFile.asset->url }`);
+		const url = apiHost + query;
+		const res = await fetch(url, {method: "GET"}).then((res) => res.json()).then((res) => { return res.result })
+		const getUrl = res.find((item) => item.uploadFile !== null);
+		router.push(getUrl.uploadFile)
+	}
 	return (
 		<Box sx={{ padding: '0px 0px 15px 0px' }}>
 			<Head>
@@ -36,7 +46,10 @@ function servicePage(props) {
 					<div className="tocContainer">
 						{data && <TOC />}
 					</div>
-					{data.isBlog !== true && "bannerImage" in data && <CollegeModal collegeList={collegeList} title={data.title} btnText="Click Here To Apply" />}
+					<Box display="flex" alignItems="center" sx={{ gap: 3 }}>
+						{data.isBlog !== true && "bannerImage" in data && <CollegeModal collegeList={collegeList} title={data.title} btnText="Enquire Now" />}
+						{"uploadFile" in data && <Button onClick={handleDownloadCTA} variant="contained" sx={{ padding: '15px 40px', color: '#fff', mt: '-12px' }}>Download Brouchure</Button>}
+					</Box>
 					<TextSerializer data={data.pageContent} className="serializerTitle"  />
 				</div>
 

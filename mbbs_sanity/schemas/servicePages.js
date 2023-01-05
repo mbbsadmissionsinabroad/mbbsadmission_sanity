@@ -138,6 +138,18 @@ export default {
 					]
 				}
 			]
-		}
+		},
+		{
+      name: 'uploadFile',
+      title: 'Upload File',
+      type: 'file',
+			fields: [
+				{
+					name: 'cta',
+					type: 'string',
+					title: 'CTA Text'
+				},
+			]
+    }
   ],
 }

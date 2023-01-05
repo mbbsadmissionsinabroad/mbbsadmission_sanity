@@ -61,12 +61,10 @@ function index({collegeList}) {
 									indicatorColor={""}
 									onChange={handleChange}
 									sx={{
-										"@media (max-width: 960px)": {
-											"& .MuiTabs-flexContainer": {
-												overflowX: "scroll",
-												"& > -webkit-scrollbar": {
-													display: "none",
-												},
+										"& .MuiTabs-flexContainer": {
+											overflowX: "scroll",
+											"& > -webkit-scrollbar": {
+												display: "none",
 											},
 										},
 									}}
