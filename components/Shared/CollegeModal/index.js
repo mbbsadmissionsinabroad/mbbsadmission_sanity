@@ -185,7 +185,7 @@ function index({collegeList, title, btnText}) {
 				<Divider />
 				<Box className={styles.container}>
 					<Grid container spacing={2}>
-						<Grid item xs={12} md={6}>
+						<Grid item xs={12} md={12}>
 							<form onSubmit={handleSubmit}>
 								<TextField
 									variant="outlined"
@@ -271,11 +271,11 @@ function index({collegeList, title, btnText}) {
 									<Typography variant="h6">I Agree to the <Link href="/privacy-policy"><a target="_blank">Privacy Policy</a></Link></Typography>
 								</Stack>
 								<Button variant="contained" type="submit" sx={{color: "#fff", mb: 1}} disabled={actionBusy}>
-									Submit
+									Enquire Now
 								</Button>
 							</form>
 						</Grid>
-						<Grid item xs={12} md={6}>
+						{/* <Grid item xs={12} md={6}>
 							<Box sx={{mb: 1.5}}>
 								<Typography variant="h4" gutterBottom>
 									Contact Us:
@@ -292,7 +292,7 @@ function index({collegeList, title, btnText}) {
 									info@new-lyf.com
 								</a>
 							</Box>
-						</Grid>
+						</Grid> */}
 					</Grid>
 				</Box>
 			</Dialog>

@@ -120,7 +120,7 @@ function index({collegeList}) {
 								<a href="mailto:info@new-lyf.com" target="_blank">info@new-lyf.com</a>
 							</Typography>
 						</Box>
-						<CollegeModal collegeList={collegeList} title="Contact" btnText="Apply Now" />
+						<CollegeModal collegeList={collegeList} title="Contact" btnText="Enquire Now" />
 					</Grid>
 				</Grid>
 			</Box>
