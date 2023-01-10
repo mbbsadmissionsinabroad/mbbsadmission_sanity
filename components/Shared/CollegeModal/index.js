@@ -23,7 +23,7 @@ import {CloseCircleOutline} from "mdi-material-ui";
 import styles from "./modal.module.css";
 import CountryList from "./countriesAndStates.json";
 import Link from "next/link";
-import MuiPhoneNumber from 'material-ui-phone-number';
+import MuiPhoneNumber from "material-ui-phone-number";
 
 const accessKey = process.env.NEXT_PUBLIC_LEAD_ACCESS_ID;
 const secretKey = process.env.NEXT_PUBLIC_LEAD_SECRET_KEY;
@@ -45,12 +45,11 @@ function index({collegeList, title, btnText}) {
 	const [college, setCollege] = useState([]);
 	const [actionBusy, setActionBusy] = useState(false);
 	const [snackBar, setSnackBar] = useState(false);
-
 	const [stateList, setStateList] = useState([]);
-
 	const [residentCountry, setResidentCountry] = useState("");
 	const [residentState, setResidentState] = useState("");
 	const [pPolicy, setPpolicy] = useState(true);
+	const [phoneErr, setPhoneErr] = useState({ err: false, message: "" });
 
 	const {name, email, num, country} = state;
 
@@ -63,7 +62,7 @@ function index({collegeList, title, btnText}) {
 	};
 
 	const handleFields = (e) => {
-		if(typeof e === 'string') {
+		if (typeof e === "string") {
 			setState({
 				...state,
 				num: e,
@@ -74,7 +73,7 @@ function index({collegeList, title, btnText}) {
 				[e.target.name]: e.target.value,
 			});
 		}
-		if(typeof e !== 'string') {
+		if (typeof e !== "string") {
 			if (e.target.name == "country") {
 				if (collegeList !== undefined) {
 					let filterCollege = collegeList.find((item) => item.title == e.target.value);
@@ -98,63 +97,67 @@ function index({collegeList, title, btnText}) {
 	};
 
 	const handleSubmit = (e) => {
-		setActionBusy(true);
 		e.preventDefault();
-		const data = [
-			{
-				Attribute: "FirstName",
-				Value: name.toString(),
-			},
-			{
-				Attribute: "EmailAddress",
-				Value: email.toString(),
-			},
-			{
-				Attribute: "Phone",
-				Value: num.toString(),
-			},
-			{
-				Attribute: "mx_Course_Interested",
-				Value: country.toString(),
-			},
-			{
-				Attribute: "mx_Country_Interested",
-				Value: college.toString(),
-			},
-			{
-				Attribute: "mx_Country",
-				Value: residentCountry.toString(),
-			},
-			{
-				Attribute: "mx_States",
-				Value: residentState.toString(),
-			},
-		];
+		if (num.length > 1) {
+			setActionBusy(true);
+			const data = [
+				{
+					Attribute: "FirstName",
+					Value: name.toString(),
+				},
+				{
+					Attribute: "EmailAddress",
+					Value: email.toString(),
+				},
+				{
+					Attribute: "Phone",
+					Value: num.toString(),
+				},
+				{
+					Attribute: "mx_Course_Interested",
+					Value: country.toString(),
+				},
+				{
+					Attribute: "mx_Country_Interested",
+					Value: college.toString(),
+				},
+				{
+					Attribute: "mx_Country",
+					Value: residentCountry.toString(),
+				},
+				{
+					Attribute: "mx_States",
+					Value: residentState.toString(),
+				},
+			];
 
-		const requestOptions = {
-			method: "POST",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			body: JSON.stringify(data),
-		};
+			const requestOptions = {
+				method: "POST",
+				headers: {
+					"Content-Type": "application/json",
+				},
+				body: JSON.stringify(data),
+			};
 
-		fetch(
-			"https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.Capture?accessKey=" +
-				accessKey +
-				"&secretKey=" +
-				secretKey,
-			requestOptions
-		)
-			.then((res) => res.json())
-			.then((data) => {
-				setActionBusy(false);
-				setSnackBar(true);
-			})
-			.catch((err) => {
-				console.log(err);
-				setActionBusy(false);
-			});
+			fetch(
+				"https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.Capture?accessKey=" +
+					accessKey +
+					"&secretKey=" +
+					secretKey,
+				requestOptions
+			)
+				.then((res) => res.json())
+				.then((data) => {
+					setActionBusy(false);
+					setSnackBar(true);
+				})
+				.catch((err) => {
+					console.log(err);
+					setActionBusy(false);
+				});
+		} else {
+			setPhoneErr({err: true, message: 'Please Enter your Phone Number'})
+		}
 	};
 
 	const closeSnackBar = () => {
@@ -162,8 +165,8 @@ function index({collegeList, title, btnText}) {
 	};
 
 	const handlePpolicy = () => {
-		setPpolicy(prev => !prev);
-	}
+		setPpolicy((prev) => !prev);
+	};
 
 	return (
 		<div>
@@ -207,7 +210,18 @@ function index({collegeList, title, btnText}) {
 									required
 									sx={{mb: 2}}
 								/>
-								<MuiPhoneNumber defaultCountry={'in'} fullWidth required variant="outlined" value={num} name="num" onChange={handleFields} sx={{mb: 2}}/>
+								<MuiPhoneNumber
+									defaultCountry={"in"}
+									fullWidth
+									required
+									variant="outlined"
+									value={num}
+									name="num"
+									onChange={handleFields}
+									sx={{mb: 2}}
+									error={phoneErr.err}
+									helperText={phoneErr.message}
+								/>
 								<FormControl fullWidth sx={{mb: 2}} required>
 									<InputLabel>Course / Job Interested</InputLabel>
 									<Select
@@ -248,7 +262,7 @@ function index({collegeList, title, btnText}) {
 									freeSolo
 									value={residentCountry}
 									options={CountryList.map((option) => option.country)}
-									renderInput={(params) => <TextField {...params} label="Resident Country" />}
+									renderInput={(params) => <TextField {...params} required label="Resident Country" />}
 									onChange={(event, newValue) => {
 										handleResidentCountry(newValue);
 									}}
@@ -260,7 +274,7 @@ function index({collegeList, title, btnText}) {
 									freeSolo
 									value={residentState}
 									options={stateList?.map((option) => option)}
-									renderInput={(params) => <TextField {...params} label="State / Province" />}
+									renderInput={(params) => <TextField {...params} required label="State / Province" />}
 									onChange={(event, newValue) => {
 										setResidentState(newValue);
 									}}
@@ -268,7 +282,12 @@ function index({collegeList, title, btnText}) {
 
 								<Stack direction="row" alignItems="center" gap={1} sx={{mb: 2}}>
 									<Checkbox checked={pPolicy} onChange={handlePpolicy} />
-									<Typography variant="h6">I Agree to the <Link href="/privacy-policy"><a target="_blank">Privacy Policy</a></Link></Typography>
+									<Typography variant="h6">
+										I Agree to the{" "}
+										<Link href="/privacy-policy">
+											<a target="_blank">Privacy Policy</a>
+										</Link>
+									</Typography>
 								</Stack>
 								<Button variant="contained" type="submit" sx={{color: "#fff", mb: 1}} disabled={actionBusy}>
 									Enquire Now
