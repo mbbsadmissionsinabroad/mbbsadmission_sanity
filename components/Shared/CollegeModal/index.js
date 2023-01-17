@@ -49,7 +49,7 @@ function index({collegeList, title, btnText}) {
 	const [residentCountry, setResidentCountry] = useState("");
 	const [residentState, setResidentState] = useState("");
 	const [pPolicy, setPpolicy] = useState(true);
-	const [phoneErr, setPhoneErr] = useState({ err: false, message: "" });
+	const [phoneErr, setPhoneErr] = useState({ err: false, message: "Tap the Flag Icon to Change Country Code" });
 
 	const {name, email, num, country} = state;
 
@@ -217,6 +217,7 @@ function index({collegeList, title, btnText}) {
 									variant="outlined"
 									value={num}
 									name="num"
+									type="tel"
 									onChange={handleFields}
 									sx={{mb: 2}}
 									error={phoneErr.err}

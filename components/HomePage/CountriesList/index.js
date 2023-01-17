@@ -68,7 +68,7 @@ function index() {
 									<Typography variant="h6" className={styles.countryName}>{item.title}</Typography>
 									<Link href={item.slug}>
 										<a>
-											<Button variant="contained" sx={{ color: "#fff", fontWeight: 600, mb: 1.5 }}>Apply Now</Button>
+											<Button variant="contained" sx={{ color: "#fff", fontWeight: 600, mb: 1.5 }}>Enquire Now</Button>
 										</a>
 									</Link>
 								</Grid>

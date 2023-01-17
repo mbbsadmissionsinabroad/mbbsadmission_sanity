@@ -7,6 +7,8 @@ import { createMuiTheme } from '../lib/createMuiTheme';
 import { CacheProvider } from '@emotion/react';
 import createEmotionCache from '../lib/createEmotionCache';
 import PropTypes from 'prop-types';
+import Router from "next/router"
+import { CircularProgress, Box } from '@mui/material';
 
 const apiHost = process.env.NEXT_PUBLIC_API_HOST;
 const clientSideEmotionCache = createEmotionCache();
@@ -16,6 +18,22 @@ function MyApp(props) {
 	const [data, setData] = useState();
 	const [collegeList, setCollegeList] = useState();
 	const fetchDataRef = useRef(false);
+	const [isLoading, setIsLoading] = useState(false);
+
+	useEffect(() => {
+    Router.events.on("routeChangeStart", (url)=>{
+      setIsLoading(true)
+    });
+
+    Router.events.on("routeChangeComplete", (url)=>{
+      setIsLoading(false)
+    });
+
+    Router.events.on("routeChangeError", (url) =>{
+      setIsLoading(false)
+    });
+
+  }, [Router])
 
 	useEffect(() => {
 		if (fetchDataRef.current) return;
@@ -65,7 +83,9 @@ function MyApp(props) {
 		<CacheProvider value={emotionCache}>
 			<ThemeProvider theme={createMuiTheme}>
 				<Layout data={data}>
-					<Component {...pageProps} sliderData={sliderData} testimonials={testimonials} collegeList={collegeList} homePageContents={homePageContents} />
+					{
+						isLoading ? <Box display="flex" alignItems="center" justifyContent="center" sx={{ p: '3em' }}><CircularProgress size={40} /></Box> : <Component {...pageProps} sliderData={sliderData} testimonials={testimonials} collegeList={collegeList} homePageContents={homePageContents} />
+					}
 				</Layout>
 			</ThemeProvider>
 		</CacheProvider>
