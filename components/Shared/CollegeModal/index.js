@@ -52,6 +52,7 @@ function index({collegeList, title, btnText}) {
 	const [residentState, setResidentState] = useState("");
 	const [pPolicy, setPpolicy] = useState(true);
 	const [phoneErr, setPhoneErr] = useState({ err: false, message: "Tap the Flag Icon to Change Country Code" });
+	const [success, setSuccess] = useState(false);
 
 	const {name, email, num, country} = state;
 
@@ -109,7 +110,7 @@ function index({collegeList, title, btnText}) {
 	const handleSubmit = (e) => {
 		let convertedNum = formatPhoneNumberIntl(num).replace(/\s+/g, '-')
 		e.preventDefault();
-		if(isValidPhoneNumber(num)) {
+		if(isValidPhoneNumber(num) || isPossiblePhoneNumber(num)) {
 			if (num.length > 1) {
 				setActionBusy(true);
 				const data = [
@@ -160,12 +161,20 @@ function index({collegeList, title, btnText}) {
 				)
 					.then((res) => res.json())
 					.then((data) => {
+						setSuccess(true);
 						setActionBusy(false);
 						setSnackBar(true);
+						setTimeout(() => {
+							setOpen(false)
+						}, 3000);
 					})
 					.catch((err) => {
+						setSuccess(false);
 						console.log(err);
 						setActionBusy(false);
+						setTimeout(() => {
+							setOpen(false)
+						}, 3000);
 					});
 			} else {
 				setPhoneErr({err: true, message: 'Please Enter your Phone Number'})
@@ -308,6 +317,7 @@ function index({collegeList, title, btnText}) {
 								<Button variant="contained" type="submit" sx={{color: "#fff", mb: 1}} disabled={actionBusy}>
 									Enquire Now
 								</Button>
+								{success && <Typography variant="h2">Your submission has been received</Typography>}
 							</form>
 						</Grid>
 						{/* <Grid item xs={12} md={6}>
