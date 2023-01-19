@@ -97,6 +97,7 @@ function index({collegeList, title, btnText}) {
 	};
 
 	const handleSubmit = (e) => {
+		let convertedNum = num.replace(/\s+/g, '-')
 		e.preventDefault();
 		if (num.length > 1) {
 			setActionBusy(true);
@@ -111,7 +112,7 @@ function index({collegeList, title, btnText}) {
 				},
 				{
 					Attribute: "Phone",
-					Value: num.toString(),
+					Value: convertedNum.toString(),
 				},
 				{
 					Attribute: "mx_Course_Interested",
