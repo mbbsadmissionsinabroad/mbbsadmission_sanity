@@ -1,4 +1,4 @@
-import {useState, forwardRef} from "react";
+import {useState, forwardRef, useEffect} from "react";
 import {
 	Button,
 	Dialog,
@@ -24,6 +24,8 @@ import styles from "./modal.module.css";
 import CountryList from "./countriesAndStates.json";
 import Link from "next/link";
 import MuiPhoneNumber from "material-ui-phone-number";
+import { formatPhoneNumberIntl, isValidPhoneNumber, isPossiblePhoneNumber } from 'react-phone-number-input'
+
 
 const accessKey = process.env.NEXT_PUBLIC_LEAD_ACCESS_ID;
 const secretKey = process.env.NEXT_PUBLIC_LEAD_SECRET_KEY;
@@ -61,6 +63,14 @@ function index({collegeList, title, btnText}) {
 		setOpen(false);
 	};
 
+	useEffect(() => {
+		if(!isValidPhoneNumber(num) || !isPossiblePhoneNumber(num)) {
+			setPhoneErr({err: true, message: 'Please Enter Valid Phone Number'})
+		} else {
+			setPhoneErr({err: false, message: ''})
+		}
+	}, [num])
+
 	const handleFields = (e) => {
 		if (typeof e === "string") {
 			setState({
@@ -97,67 +107,71 @@ function index({collegeList, title, btnText}) {
 	};
 
 	const handleSubmit = (e) => {
-		let convertedNum = num.replace(/\s+/g, '-')
+		let convertedNum = formatPhoneNumberIntl(num).replace(/\s+/g, '-')
 		e.preventDefault();
-		if (num.length > 1) {
-			setActionBusy(true);
-			const data = [
-				{
-					Attribute: "FirstName",
-					Value: name.toString(),
-				},
-				{
-					Attribute: "EmailAddress",
-					Value: email.toString(),
-				},
-				{
-					Attribute: "Phone",
-					Value: convertedNum.toString(),
-				},
-				{
-					Attribute: "mx_Course_Interested",
-					Value: country.toString(),
-				},
-				{
-					Attribute: "mx_Country_Interested",
-					Value: college.toString(),
-				},
-				{
-					Attribute: "mx_Country",
-					Value: residentCountry.toString(),
-				},
-				{
-					Attribute: "mx_States",
-					Value: residentState.toString(),
-				},
-			];
-
-			const requestOptions = {
-				method: "POST",
-				headers: {
-					"Content-Type": "application/json",
-				},
-				body: JSON.stringify(data),
-			};
-
-			fetch(
-				"https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.Capture?accessKey=" +
-					accessKey +
-					"&secretKey=" +
-					secretKey,
-				requestOptions
-			)
-				.then((res) => res.json())
-				.then((data) => {
-					setActionBusy(false);
-					setSnackBar(true);
-				})
-				.catch((err) => {
-					console.log(err);
-					setActionBusy(false);
-				});
+		if(isValidPhoneNumber(num)) {
+			if (num.length > 1) {
+				setActionBusy(true);
+				const data = [
+					{
+						Attribute: "FirstName",
+						Value: name.toString(),
+					},
+					{
+						Attribute: "EmailAddress",
+						Value: email.toString(),
+					},
+					{
+						Attribute: "Phone",
+						Value: convertedNum,
+					},
+					{
+						Attribute: "mx_Course_Interested",
+						Value: country.toString(),
+					},
+					{
+						Attribute: "mx_Country_Interested",
+						Value: college.toString(),
+					},
+					{
+						Attribute: "mx_Country",
+						Value: residentCountry.toString(),
+					},
+					{
+						Attribute: "mx_States",
+						Value: residentState.toString(),
+					},
+				];
+	
+				const requestOptions = {
+					method: "POST",
+					headers: {
+						"Content-Type": "application/json",
+					},
+					body: JSON.stringify(data),
+				};
+	
+				fetch(
+					"https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.Capture?accessKey=" +
+						accessKey +
+						"&secretKey=" +
+						secretKey,
+					requestOptions
+				)
+					.then((res) => res.json())
+					.then((data) => {
+						setActionBusy(false);
+						setSnackBar(true);
+					})
+					.catch((err) => {
+						console.log(err);
+						setActionBusy(false);
+					});
+			} else {
+				setPhoneErr({err: true, message: 'Please Enter your Phone Number'})
+			}
 		} else {
-			setPhoneErr({err: true, message: 'Please Enter your Phone Number'})
+			setPhoneErr({err: true, message: 'Please Enter Valid Phone Number'})
 		}
 	};
 
