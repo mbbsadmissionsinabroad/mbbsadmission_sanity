@@ -15,15 +15,14 @@ export default class MyDocument extends Document {
 					<meta name="ahrefs-site-verification" content="22807d65778b510ff96fcf197a3b2e305768c3c37972f2ac7050e3c7dc571725" />
     			<meta name="google-site-verification" content="yA8gYXl26PM93Ah-DTbs-lSmLhFolE91oq9mmWU6fvE" />
 					<meta name="google-site-verification" content="q3PaxiZB_fbKGHiJuY6EKAd5Z2Egpt7ec4dkG5Hevrw" />
-			<!-- Google tag (gtag.js) -->
-			<script async src="https://www.googletagmanager.com/gtag/js?id=G-YR4Q895Z3R"></script>
-			<script>
-			  window.dataLayer = window.dataLayer || [];
-			  function gtag(){dataLayer.push(arguments);}
-			  gtag('js', new Date());
+					<script async src="https://www.googletagmanager.com/gtag/js?id=G-YR4Q895Z3R"></script>
+					<script>
+					  window.dataLayer = window.dataLayer || [];
+					  function gtag(){dataLayer.push(arguments);}
+					  gtag('js', new Date());
 
-			  gtag('config', 'G-YR4Q895Z3R');
-			</script>
+					  gtag('config', 'G-YR4Q895Z3R');
+					</script>
         </Head>
         <body>
           <Main />
