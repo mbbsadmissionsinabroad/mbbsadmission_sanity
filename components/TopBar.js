@@ -25,7 +25,7 @@ function TopBar() {
 								</a>
 							</Box>
 							<Box display="flex" alignItems="center">
-								<a href="https://whatsapp-api.leadsquaredapps.com/GupshupInboundWebhook/88caac8d787734a2e6b8e214850325cb" target="_blank">
+								<a href="https://wa.me/+918050006077" target="_blank">
 									<Button
 										className="whatsappBtn"
 										sx={{
