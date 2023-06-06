@@ -11,7 +11,7 @@ export default function Layout({children, data}) {
 			<main className="mainDiv">{children}</main>
 			<Footer footerData={footerData} />
 			<div className="whatsappBtn" style={{ position: "fixed", zIndex: 9, bottom: '3em', left: '20px' }}>
-				<a href="https://whatsapp-api.leadsquaredapps.com/GupshupInboundWebhook/88caac8d787734a2e6b8e214850325cb" target="_blank">
+				<a href="https://wa.me/+918050006077" target="_blank">
 					<img src="/assests/whatsapp.png" />
 				</a>
 			</div>
