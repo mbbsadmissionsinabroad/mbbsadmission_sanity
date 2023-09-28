@@ -127,8 +127,9 @@ table.detailsTable thead {
 
 .footer-container {
   background-color: #003770;
-  padding: 25px;
+  padding: 20px;
   padding-bottom: 20px;
+  display: flex;
 }
 
 .buttons-and-insta {
@@ -184,8 +185,12 @@ table.detailsTable thead {
     flex-direction: column;
     align-items: flex-start !important;
   }
+  .footer-container {
+    display: block;
+  }
   .footer-li {
     columns: 1;
+    width: '100%';
     -webkit-columns: 1;
     -moz-columns: 1;
   }
