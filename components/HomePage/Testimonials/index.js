@@ -22,11 +22,11 @@ function index(props) {
 			<CarouselController show={responsive} infiniteLoop>
 				{
 					data.map((item, i) => (
-						<Box sx={{ display: 'flex', flexDirection: 'column', alignItems:'center', textAlign: 'center' }} key={i}>
+						<Box sx={{ display: 'flex', flexDirection: 'column', alignItems:'center', textAlign: 'center', padding:'10px' }} key={i}>
 							<img src={urlFor(item.studentImage)} className={styles.studentImage} />
-							<Typography variant="body1" sx={{ fontSize:'24px' }}>{item.studentName}</Typography>
-							<Typography variant="body1" gutterBottom sx={{ color: 'primary.blue', fontSize:'18px' }}>{item.collegeName}, {item.country}</Typography>
-							<Typography variant="body1" gutterBottom>{item.studentTestimonial}</Typography>
+							<Typography variant="body1" sx={{ fontSize:'18px' }}>{item.studentName}</Typography>
+							<Typography variant="body1" gutterBottom sx={{ color: 'primary.blue', fontSize:'14px' }}>{item.collegeName}, {item.country}</Typography>
+							<Typography variant="body1" gutterBottom sx={{ fontSize:'15px', padding:'10px' }}>{item.studentTestimonial}</Typography>
 						</Box>
 					))
 				}

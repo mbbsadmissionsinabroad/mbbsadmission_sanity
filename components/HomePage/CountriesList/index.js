@@ -52,8 +52,8 @@ const countriesList = [
 function index() {
 	return (
 		<Grid container sx={{width: "90%", margin: "30px auto 30px auto"}}>
-			<Grid item xs={12} md={2}></Grid>
-			<Grid item xs={12} md={8}>
+			{/* <Grid item xs={12} md={2}></Grid> */}
+			<Grid item xs={12} md={12}>
 				<Box sx={{textAlign: "center"}}>
 					<Typography variant="h2" className={styles.title} sx={{color: "primary.main"}}>
 						LIST OF COUNTRIES
@@ -63,12 +63,12 @@ function index() {
 					<Grid container spacing={2}>
 						{
 							countriesList.map((item, i) =>(
-								<Grid item xs={12} md={4} key={i} sx={{ textAlign: 'center', margin: '0 auto' }}>
+								<Grid item xs={12} md={3} key={i} sx={{ textAlign: 'center', margin: '0 auto' }}>
 									<img src={item.img} className={styles.countryImg} />
 									<Typography variant="h6" className={styles.countryName}>{item.title}</Typography>
 									<Link href={item.slug}>
 										<a>
-											<Button variant="contained" sx={{ color: "#fff", fontWeight: 600, mb: 1.5 }}>Enquire Now</Button>
+											<Button variant="contained" sx={{ color: "#fff", fontWeight: 300, mb: 1.5 }}>Enquire Now</Button>
 										</a>
 									</Link>
 								</Grid>

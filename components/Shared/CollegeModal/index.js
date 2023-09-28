@@ -34,8 +34,10 @@ const Transition = forwardRef(function Transition(props, ref) {
 	return <Slide direction="up" ref={ref} {...props} />;
 });
 
-function index({collegeList, title, btnText}) {
+function index({collegeList, title, btnText, isHomePage=false, showPopup=false, setShowPopup=false}) {
+	
 	const [open, setOpen] = useState(false);
+	console.log('asdasd', isHomePage, showPopup, setShowPopup, open)
 	const [state, setState] = useState({
 		name: "",
 		email: "",
@@ -62,6 +64,7 @@ function index({collegeList, title, btnText}) {
 
 	const handleClose = () => {
 		setOpen(false);
+		isHomePage === true ? setShowPopup(false) : null;
 	};
 
 	useEffect(() => {
@@ -166,6 +169,7 @@ function index({collegeList, title, btnText}) {
 						setSnackBar(true);
 						setTimeout(() => {
 							setOpen(false)
+							isHomePage === true ? setShowPopup(false) : null;
 						}, 3000);
 					})
 					.catch((err) => {
@@ -174,6 +178,7 @@ function index({collegeList, title, btnText}) {
 						setActionBusy(false);
 						setTimeout(() => {
 							setOpen(false)
+							isHomePage === true ? setShowPopup(false) : null;
 						}, 3000);
 					});
 			} else {
@@ -193,12 +198,12 @@ function index({collegeList, title, btnText}) {
 	};
 
 	return (
-		<div>
-			<Button variant="contained" sx={{color: "#fff", mb: 1.5}} onClick={handleClickOpen}>
-				{btnText}
-			</Button>
+		<div>{isHomePage !== true ? (<Button variant="contained" sx={{color: "#fff", mb: 1.5}} onClick={handleClickOpen}>
+		{btnText}
+	</Button>) : null}
+			
 			<Dialog
-				open={open}
+				open={open || showPopup}
 				TransitionComponent={Transition}
 				keepMounted
 				onClose={handleClose}

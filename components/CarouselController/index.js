@@ -4,16 +4,16 @@ import { ChevronRightCircle, ChevronLeftCircle } from 'mdi-material-ui'
 
 function index(props) {
 	const {children} = props;
-	const width = typeof window !== 'undefined' && window.innerWidth < 960 ? 1 : 2
+	const width = typeof window !== 'undefined' && window.innerWidth < 960 ? 1 : 4
 	const [currentIndex, setCurrentIndex] = useState(0);
 	const [length, setLength] = useState(children.length);
 	const [itemsToShow, setItemsToShow] = useState(width);
 
 	const handleResize = () => {
 		if(window.innerWidth < 960) {
-			setItemsToShow(1)
-		} else {
 			setItemsToShow(2)
+		} else {
+			setItemsToShow(4)
 		}
 	}
 	useEffect(() => {
@@ -29,20 +29,20 @@ function index(props) {
 
 	const next = () => {
 		if (currentIndex < length - itemsToShow) {
-			setCurrentIndex((prevState) => prevState + 1);
+			setCurrentIndex((prevState) => prevState + 2);
 		}
 	};
 
 	const prev = () => {
 		if (currentIndex > 0) {
-			setCurrentIndex((prevState) => prevState - 1);
+			setCurrentIndex((prevState) => prevState - 2);
 		}
 	};
 
 	return (
 		<div className={styles.carouselContainer}>
 			<div className={styles.carouselWrapper}>
-				{currentIndex > 0 && <ChevronLeftCircle sx={{ color: 'primary.main' }} onClick={prev} className="carousel-left-arrow" />}
+				{ <ChevronLeftCircle sx={{ color: 'primary.main' }} onClick={prev} className="carousel-left-arrow" />}
 				<div className={styles.carouselContentWrapper}>
 					<div className={`carousel-content show-${itemsToShow}`} style={{transform: `translateX(-${currentIndex * (100 / itemsToShow)}%)`}}>
 						{children}

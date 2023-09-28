@@ -1,0 +1,3 @@
+How to deploy this project.
+
+how to change schema in sanity.
