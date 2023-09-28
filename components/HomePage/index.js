@@ -1,3 +1,4 @@
+import React, {useEffect} from 'react';
 import {Box, Grid, Typography} from "@mui/material";
 import About from "./About";
 import OurServices from "./OurServices";
@@ -10,6 +11,7 @@ import StaticComponent from "./StaticComponent";
 import Faq from "./Faq";
 import TextSerializer from "../TextSerializer";
 import styles from "./homePage.module.css";
+import CollegeModal from '../../components/Shared/CollegeModal'
 
 const studyAbroadList = [
 	"Free Counseling",
@@ -123,12 +125,26 @@ const faq = [
 ];
 
 function index(props) {
+
+	useEffect(() => {
+		const popupTimeout = setTimeout(() => {
+		  setShowPopup(true);
+		}, 5000);
+	
+		return () => {
+		  clearTimeout(popupTimeout);
+		};
+	  }, []);
+	  const [showPopup, setShowPopup] = React.useState(false);
+
 	const {testimonials, homePageContents} = props;
 	return (
 		<>
+			<CollegeModal isHomePage={true} showPopup={showPopup} setShowPopup={setShowPopup}	/>
 			<Grid container sx={{justifyContent: "center", mb: 2}}>
 				<Grid item xs={12}>
 					<Typography variant="h2" className={styles.title} sx={{color: "primary.main"}}>
+
 						Mbbs In Abroad
 					</Typography>
 				</Grid>
