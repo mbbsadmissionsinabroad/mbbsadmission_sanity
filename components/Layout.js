@@ -1,6 +1,8 @@
+'use client'
 import Navbar from './Navbar'
 import Footer from './Footer'
 import { Whatsapp } from 'mdi-material-ui'
+import Image from 'next/image'
 
 export default function Layout ({ children, data }) {
   let footerData =
@@ -25,7 +27,12 @@ export default function Layout ({ children, data }) {
         style={{ position: 'fixed', zIndex: 9, bottom: '3em', left: '20px' }}
       >
         <a href='https://wa.me/+918050006077' target='_blank'>
-          <img src='/assests/whatsapp.png' alt='whatsappImg' />
+          <img
+            src='/assests/whatsapp.png'
+            alt='whatsappImg'
+            style={{ height: '48px', width: '48px' }}
+            layout='fill'
+          />
         </a>
       </div>
     </>

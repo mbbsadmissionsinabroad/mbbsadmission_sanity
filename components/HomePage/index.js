@@ -1,3 +1,4 @@
+'use client'
 import React, { useEffect } from 'react'
 import { Box, Grid, Typography } from '@mui/material'
 import About from './About'
@@ -12,6 +13,7 @@ import Faq from './Faq'
 import TextSerializer from '../TextSerializer'
 import styles from './homePage.module.css'
 import CollegeModal from '../../components/Shared/CollegeModal'
+import Image from 'next/image'
 
 const studyAbroadList = [
   'Free Counseling',
@@ -157,7 +159,7 @@ function index (props) {
       <Grid container sx={{ justifyContent: 'center', mb: 2 }}>
         <Grid item xs={12}>
           <Typography
-            variant='h2'
+            variant='h1'
             className={styles.title}
             sx={{ color: 'primary.main' }}
           >
