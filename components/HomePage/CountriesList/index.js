@@ -84,10 +84,11 @@ function index () {
                 key={i}
                 sx={{ textAlign: 'center', margin: '0 auto' }}
               >
-                <Image
+                <img
                   src={item.img}
                   className={styles.countryImg}
                   alt={item.alt}
+                  // layout='fill'
                 />
                 <Typography variant='h6' className={styles.countryName}>
                   {item.title}

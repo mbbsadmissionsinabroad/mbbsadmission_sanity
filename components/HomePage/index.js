@@ -170,7 +170,7 @@ function index (props) {
           <Grid container spacing={2}>
             <Grid item xs={1} md={0.5}></Grid>
             <Grid item xs={12} md={6}>
-              <Image
+              <img
                 src={'/assests/home-page-banner-1.png'}
                 alt='admission-banner'
                 width='100%'

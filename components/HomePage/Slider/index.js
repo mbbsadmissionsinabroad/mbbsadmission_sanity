@@ -62,7 +62,7 @@ function Index (props) {
               <Link href={obj.buttonUrl} passHref>
                 <a>
                   {index === current && (
-                    <Image
+                    <img
                       src={urlFor(obj.sliderImage)}
                       alt={obj.title}
                       className='image'
