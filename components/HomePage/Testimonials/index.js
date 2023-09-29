@@ -1,7 +1,9 @@
+'use client'
 import styles from '../homePage.module.css'
 import { Box, Grid, Typography, CircularProgress } from '@mui/material'
 import CarouselController from '../../CarouselController'
 import { urlFor } from '../../../lib/client'
+import Image from 'next/image'
 
 function index (props) {
   const { testimonials } = props
@@ -36,7 +38,7 @@ function index (props) {
             }}
             key={i}
           >
-            <img
+            <Image
               src={urlFor(item.studentImage)}
               className={styles.studentImage}
               alt={item.metaTitle}
