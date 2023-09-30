@@ -57,7 +57,7 @@ function index ({ collegeList }) {
             <Typography variant='h2' className={styles.title}>
               OUR BRANCH LOCATIONS
             </Typography>
-            <Image src='/assests/india-map.png' style={{ width: '100%' }} />
+            <img src='/assests/india-map.png' style={{ width: '100%' }} />
           </Grid>
           <Grid item xs={12} md={6}>
             <Typography variant='h2' className={styles.title}>

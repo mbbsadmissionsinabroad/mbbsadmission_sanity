@@ -275,39 +275,43 @@ function index ({
                   error={phoneErr.err}
                   helperText={phoneErr.message}
                 />
-                <FormControl fullWidth sx={{ mb: 2 }} required>
-                  <InputLabel>Course / Job Interested</InputLabel>
-                  <Select
-                    value={country}
-                    label='Course / Job Interested'
-                    name='country'
-                    onChange={handleFields}
-                    required
-                  >
-                    {collegeList !== undefined &&
-                      collegeList.map((item, i) => (
-                        <MenuItem key={i} value={item.title}>
-                          {item.title}
-                        </MenuItem>
-                      ))}
-                  </Select>
-                </FormControl>
-                <FormControl fullWidth sx={{ mb: 2 }} required>
-                  <InputLabel>Study / Job Country</InputLabel>
-                  <Select
-                    value={college}
-                    onChange={handleCollege}
-                    input={<OutlinedInput label='Study / Job Country' />}
-                    required
-                  >
-                    {'collegeList' in list &&
-                      list.collegeList.map((item, i) => (
-                        <MenuItem key={i} value={item.title}>
-                          {item.title}
-                        </MenuItem>
-                      ))}
-                  </Select>
-                </FormControl>
+                {isHomePage === false ? (
+                  <>
+                    <FormControl fullWidth sx={{ mb: 2 }} required>
+                      <InputLabel>Course / Job Interested</InputLabel>
+                      <Select
+                        value={country}
+                        label='Course / Job Interested'
+                        name='country'
+                        onChange={handleFields}
+                        required
+                      >
+                        {collegeList !== undefined &&
+                          collegeList.map((item, i) => (
+                            <MenuItem key={i} value={item.title}>
+                              {item.title}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </FormControl>
+                    <FormControl fullWidth sx={{ mb: 2 }} required>
+                      <InputLabel>Study / Job Country</InputLabel>
+                      <Select
+                        value={college}
+                        onChange={handleCollege}
+                        input={<OutlinedInput label='Study / Job Country' />}
+                        required
+                      >
+                        {'collegeList' in list &&
+                          list.collegeList.map((item, i) => (
+                            <MenuItem key={i} value={item.title}>
+                              {item.title}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </FormControl>
+                  </>
+                ) : null}
 
                 <Autocomplete
                   required
