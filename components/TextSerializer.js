@@ -19,9 +19,10 @@ function TextSerializer (props) {
   const serializers = {
     types: {
       image: ({ value }) => (
-        <Image
+        <img
           src={urlFor(value)}
           style={{ display: 'flex', width: '100%', margin: '0 auto' }}
+          alt='textImage'
         />
       ),
       code: ({ value }) => (

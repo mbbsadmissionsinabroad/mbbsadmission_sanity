@@ -65,7 +65,7 @@ function Navbar ({ headerData }) {
         <Grid item xs={6} md={3}>
           <Link href='/'>
             <a>
-              <Image src={logo} width={130} height={60} />
+              <img src={logo} width={130} height={60} alt='logoImg' />
               <Typography
                 variant='body2'
                 sx={{

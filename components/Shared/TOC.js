@@ -26,7 +26,7 @@ function TOC () {
         {headings.map(heading => {
           return (
             <li key={heading.id}>
-              <img src='/assests/icon.png' />
+              <img src='/assests/icon.png' alt='icons' />
               <a
                 href={`#${heading.id}`}
                 onClick={e => {
