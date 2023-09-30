@@ -167,14 +167,8 @@ function index ({
           },
           body: JSON.stringify(data)
         }
-
-        fetch(
-          'https://api-in21.leadsquared.com/v2/LeadManagement.svc/Lead.Capture?accessKey=' +
-            accessKey +
-            '&secretKey=' +
-            secretKey,
-          requestOptions
-        )
+        console.log('asdhb', data)
+        fetch('https://admission-backend.vercel.app/send-email', requestOptions)
           .then(res => res.json())
           .then(data => {
             setSuccess(true)
