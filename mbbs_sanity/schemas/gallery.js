@@ -13,7 +13,7 @@ export default {
       }
     },
     {
-      name: 'metaTag',
+      name: 'meta',
       type: 'string',
       title: 'Meta Tag'
     }

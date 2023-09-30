@@ -1,7 +1,5 @@
-'use client'
 import styles from '../homePage.module.css'
 import { Box, Button, Grid, Typography } from '@mui/material'
-import Image from 'next/image'
 import Link from 'next/link'
 
 const countriesList = [
@@ -88,7 +86,6 @@ function index () {
                   src={item.img}
                   className={styles.countryImg}
                   alt={item.alt}
-                  // layout='fill'
                 />
                 <Typography variant='h6' className={styles.countryName}>
                   {item.title}
