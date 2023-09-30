@@ -1,4 +1,3 @@
-'use client'
 import { urlFor } from '../lib/client'
 import TextSerializer from '../components/TextSerializer'
 import Faq from '../components/Faq'
@@ -9,7 +8,6 @@ import TOC from '../components/Shared/TOC'
 import CollegeModal from '../components/Shared/CollegeModal'
 import Testimonials from '../components/HomePage/Testimonials'
 import { useRouter } from 'next/router'
-import Image from 'next/image'
 
 const apiHost = process.env.NEXT_PUBLIC_API_HOST
 
@@ -45,7 +43,7 @@ function servicePage (props) {
         </Grid>
         <Grid item xs={12}>
           {'bannerImage' in data && (
-            <Image
+            <img
               src={urlFor(data.bannerImage)}
               className='banner'
               alt={data.title}

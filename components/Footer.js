@@ -5,7 +5,8 @@ import {
   Facebook,
   Instagram,
   Twitter,
-  Youtube
+  Youtube,
+  Linkedin
 } from 'mdi-material-ui'
 
 function Footer ({ footerData }) {
@@ -90,6 +91,12 @@ function Footer ({ footerData }) {
               target='_blank'
             >
               <Youtube className='social-icon' />
+            </a>
+            <a
+              href='http://www.linkedin.com/in/mona-kumari-8a53321aa'
+              target='_blank'
+            >
+              <Linkedin className='social-icon' />
             </a>
           </Box>
         </div>

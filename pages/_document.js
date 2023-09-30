@@ -1,4 +1,3 @@
-'use client'
 import * as React from 'react'
 import Document, { Html, Head, Main, NextScript } from 'next/document'
 import createEmotionServer from '@emotion/server/create-instance'
@@ -25,7 +24,10 @@ export default class MyDocument extends Document {
             name='google-site-verification'
             content='q3PaxiZB_fbKGHiJuY6EKAd5Z2Egpt7ec4dkG5Hevrw'
           />
-          <script src='https://www.googletagmanager.com/gtag/js?id=G-YR4Q895Z3R'></script>
+          <script
+            async
+            src='https://www.googletagmanager.com/gtag/js?id=G-YR4Q895Z3R'
+          ></script>
           <script
             dangerouslySetInnerHTML={{
               __html: `window.dataLayer = window.dataLayer || [];

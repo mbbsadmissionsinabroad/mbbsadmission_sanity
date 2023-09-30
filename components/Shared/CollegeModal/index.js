@@ -167,7 +167,7 @@ function index ({
           },
           body: JSON.stringify(data)
         }
-        console.log('asdhb', data)
+
         fetch('https://admission-backend.vercel.app/send-email', requestOptions)
           .then(res => res.json())
           .then(data => {
