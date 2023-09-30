@@ -23,7 +23,7 @@ function MegaMenu (props) {
               <a style={{ color: '#000' }}>
                 <Box display='flex' alignItems='center' onClick={handleClose}>
                   {item.image && (
-                    <Image
+                    <img
                       src={urlFor(item.image)}
                       className={styles.menuImg}
                       alt={item.title}
