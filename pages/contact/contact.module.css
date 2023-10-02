@@ -17,57 +17,57 @@
 }
 
 .mainContainer {
-	width: 55%;
-	margin: 0 auto;;
+  width: 55%;
+  margin: 0 auto;
 }
 
 .selectedTab {
-	background: #71e2b3;
-	color: #fff !important;
-	border-radius: 30px;
-	border-bottom: 0px !important;
-	border: 0px solid !important;
-	font-weight: 600;
+  background: #1b4a36;
+  color: #fff !important;
+  border-radius: 30px;
+  border-bottom: 0px !important;
+  border: 0px solid !important;
+  font-weight: 600;
 }
 
 .defaultTab {
-	background: #fff;
-	color: #000 !important;
-	border-radius: 30px;
-	border-bottom: 0px !important;
-	border: 0px solid !important;
-	font-weight: 600;
+  background: #fff;
+  color: #000 !important;
+  border-radius: 30px;
+  border-bottom: 0px !important;
+  border: 0px solid !important;
+  font-weight: 600;
 }
 
 .mobNoContainer {
-	display:flex;
-	align-items: center;
+  display: flex;
+  align-items: center;
 }
 
 .mobNoContainer a {
-	color: #000 !important;
+  color: #000 !important;
 }
 
 .tabsContainer {
-	overflow: scroll;
+  overflow: scroll;
 }
 
 .tabsContainer::-webkit-scrollbar {
-	display: none;
+  display: none;
 }
 
 .title {
-	font-size: 22px;
-	line-height: 28px;
-	color: #71e2b3;
-	font-weight: 700;
-	text-transform: uppercase;
-	text-align: center;
-	margin-bottom: 10px;
+  font-size: 22px;
+  line-height: 28px;
+  color: #1b4a36;
+  font-weight: 700;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 10px;
 }
 
 @media (max-width: 960px) {
-	.mainContainer {
-		width: 90%;	
-	}
+  .mainContainer {
+    width: 90%;
+  }
 }
