@@ -29,6 +29,7 @@ function Footer ({ footerData }) {
                 <li key={i} style={{ listStyleType: 'none', padding: '4px' }}>
                   <Link href={item.slug}>
                     <a
+                      aria-label='Data in footer'
                       style={{
                         color: '#fff',
                         display: 'flex',
@@ -53,7 +54,7 @@ function Footer ({ footerData }) {
               {/* </a> */}
             </Link>
             <Link href='/gallery'>
-              <a>
+              <a aria-label='Photos'>
                 <button
                   className='button-footer'
                   sx={{ textAlign: 'center', fontSize: '20px' }}
@@ -74,27 +75,35 @@ function Footer ({ footerData }) {
             <a
               href='https://www.facebook.com/pg/mbbsadmissionsinabroad/'
               target='_blank'
+              aria-label='facebook mbbsadmission'
             >
               <Facebook className='social-icon' />
             </a>
-            <a href='https://twitter.com/_mbbsabroad' target='_blank'>
+            <a
+              href='https://twitter.com/_mbbsabroad'
+              target='_blank'
+              aria-label='twitter mbbsadmission'
+            >
               <Twitter className='social-icon' />
             </a>
             <a
               href='https://www.instagram.com/mbbsadmissionsinabroad/'
               target='_blank'
+              aria-label='instagram mbbsadmission'
             >
               <Instagram className='social-icon' />
             </a>
             <a
               href='https://www.youtube.com/channel/UCGdRZ74SghrH9K8BE5U0zVw'
               target='_blank'
+              aria-label='youtube mbbsadmission'
             >
               <Youtube className='social-icon' />
             </a>
             <a
               href='http://www.linkedin.com/in/mona-kumari-8a53321aa'
               target='_blank'
+              aria-label='linkedin mbbsadmission'
             >
               <Linkedin className='social-icon' />
             </a>

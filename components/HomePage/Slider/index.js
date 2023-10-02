@@ -59,7 +59,7 @@ function Index (props) {
               key={index}
             >
               <Link href={obj.buttonUrl} passHref>
-                <a>
+                <a aria-label='Take admission in Abroad'>
                   {index === current && (
                     <div style={{ width: '100%' }}>
                       <Image
