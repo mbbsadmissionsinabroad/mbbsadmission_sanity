@@ -54,7 +54,7 @@ function Footer ({ footerData }) {
               {/* </a> */}
             </Link>
             <Link href='/gallery'>
-              <a aria-label='Photos of admission work'>
+              <a aria-label='GALLERY'>
                 <button
                   className='button-footer'
                   sx={{ textAlign: 'center', fontSize: '20px' }}
