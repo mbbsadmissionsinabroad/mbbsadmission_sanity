@@ -28,6 +28,8 @@ function TopBar () {
                 <a href='https://wa.me/+918050006077' target='_blank'>
                   <Button
                     className='whatsappBtn'
+                    name='whatsappp'
+                    aria-label='whats-app'
                     sx={{
                       background: '#003770',
                       '.MuiButton-startIcon': {

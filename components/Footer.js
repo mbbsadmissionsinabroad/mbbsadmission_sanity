@@ -29,7 +29,7 @@ function Footer ({ footerData }) {
                 <li key={i} style={{ listStyleType: 'none', padding: '4px' }}>
                   <Link href={item.slug}>
                     <a
-                      aria-label='Data in footer'
+                      aria-label={item.slug}
                       style={{
                         color: '#fff',
                         display: 'flex',
@@ -54,7 +54,7 @@ function Footer ({ footerData }) {
               {/* </a> */}
             </Link>
             <Link href='/gallery'>
-              <a aria-label='Photos'>
+              <a aria-label='Photos of admission work'>
                 <button
                   className='button-footer'
                   sx={{ textAlign: 'center', fontSize: '20px' }}

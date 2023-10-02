@@ -64,7 +64,7 @@ function Index (props) {
                     <div style={{ width: '100%' }}>
                       <Image
                         src={urlFor(obj.sliderImage).url()}
-                        alt={obj.title !== '' ? obj.title : 'slider-image'}
+                        alt='slider-image'
                         height={1000}
                         width={2000}
                         className='image'

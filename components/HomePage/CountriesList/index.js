@@ -90,7 +90,7 @@ function index () {
                   className={styles.countryImg}
                   alt={item.alt}
                 />
-                <Typography variant='h6' className={styles.countryName}>
+                <Typography variant='h3' className={styles.countryName}>
                   {item.title}
                 </Typography>
                 <Link href={item.slug}>
