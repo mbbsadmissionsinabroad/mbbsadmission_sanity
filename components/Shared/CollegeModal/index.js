@@ -223,6 +223,9 @@ function index ({
         onClose={handleClose}
         fullWidth={true}
         maxWidth='md'
+        id='mbbs-admission'
+        title='admission'
+        aria-label='admission'
       >
         <Box display='flex' alignItems='center' justifyContent='space-between'>
           <DialogTitle>{title}</DialogTitle>
@@ -341,7 +344,12 @@ function index ({
                   gap={1}
                   sx={{ mb: 2 }}
                 >
-                  <Checkbox checked={pPolicy} onChange={handlePpolicy} />
+                  <Checkbox
+                    checked={pPolicy}
+                    onChange={handlePpolicy}
+                    name='agree'
+                    id='agree'
+                  />
                   <Typography variant='h6'>
                     I Agree to the{' '}
                     <Link href='/privacy-policy'>
@@ -358,7 +366,7 @@ function index ({
                   Enquire Now
                 </Button>
                 {success && (
-                  <Typography variant='h2'>
+                  <Typography variant='h4'>
                     Your submission has been received
                   </Typography>
                 )}
