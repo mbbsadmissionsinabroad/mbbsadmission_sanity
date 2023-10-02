@@ -28,7 +28,7 @@ function index ({ title, data }) {
             <Accordion key={i} sx={{ background: 'rgba(0,0,0,.03)' }}>
               <AccordionSummary expandIcon={<ChevronDownCircleOutline />}>
                 <Typography variant='h3' sx={{ fontSize: '18px' }}>
-                  {item.title}
+                  <b>{item.title}</b>
                 </Typography>
               </AccordionSummary>
               <AccordionDetails sx={{ background: '#fff' }}>
