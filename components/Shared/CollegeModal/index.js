@@ -223,6 +223,9 @@ function index ({
         onClose={handleClose}
         fullWidth={true}
         maxWidth='md'
+        id='mbbs-admission'
+        title='admission'
+        aria-label='admission'
       >
         <Box display='flex' alignItems='center' justifyContent='space-between'>
           <DialogTitle>{title}</DialogTitle>
@@ -240,6 +243,7 @@ function index ({
                   variant='outlined'
                   value={name}
                   label='Name'
+                  aria-label='Name'
                   name='name'
                   fullWidth
                   onChange={handleFields}
@@ -249,6 +253,7 @@ function index ({
                 <TextField
                   variant='outlined'
                   value={email}
+                  aria-label='Email'
                   label='Email'
                   name='email'
                   fullWidth
@@ -260,6 +265,7 @@ function index ({
                   defaultCountry={'in'}
                   fullWidth
                   required
+                  aria-label='num'
                   variant='outlined'
                   value={num}
                   name='num'
@@ -277,6 +283,7 @@ function index ({
                         value={country}
                         label='Course / Job Interested'
                         name='country'
+                        aira-label='country'
                         onChange={handleFields}
                         required
                       >
@@ -289,7 +296,9 @@ function index ({
                       </Select>
                     </FormControl>
                     <FormControl fullWidth sx={{ mb: 2 }} required>
-                      <InputLabel>Study / Job Country</InputLabel>
+                      <InputLabel aria-label='Study / Job Country'>
+                        Study / Job Country
+                      </InputLabel>
                       <Select
                         value={college}
                         onChange={handleCollege}
@@ -298,7 +307,11 @@ function index ({
                       >
                         {'collegeList' in list &&
                           list.collegeList.map((item, i) => (
-                            <MenuItem key={i} value={item.title}>
+                            <MenuItem
+                              key={i}
+                              value={item.title}
+                              aria-label={item.title}
+                            >
                               {item.title}
                             </MenuItem>
                           ))}
@@ -314,7 +327,12 @@ function index ({
                   value={residentCountry}
                   options={CountryList.map(option => option.country)}
                   renderInput={params => (
-                    <TextField {...params} required label='Resident Country' />
+                    <TextField
+                      {...params}
+                      required
+                      label='Resident Country'
+                      aria-label='Resident Country'
+                    />
                   )}
                   onChange={(event, newValue) => {
                     handleResidentCountry(newValue)
@@ -326,6 +344,7 @@ function index ({
                   sx={{ mb: 2 }}
                   freeSolo
                   value={residentState}
+                  aria-label='State / Province'
                   options={stateList?.map(option => option)}
                   renderInput={params => (
                     <TextField {...params} required label='State / Province' />
@@ -341,7 +360,13 @@ function index ({
                   gap={1}
                   sx={{ mb: 2 }}
                 >
-                  <Checkbox checked={pPolicy} onChange={handlePpolicy} />
+                  <Checkbox
+                    checked={pPolicy}
+                    onChange={handlePpolicy}
+                    name='agree'
+                    aria-label='agree'
+                    id='agree'
+                  />
                   <Typography variant='h6'>
                     I Agree to the{' '}
                     <Link href='/privacy-policy'>
@@ -352,13 +377,14 @@ function index ({
                 <Button
                   variant='contained'
                   type='submit'
+                  name='submit form'
                   sx={{ color: '#fff', mb: 1 }}
                   disabled={actionBusy}
                 >
                   Enquire Now
                 </Button>
                 {success && (
-                  <Typography variant='h2'>
+                  <Typography variant='h4'>
                     Your submission has been received
                   </Typography>
                 )}

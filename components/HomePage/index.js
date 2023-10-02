@@ -12,6 +12,7 @@ import Faq from './Faq'
 import TextSerializer from '../TextSerializer'
 import styles from './homePage.module.css'
 import CollegeModal from '../../components/Shared/CollegeModal'
+import Image from 'next/image'
 
 const studyAbroadList = [
   'Free Counseling',
@@ -30,7 +31,7 @@ const staticObj = {
 }
 const staticObj2 = {
   title2: 'MBBS ABROAD CONSULTANCY IN INDIA',
-  desc2: `<p>New-Lyf is one of the <a href="/">best MBBS Abroad Consultancy in India</a> that offers professional consultancy services to aspiring students who wish to pursue a lucrative career in the field of medicine. Most of the students want to obtain an immensely valued MBBS degree from some of the top-class universities abroad. <br/> <br/> If you also wish to pursue an MBBS degree from some prestigious educational college/university abroad, contact the reliable <a href="/">New-Lyf MBBS abroad consultants in India</a>. We have a team of highly qualified and experienced MBBS consultants that aims at delivering the best results for your professional MBBS career. <br/> <br/> Our counselors have more than 10 years of experience in the given field that provide in-depth, accurate information that you require to know about MBBS abroad. We suggest the best-suited MBBS program for you on the basis of your personal academic & financial profile, future career plans, and so more.</p>`
+  desc2: `<p>New-Lyf is one of the <a href="/" aria-label="best MBBS Abroad Consultancy in India">best MBBS Abroad Consultancy in India</a> that offers professional consultancy services to aspiring students who wish to pursue a lucrative career in the field of medicine. Most of the students want to obtain an immensely valued MBBS degree from some of the top-class universities abroad. <br/> <br/> If you also wish to pursue an MBBS degree from some prestigious educational college/university abroad, contact the reliable <a href="/" aria-label="New-Lyf MBBS abroad consultants in India">New-Lyf MBBS abroad consultants in India</a>. We have a team of highly qualified and experienced MBBS consultants that aims at delivering the best results for your professional MBBS career. <br/> <br/> Our counselors have more than 10 years of experience in the given field that provide in-depth, accurate information that you require to know about MBBS abroad. We suggest the best-suited MBBS program for you on the basis of your personal academic & financial profile, future career plans, and so more.</p>`
 }
 const { title, desc } = staticObj
 const { title2, desc2 } = staticObj2
@@ -168,10 +169,11 @@ function index (props) {
           <Grid container spacing={2}>
             <Grid item xs={1} md={0.5}></Grid>
             <Grid item xs={12} md={6}>
-              <img
+              <Image
                 src={'/assests/home-page-banner-1.png'}
-                alt='admission-banner'
-                width='100%'
+                alt='mbbs-admission'
+                width={600}
+                height={350}
               />
             </Grid>
             <Grid
