@@ -56,7 +56,7 @@ function index (props) {
                   variant='body1'
                   className={styles.categoryTitle}
                   sx={{
-                    color: selectedCat == item ? '#1b4a36' : '#000',
+                    color: selectedCat == item ? '#71e2b3' : '#000',
                     fontWeight: selectedCat == item ? 500 : 400
                   }}
                   onClick={() => changeData(item)}

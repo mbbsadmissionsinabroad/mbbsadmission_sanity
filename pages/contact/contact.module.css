@@ -22,7 +22,7 @@
 }
 
 .selectedTab {
-  background: #1b4a36;
+  background: #71e2b3;
   color: #fff !important;
   border-radius: 30px;
   border-bottom: 0px !important;
@@ -59,7 +59,7 @@
 .title {
   font-size: 22px;
   line-height: 28px;
-  color: #1b4a36;
+  color: #71e2b3;
   font-weight: 700;
   text-transform: uppercase;
   text-align: center;
