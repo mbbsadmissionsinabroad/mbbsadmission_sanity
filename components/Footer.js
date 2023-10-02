@@ -29,7 +29,7 @@ function Footer ({ footerData }) {
                 <li key={i} style={{ listStyleType: 'none', padding: '4px' }}>
                   <Link href={item.slug}>
                     <a
-                      aria-label={item.slug}
+                      aria-label={item.title}
                       style={{
                         color: '#fff',
                         display: 'flex',
