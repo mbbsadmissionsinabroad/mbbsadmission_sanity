@@ -1,5 +1,6 @@
 import styles from '../homePage.module.css'
 import { Box, Button, Grid, Typography } from '@mui/material'
+import Image from 'next/image'
 import Link from 'next/link'
 
 const countriesList = [
@@ -82,8 +83,10 @@ function index () {
                 key={i}
                 sx={{ textAlign: 'center', margin: '0 auto' }}
               >
-                <img
+                <Image
                   src={item.img}
+                  height={100}
+                  width={100}
                   className={styles.countryImg}
                   alt={item.alt}
                 />

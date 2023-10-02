@@ -2,6 +2,7 @@ import styles from '../homePage.module.css'
 import { Box, Grid, Typography, CircularProgress } from '@mui/material'
 import CarouselController from '../../CarouselController'
 import { urlFor } from '../../../lib/client'
+import Image from 'next/image'
 
 function index (props) {
   const { testimonials } = props
@@ -36,9 +37,11 @@ function index (props) {
             }}
             key={i}
           >
-            <img
-              src={urlFor(item.studentImage)}
+            <Image
+              src={urlFor(item.studentImage).url()}
               className={styles.studentImage}
+              height={150}
+              width={150}
               alt={item.metaTitle}
             />
             <Typography variant='body1' sx={{ fontSize: '18px' }}>

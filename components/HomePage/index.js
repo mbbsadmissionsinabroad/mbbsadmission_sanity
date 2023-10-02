@@ -12,6 +12,7 @@ import Faq from './Faq'
 import TextSerializer from '../TextSerializer'
 import styles from './homePage.module.css'
 import CollegeModal from '../../components/Shared/CollegeModal'
+import Image from 'next/image'
 
 const studyAbroadList = [
   'Free Counseling',
@@ -168,10 +169,11 @@ function index (props) {
           <Grid container spacing={2}>
             <Grid item xs={1} md={0.5}></Grid>
             <Grid item xs={12} md={6}>
-              <img
+              <Image
                 src={'/assests/home-page-banner-1.png'}
-                alt='admission-banner'
-                width='100%'
+                alt='mbbs-admission'
+                width={600}
+                height={350}
               />
             </Grid>
             <Grid
