@@ -8,7 +8,7 @@ function index({ title, desc }) {
       <Grid item xs={12} md={8}>
         <Box sx={{ textAlign: "center" }}>
           <Typography
-            variant="h1"
+            variant="h2"
             className={styles.title}
             sx={{ color: "primary.main" }}
           >
