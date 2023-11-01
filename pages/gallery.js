@@ -19,7 +19,7 @@ function Gallery() {
     <div>
       <Grid container>
         <Grid item xs={12} className="globalTitleBg">
-          <Typography variant="h1" sx={{ textAlign: "center" }}>
+          <Typography variant="h2" sx={{ textAlign: "center" }}>
             {gallery.title}
           </Typography>
         </Grid>
