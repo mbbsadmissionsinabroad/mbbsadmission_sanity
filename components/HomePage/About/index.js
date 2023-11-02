@@ -31,22 +31,24 @@ const icons = { Headset, LeadPencil, Airplane, Magnify };
 
 function index() {
   return (
-    <div
-      style={{
-        marginLeft: "120px",
-        marginRight: "auto",
-        marginTop: "30px",
-        marginBottom: "20px",
-        display: "block",
-      }}
-    >
-      <Image
-        src={"/assests/who-are-we.jpeg"}
-        alt="mbbs-admission"
-        width={1200}
-        height={650}
-      />
-    </div>
+
+    <Grid item xs={12}>
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          marginTop: "20px",
+          marginBottom: "20px",
+        }}
+      >
+        <Image
+          src={"/assests/who-are-we.jpeg"}
+          alt="mbbs-admission"
+          width={1200}
+          height={650}
+        />
+      </div>
+    </Grid>
   );
 }
 
