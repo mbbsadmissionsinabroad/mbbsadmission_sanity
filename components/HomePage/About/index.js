@@ -31,7 +31,6 @@ const icons = { Headset, LeadPencil, Airplane, Magnify };
 
 function index() {
   return (
-
     <Grid item xs={12}>
       <div
         style={{
@@ -42,10 +41,10 @@ function index() {
         }}
       >
         <Image
-          src={"/assests/who-are-we.jpeg"}
+          src={"/assests/who-are-we-2.jpeg"}
           alt="mbbs-admission"
-          width={1200}
-          height={650}
+          width={1400}
+          height={750}
         />
       </div>
     </Grid>

@@ -171,13 +171,18 @@ function index(props) {
               item
               xs={12}
               md={12}
-              style={{ justifyContent: "center", mb: 2, display: "flex" }}
+              style={{
+                justifyContent: "center",
+                mb: 2,
+                display: "flex",
+                marginTop: "10px",
+              }}
             >
               <Image
-                src={"/assests/looking-for-mbbs.jpeg"}
+                src={"/assests/looking-for-mbbs-2.jpeg"}
                 alt="mbbs-admission"
-                width={1200}
-                height={650}
+                width={1400}
+                height={750}
               />
             </Grid>
             {/* <Grid
