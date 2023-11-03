@@ -181,8 +181,8 @@ function index(props) {
               <Image
                 src={"/assests/looking-for-mbbs-2.jpeg"}
                 alt="mbbs-admission"
-                width={1400}
-                height={750}
+                width={2000}
+                height={1000}
               />
             </Grid>
             {/* <Grid
