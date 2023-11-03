@@ -167,22 +167,26 @@ function index(props) {
         </Grid>
         <Grid item xs={11}>
           <Grid container spacing={2}>
-            <Grid item xs={1} md={0.5}></Grid>
-            <Grid item xs={12} md={6}>
+            <Grid
+              item
+              xs={12}
+              md={12}
+              style={{ justifyContent: "center", mb: 2, display: "flex" }}
+            >
               <Image
                 src={"/assests/looking-for-mbbs.jpeg"}
                 alt="mbbs-admission"
-                width={600}
-                height={350}
+                width={1200}
+                height={650}
               />
             </Grid>
-            <Grid
+            {/* <Grid
               item
               xs={12}
               md={5.5}
               sx={{ display: "flex", alignItems: "center" }}
-            >
-              <Box>
+            > */}
+            {/* <Box>
                 <Typography
                   variant="h3"
                   className={styles.subTitle}
@@ -209,11 +213,11 @@ function index(props) {
                     <Typography variant="body1">{item}</Typography>
                   </Box>
                 ))}
-              </Box>
-            </Grid>
+              </Box> */}
           </Grid>
         </Grid>
       </Grid>
+      {/* </Grid> */}
       <About />
       <OurServices />
       <MileStones />
