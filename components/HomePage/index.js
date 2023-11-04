@@ -165,19 +165,26 @@ function index(props) {
             Mbbs In Abroad
           </Typography>
         </Grid>
-        <Grid item xs={11}>
-          <Grid container spacing={2}>
-            <Grid
-              item
-              xs={12}
-              md={12}
-              style={{
-                justifyContent: "center",
-                mb: 2,
-                display: "flex",
-                marginTop: "10px",
-              }}
-            >
+        <Grid
+          item
+          xs={11}
+          style={{
+            justifyContent: "center",
+            alignItems: "center",
+            display: "flex",
+          }}
+        >
+          <Grid
+            container
+            spacing={2}
+            style={{
+              width: "95%",
+              marginTop: "20px",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <Grid item xs={12} md={12}>
               <Image
                 src={"/assests/looking-for-mbbs-2.jpeg"}
                 alt="mbbs-admission"

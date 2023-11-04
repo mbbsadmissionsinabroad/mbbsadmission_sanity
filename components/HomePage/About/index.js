@@ -31,20 +31,20 @@ const icons = { Headset, LeadPencil, Airplane, Magnify };
 
 function index() {
   return (
-    <Grid item xs={12}>
+    <Grid item xs={11} style={{ display: "flex", justifyContent: "center" }}>
       <div
         style={{
-          display: "flex",
-          justifyContent: "center",
+          alignItems: "center",
           marginTop: "20px",
           marginBottom: "20px",
+          width: "95%",
         }}
       >
         <Image
           src={"/assests/who-are-we-2.jpeg"}
           alt="mbbs-admission"
-          width={2000}
-          height={1000}
+          width={1800}
+          height={900}
         />
       </div>
     </Grid>
