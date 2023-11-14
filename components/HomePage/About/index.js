@@ -41,7 +41,7 @@ function index() {
         }}
       >
         <Image
-          src={"/assests/who-are-we-2.jpeg"}
+          src={"/assests/who-are-we.jpeg"}
           alt="mbbs-admission"
           width={1800}
           height={900}
