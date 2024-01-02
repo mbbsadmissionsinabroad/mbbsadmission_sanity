@@ -124,7 +124,7 @@ function Navbar({ headerData }) {
               {item.title} <MenuDown />
             </Typography>
           ))}
-          <Link href="/apprenticeship-nursing-job-in-germany">
+          <Link href="/ausbildung">
             <a>
               <Typography
                 variant="body1"
@@ -273,7 +273,7 @@ function Navbar({ headerData }) {
                 </>
               );
             })}
-            <Link href="/apprenticeship-nursing-job-in-germany">
+            <Link href="/ausbildung">
               <ListItem>
                 <ListItemText
                   button="true"
