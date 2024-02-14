@@ -10,6 +10,18 @@ const nextConfig = {
           "/2024-admission-fees-structure-for-indian-students-to-study-mbbs-in-ukraine",
         permanent: true, // 301 redirection (permanent)
       },
+      {
+        source:
+          "/fee-of-mbbs-in-russia-from-mci-approved-universities-for-2023-admission",
+        destination:
+          "/fee-of-mbbs-in-russia-from-mci-approved-universities-for-2024-admission",
+        permanent: true, // 301 redirection (permanent)
+      },
+      {
+        source: "/2023-mbbs-fee-in-philippines-for-indian-students",
+        destination: "/mbbs-in-philippines",
+        permanent: true, // 301 redirection (permanent)
+      },
     ];
   },
   reactStrictMode: true,
