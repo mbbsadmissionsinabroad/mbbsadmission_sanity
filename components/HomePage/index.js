@@ -138,7 +138,12 @@ const faq = [
 function index(props) {
   useEffect(() => {
     const popupTimeout = setTimeout(() => {
-      setShowPopup(true);
+      const isFormFilled = localStorage.getItem("isFormFilled");
+      if (isFormFilled === undefined || isFormFilled === null) {
+        setShowPopup(true);
+      } else {
+        setShowPopup(false);
+      }
     }, 5000);
 
     return () => {
