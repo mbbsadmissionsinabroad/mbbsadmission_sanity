@@ -1,4 +1,4 @@
-import { useState, forwardRef, useEffect } from 'react'
+import { useState, forwardRef, useEffect } from "react";
 import {
   Button,
   Dialog,
@@ -17,199 +17,200 @@ import {
   Snackbar,
   Autocomplete,
   Checkbox,
-  Stack
-} from '@mui/material'
-import { CloseCircleOutline } from 'mdi-material-ui'
-import styles from './modal.module.css'
-import CountryList from './countriesAndStates.json'
-import Link from 'next/link'
-import MuiPhoneNumber from 'material-ui-phone-number'
+  Stack,
+} from "@mui/material";
+import { CloseCircleOutline } from "mdi-material-ui";
+import styles from "./modal.module.css";
+import CountryList from "./countriesAndStates.json";
+import Link from "next/link";
+import MuiPhoneNumber from "material-ui-phone-number";
 import {
   formatPhoneNumberIntl,
   isValidPhoneNumber,
-  isPossiblePhoneNumber
-} from 'react-phone-number-input'
+  isPossiblePhoneNumber,
+} from "react-phone-number-input";
 
-const accessKey = process.env.NEXT_PUBLIC_LEAD_ACCESS_ID
-const secretKey = process.env.NEXT_PUBLIC_LEAD_SECRET_KEY
+const accessKey = process.env.NEXT_PUBLIC_LEAD_ACCESS_ID;
+const secretKey = process.env.NEXT_PUBLIC_LEAD_SECRET_KEY;
 
-const Transition = forwardRef(function Transition (props, ref) {
-  return <Slide direction='up' ref={ref} {...props} />
-})
+const Transition = forwardRef(function Transition(props, ref) {
+  return <Slide direction="up" ref={ref} {...props} />;
+});
 
-function index ({
+function index({
   collegeList,
   title,
   btnText,
   isHomePage = false,
   showPopup = false,
-  setShowPopup = false
+  setShowPopup = false,
 }) {
-  const [open, setOpen] = useState(false)
+  const [open, setOpen] = useState(false);
   const [state, setState] = useState({
-    name: '',
-    email: '',
-    num: '',
-    country: '',
-    message: ''
-  })
-  const [list, setList] = useState({})
-  const [college, setCollege] = useState([])
-  const [actionBusy, setActionBusy] = useState(false)
-  const [snackBar, setSnackBar] = useState(false)
-  const [stateList, setStateList] = useState([])
-  const [residentCountry, setResidentCountry] = useState('')
-  const [residentState, setResidentState] = useState('')
-  const [pPolicy, setPpolicy] = useState(true)
+    name: "",
+    email: "",
+    num: "",
+    country: "",
+    message: "",
+  });
+  const [list, setList] = useState({});
+  const [college, setCollege] = useState([]);
+  const [actionBusy, setActionBusy] = useState(false);
+  const [snackBar, setSnackBar] = useState(false);
+  const [stateList, setStateList] = useState([]);
+  const [residentCountry, setResidentCountry] = useState("");
+  const [residentState, setResidentState] = useState("");
+  const [pPolicy, setPpolicy] = useState(true);
   const [phoneErr, setPhoneErr] = useState({
     err: false,
-    message: 'Tap the Flag Icon to Change Country Code'
-  })
-  const [success, setSuccess] = useState(false)
+    message: "Tap the Flag Icon to Change Country Code",
+  });
+  const [success, setSuccess] = useState(false);
 
-  const { name, email, num, country } = state
+  const { name, email, num, country } = state;
 
   const handleClickOpen = () => {
-    setOpen(true)
-  }
+    setOpen(true);
+  };
 
   const handleClose = () => {
-    setOpen(false)
-    isHomePage === true ? setShowPopup(false) : null
-  }
+    setOpen(false);
+    isHomePage === true ? setShowPopup(false) : null;
+  };
 
   useEffect(() => {
     if (!isValidPhoneNumber(num) || !isPossiblePhoneNumber(num)) {
-      setPhoneErr({ err: true, message: 'Please Enter Valid Phone Number' })
+      setPhoneErr({ err: true, message: "Please Enter Valid Phone Number" });
     } else {
-      setPhoneErr({ err: false, message: '' })
+      setPhoneErr({ err: false, message: "" });
     }
-  }, [num])
+  }, [num]);
 
-  const handleFields = e => {
-    if (typeof e === 'string') {
+  const handleFields = (e) => {
+    if (typeof e === "string") {
       setState({
         ...state,
-        num: e
-      })
+        num: e,
+      });
     } else {
       setState({
         ...state,
-        [e.target.name]: e.target.value
-      })
+        [e.target.name]: e.target.value,
+      });
     }
-    if (typeof e !== 'string') {
-      if (e.target.name == 'country') {
+    if (typeof e !== "string") {
+      if (e.target.name == "country") {
         if (collegeList !== undefined) {
           let filterCollege = collegeList.find(
-            item => item.title == e.target.value
-          )
-          setList(filterCollege)
+            (item) => item.title == e.target.value
+          );
+          setList(filterCollege);
         }
       }
     }
-  }
+  };
 
-  const handleCollege = e => {
-    const { value } = e.target
-    setCollege(typeof value === 'string' ? value.split(',') : value)
-  }
+  const handleCollege = (e) => {
+    const { value } = e.target;
+    setCollege(typeof value === "string" ? value.split(",") : value);
+  };
 
-  const handleResidentCountry = value => {
-    setResidentCountry(value)
-    setStateList([])
-    const filteredStates = CountryList.find(item => item.country == value)
-    const getStates = filteredStates?.states
-    setStateList(getStates)
-  }
+  const handleResidentCountry = (value) => {
+    setResidentCountry(value);
+    setStateList([]);
+    const filteredStates = CountryList.find((item) => item.country == value);
+    const getStates = filteredStates?.states;
+    setStateList(getStates);
+  };
 
-  const handleSubmit = e => {
-    let convertedNum = formatPhoneNumberIntl(num).replace(/\s+/g, '-')
-    e.preventDefault()
+  const handleSubmit = (e) => {
+    let convertedNum = formatPhoneNumberIntl(num).replace(/\s+/g, "-");
+    e.preventDefault();
     if (isValidPhoneNumber(num) || isPossiblePhoneNumber(num)) {
       if (num.length > 1) {
-        setActionBusy(true)
+        setActionBusy(true);
         const data = [
           {
-            Attribute: 'FirstName',
-            Value: name.toString()
+            Attribute: "FirstName",
+            Value: name.toString(),
           },
           {
-            Attribute: 'EmailAddress',
-            Value: email.toString()
+            Attribute: "EmailAddress",
+            Value: email.toString(),
           },
           {
-            Attribute: 'Phone',
-            Value: convertedNum
+            Attribute: "Phone",
+            Value: convertedNum,
           },
           {
-            Attribute: 'mx_Course_Interested',
-            Value: country.toString()
+            Attribute: "mx_Course_Interested",
+            Value: country.toString(),
           },
           {
-            Attribute: 'mx_Country_Interested',
-            Value: college.toString()
+            Attribute: "mx_Country_Interested",
+            Value: college.toString(),
           },
           {
-            Attribute: 'mx_Country',
-            Value: residentCountry.toString()
+            Attribute: "mx_Country",
+            Value: residentCountry.toString(),
           },
           {
-            Attribute: 'mx_States',
-            Value: residentState.toString()
-          }
-        ]
+            Attribute: "mx_States",
+            Value: residentState.toString(),
+          },
+        ];
 
         const requestOptions = {
-          method: 'POST',
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json",
           },
-          body: JSON.stringify(data)
-        }
+          body: JSON.stringify(data),
+        };
 
-        fetch('https://admission-backend.vercel.app/send-email', requestOptions)
-          .then(res => res.json())
-          .then(data => {
-            setSuccess(true)
-            setActionBusy(false)
-            setSnackBar(true)
+        fetch("https://admission-backend.vercel.app/send-email", requestOptions)
+          .then((res) => res.json())
+          .then((data) => {
+            setSuccess(true);
+            setActionBusy(false);
+            setSnackBar(true);
             setTimeout(() => {
-              setOpen(false)
-              isHomePage === true ? setShowPopup(false) : null
-            }, 3000)
+              setOpen(false);
+              localStorage.setItem("isFormFilled", "true");
+              isHomePage === true ? setShowPopup(false) : null;
+            }, 3000);
           })
-          .catch(err => {
-            setSuccess(false)
-            console.log(err)
-            setActionBusy(false)
+          .catch((err) => {
+            setSuccess(false);
+            console.log(err);
+            setActionBusy(false);
             setTimeout(() => {
-              setOpen(false)
-              isHomePage === true ? setShowPopup(false) : null
-            }, 3000)
-          })
+              setOpen(false);
+              isHomePage === true ? setShowPopup(false) : null;
+            }, 3000);
+          });
       } else {
-        setPhoneErr({ err: true, message: 'Please Enter your Phone Number' })
+        setPhoneErr({ err: true, message: "Please Enter your Phone Number" });
       }
     } else {
-      setPhoneErr({ err: true, message: 'Please Enter Valid Phone Number' })
+      setPhoneErr({ err: true, message: "Please Enter Valid Phone Number" });
     }
-  }
+  };
 
   const closeSnackBar = () => {
-    setSnackBar(false)
-  }
+    setSnackBar(false);
+  };
 
   const handlePpolicy = () => {
-    setPpolicy(prev => !prev)
-  }
+    setPpolicy((prev) => !prev);
+  };
 
   return (
     <div>
       {isHomePage !== true ? (
         <Button
-          variant='contained'
-          sx={{ color: '#fff', mb: 1.5 }}
+          variant="contained"
+          sx={{ color: "#fff", mb: 1.5 }}
           onClick={handleClickOpen}
         >
           {btnText}
@@ -222,16 +223,16 @@ function index ({
         keepMounted
         onClose={handleClose}
         fullWidth={true}
-        maxWidth='md'
-        id='mbbs-admission'
-        title='admission'
-        aria-label='admission'
+        maxWidth="md"
+        id="mbbs-admission"
+        title="admission"
+        aria-label="admission"
       >
-        <Box display='flex' alignItems='center' justifyContent='space-between'>
+        <Box display="flex" alignItems="center" justifyContent="space-between">
           <DialogTitle>{title}</DialogTitle>
           <CloseCircleOutline
             onClick={handleClose}
-            sx={{ mr: 1.2, cursor: 'pointer' }}
+            sx={{ mr: 1.2, cursor: "pointer" }}
           />
         </Box>
         <Divider />
@@ -240,36 +241,36 @@ function index ({
             <Grid item xs={12} md={12}>
               <form onSubmit={handleSubmit}>
                 <TextField
-                  variant='outlined'
+                  variant="outlined"
                   value={name}
-                  label='Name'
-                  aria-label='Name'
-                  name='name'
+                  label="Name"
+                  aria-label="Name"
+                  name="name"
                   fullWidth
                   onChange={handleFields}
                   required
                   sx={{ mb: 2 }}
                 />
                 <TextField
-                  variant='outlined'
+                  variant="outlined"
                   value={email}
-                  aria-label='Email'
-                  label='Email'
-                  name='email'
+                  aria-label="Email"
+                  label="Email"
+                  name="email"
                   fullWidth
                   onChange={handleFields}
                   required
                   sx={{ mb: 2 }}
                 />
                 <MuiPhoneNumber
-                  defaultCountry={'in'}
+                  defaultCountry={"in"}
                   fullWidth
                   required
-                  aria-label='num'
-                  variant='outlined'
+                  aria-label="num"
+                  variant="outlined"
                   value={num}
-                  name='num'
-                  type='tel'
+                  name="num"
+                  type="tel"
                   onChange={handleFields}
                   sx={{ mb: 2 }}
                   error={phoneErr.err}
@@ -281,9 +282,9 @@ function index ({
                       <InputLabel>Course / Job Interested</InputLabel>
                       <Select
                         value={country}
-                        label='Course / Job Interested'
-                        name='country'
-                        aira-label='country'
+                        label="Course / Job Interested"
+                        name="country"
+                        aira-label="country"
                         onChange={handleFields}
                         required
                       >
@@ -296,16 +297,16 @@ function index ({
                       </Select>
                     </FormControl>
                     <FormControl fullWidth sx={{ mb: 2 }} required>
-                      <InputLabel aria-label='Study / Job Country'>
+                      <InputLabel aria-label="Study / Job Country">
                         Study / Job Country
                       </InputLabel>
                       <Select
                         value={college}
                         onChange={handleCollege}
-                        input={<OutlinedInput label='Study / Job Country' />}
+                        input={<OutlinedInput label="Study / Job Country" />}
                         required
                       >
-                        {'collegeList' in list &&
+                        {"collegeList" in list &&
                           list.collegeList.map((item, i) => (
                             <MenuItem
                               key={i}
@@ -325,17 +326,17 @@ function index ({
                   sx={{ mb: 2 }}
                   freeSolo
                   value={residentCountry}
-                  options={CountryList.map(option => option.country)}
-                  renderInput={params => (
+                  options={CountryList.map((option) => option.country)}
+                  renderInput={(params) => (
                     <TextField
                       {...params}
                       required
-                      label='Resident Country'
-                      aria-label='Resident Country'
+                      label="Resident Country"
+                      aria-label="Resident Country"
                     />
                   )}
                   onChange={(event, newValue) => {
-                    handleResidentCountry(newValue)
+                    handleResidentCountry(newValue);
                   }}
                 />
 
@@ -344,47 +345,47 @@ function index ({
                   sx={{ mb: 2 }}
                   freeSolo
                   value={residentState}
-                  aria-label='State / Province'
-                  options={stateList?.map(option => option)}
-                  renderInput={params => (
-                    <TextField {...params} required label='State / Province' />
+                  aria-label="State / Province"
+                  options={stateList?.map((option) => option)}
+                  renderInput={(params) => (
+                    <TextField {...params} required label="State / Province" />
                   )}
                   onChange={(event, newValue) => {
-                    setResidentState(newValue)
+                    setResidentState(newValue);
                   }}
                 />
 
                 <Stack
-                  direction='row'
-                  alignItems='center'
+                  direction="row"
+                  alignItems="center"
                   gap={1}
                   sx={{ mb: 2 }}
                 >
                   <Checkbox
                     checked={pPolicy}
                     onChange={handlePpolicy}
-                    name='agree'
-                    aria-label='agree'
-                    id='agree'
+                    name="agree"
+                    aria-label="agree"
+                    id="agree"
                   />
-                  <Typography variant='h6'>
-                    I Agree to the{' '}
-                    <Link href='/privacy-policy'>
-                      <a target='_blank'>Privacy Policy</a>
+                  <Typography variant="h6">
+                    I Agree to the{" "}
+                    <Link href="/privacy-policy">
+                      <a target="_blank">Privacy Policy</a>
                     </Link>
                   </Typography>
                 </Stack>
                 <Button
-                  variant='contained'
-                  type='submit'
-                  name='submit form'
-                  sx={{ color: '#fff', mb: 1 }}
+                  variant="contained"
+                  type="submit"
+                  name="submit form"
+                  sx={{ color: "#fff", mb: 1 }}
                   disabled={actionBusy}
                 >
                   Enquire Now
                 </Button>
                 {success && (
-                  <Typography variant='h4'>
+                  <Typography variant="h4">
                     Your submission has been received
                   </Typography>
                 )}
@@ -413,13 +414,13 @@ function index ({
       </Dialog>
       <Snackbar
         open={snackBar}
-        anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
+        anchorOrigin={{ vertical: "top", horizontal: "right" }}
         autoHideDuration={5000}
         onClose={closeSnackBar}
-        message='Your submission has been received'
+        message="Your submission has been received"
       />
     </div>
-  )
+  );
 }
 
-export default index
+export default index;
