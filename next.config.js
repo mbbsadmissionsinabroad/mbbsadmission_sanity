@@ -22,6 +22,11 @@ const nextConfig = {
         destination: "/mbbs-in-philippines",
         permanent: true, // 301 redirection (permanent)
       },
+      {
+        source: "/melaka-manipal-university-college-malaysia",
+        destination: "/melaka-manipal-medical-college-malaysia",
+        permanent: true, // 301 redirection (permanent)
+      },
     ];
   },
   reactStrictMode: true,
