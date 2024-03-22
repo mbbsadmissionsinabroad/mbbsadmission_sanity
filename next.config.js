@@ -27,6 +27,16 @@ const nextConfig = {
         destination: "/melaka-manipal-medical-college-malaysia",
         permanent: true, // 301 redirection (permanent)
       },
+      {
+        source: "/top-mbbs-colleges-in-philippines-for-2023-admission",
+        destination: "/top-mbbs-colleges-in-philippines-for-2024-admission",
+        permanent: true, // 301 redirection (permanent)
+      },
+      {
+        source: "/2023-mbbs-fee-structure-in-india-and-abroad",
+        destination: "/2024-mbbs-fee-structure-in-india-and-abroad",
+        permanent: true, // 301 redirection (permanent)
+      },
     ];
   },
   reactStrictMode: true,
