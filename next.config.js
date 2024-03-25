@@ -37,6 +37,34 @@ const nextConfig = {
         destination: "/2024-mbbs-fee-structure-in-india-and-abroad",
         permanent: true, // 301 redirection (permanent)
       },
+      {
+        source:
+          "/top-philippines-medical-college-for-indian-students-2023-admission",
+        destination:
+          "/top-philippines-medical-college-for-indian-students-2024-admission",
+        permanent: true, // 301 redirection (permanent)
+      },
+      {
+        source:
+          "/2020-mci-approved-medical-colleges-in-ukraine-for-indian-students",
+        destination:
+          "/2024-mci-approved-medical-colleges-in-ukraine-for-indian-students",
+        permanent: true, // 301 redirection (permanent)
+      },
+      {
+        source:
+          "/top-philippines-medical-college-for-indian-students-2023-admission",
+        destination:
+          "/top-philippines-medical-college-for-indian-students-2024-admission",
+        permanent: true, // 301 redirection (permanent)
+      },
+      {
+        source:
+          "/top-philippines-medical-college-for-indian-students-2023-admission",
+        destination:
+          "/top-philippines-medical-college-for-indian-students-2024-admission",
+        permanent: true, // 301 redirection (permanent)
+      },
     ];
   },
   reactStrictMode: true,
