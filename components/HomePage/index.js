@@ -183,7 +183,7 @@ function index(props) {
             container
             spacing={2}
             style={{
-              width: "90%",
+              width: "95%",
               marginTop: "20px",
               justifyContent: "center",
               alignItems: "center",
@@ -195,7 +195,6 @@ function index(props) {
                 alt="mbbs-admission"
                 width={2000}
                 height={1000}
-                priority
               />
             </Grid>
             {/* <Grid

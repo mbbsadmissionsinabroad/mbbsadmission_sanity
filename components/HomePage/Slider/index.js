@@ -1,76 +1,76 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect } from 'react'
 import {
   ChevronRightCircleOutline,
-  ChevronLeftCircleOutline,
-} from "mdi-material-ui";
-import { CircularProgress } from "@mui/material";
-import { urlFor } from "../../../lib/client";
-import Link from "next/link";
-import Image from "next/image";
+  ChevronLeftCircleOutline
+} from 'mdi-material-ui'
+import { CircularProgress } from '@mui/material'
+import { urlFor } from '../../../lib/client'
+import Link from 'next/link'
+import Image from 'next/image'
 
-function Index(props) {
-  const { sliderData } = props;
-  const data = typeof sliderData === "object" && sliderData.slider;
+function Index (props) {
+  const { sliderData } = props
+  const data = typeof sliderData === 'object' && sliderData.slider
 
-  const [current, setCurrent] = useState(0);
-  const length = data.length;
+  const [current, setCurrent] = useState(0)
+  const length = data.length
 
   const nextSlide = () => {
-    setCurrent(current === length - 1 ? 0 : current + 1);
-  };
+    setCurrent(current === length - 1 ? 0 : current + 1)
+  }
 
   const prevSlide = () => {
-    setCurrent(current === 0 ? length - 1 : current - 1);
-  };
+    setCurrent(current === 0 ? length - 1 : current - 1)
+  }
 
   useEffect(() => {
     // Automatically move to the next slide every 3 seconds (adjust as needed)
     const intervalId = setInterval(() => {
-      nextSlide();
-    }, 5000);
+      nextSlide()
+    }, 5000)
 
     return () => {
-      clearInterval(intervalId);
-    };
-  }, [current]);
+      clearInterval(intervalId)
+    }
+  }, [current])
 
   if (!Array.isArray(data) || data.length <= 0) {
-    return null;
+    return null
   }
 
-  if (typeof data !== "object") return <CircularProgress />;
+  if (typeof data !== 'object') return <CircularProgress />
   else
     return (
-      <section className="slider">
+      <section className='slider'>
         <ChevronLeftCircleOutline
-          className="left-arrow"
-          style={{ color: "black" }}
+          className='left-arrow'
+          style={{ color: 'black' }}
           onClick={prevSlide}
         />
         <ChevronRightCircleOutline
-          className="right-arrow"
+          className='right-arrow'
           onClick={nextSlide}
-          style={{ color: "black" }}
+          style={{ color: 'black' }}
         />
         {data.map((obj, index) => {
           return (
             <div
-              className={index === current ? "slide active" : "slide"}
+              className={index === current ? 'slide active' : 'slide'}
               key={index}
             >
               <Link href={obj.buttonUrl} passHref>
-                <a aria-label="Take admission in Abroad">
+                <a aria-label='Take admission in Abroad'>
                   {index === current && (
-                    <div style={{ width: "100%" }}>
+                    <div style={{ width: '100%' }}>
                       <Image
                         src={urlFor(obj.sliderImage).url()}
-                        alt="slider-image"
+                        alt='slider-image'
                         height={1000}
                         width={2000}
-                        className="image"
+                        className='image'
                         style={{
-                          minHeight: "100%",
-                          backgroundSize: "cover",
+                          'min-height': '100%',
+                          'background-size': 'cover'
                         }}
                       />
                     </div>
@@ -78,10 +78,10 @@ function Index(props) {
                 </a>
               </Link>
             </div>
-          );
+          )
         })}
       </section>
-    );
+    )
 }
 
-export default Index;
+export default Index
