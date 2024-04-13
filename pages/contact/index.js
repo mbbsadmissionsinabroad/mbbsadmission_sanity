@@ -4,80 +4,81 @@ import {
   Box,
   Tabs,
   Tab,
-  CircularProgress
-} from '@mui/material'
-import { useEffect, useState } from 'react'
-import styles from './contact.module.css'
-import { Phone, EmailOutline } from 'mdi-material-ui'
-import CollegeModal from '../../components/Shared/CollegeModal'
+  CircularProgress,
+} from "@mui/material";
+import { useEffect, useState } from "react";
+import styles from "./contact.module.css";
+import { Phone, EmailOutline } from "mdi-material-ui";
+import CollegeModal from "../../components/Shared/CollegeModal";
+import Image from "next/image";
 
-const apiHost = process.env.NEXT_PUBLIC_API_HOST
-function index ({ collegeList }) {
-  const [data, setData] = useState()
-  const [value, setValue] = useState('')
-  const [isFetching, setIsFetching] = useState(false)
+const apiHost = process.env.NEXT_PUBLIC_API_HOST;
+function index({ collegeList }) {
+  const [data, setData] = useState();
+  const [value, setValue] = useState("");
+  const [isFetching, setIsFetching] = useState(false);
 
   const handleChange = (event, newValue) => {
-    setValue(newValue)
-  }
+    setValue(newValue);
+  };
 
   useEffect(() => {
-    setIsFetching(true)
-    let query = encodeURIComponent(`*[ _type == "contactPage"]`)
+    setIsFetching(true);
+    let query = encodeURIComponent(`*[ _type == "contactPage"]`);
     fetch(apiHost + query)
-      .then(res => res.json())
-      .then(data => setData(data.result))
-      .then(() => setIsFetching(false))
-  }, [])
+      .then((res) => res.json())
+      .then((data) => setData(data.result))
+      .then(() => setIsFetching(false));
+  }, []);
 
   useEffect(() => {
     setTimeout(() => {
       if (data !== undefined && data.length > 1) {
-        let branchName = data[data.length - 1].branchName
-        setValue(branchName)
+        let branchName = data[data.length - 1].branchName;
+        setValue(branchName);
       }
-    }, 1500)
-  }, [data])
+    }, 1500);
+  }, [data]);
 
-  if (isFetching) return <CircularProgress />
+  if (isFetching) return <CircularProgress />;
   return (
     <Box>
       <Grid container>
-        <Grid item xs={12} className='globalTitleBg'>
-          <Typography variant='h1' sx={{ textAlign: 'center' }}>
+        <Grid item xs={12} className="globalTitleBg">
+          <Typography variant="h1" sx={{ textAlign: "center" }}>
             Contact
           </Typography>
         </Grid>
       </Grid>
-      <Box className={styles.mainContainer} sx={{ padding: '2em 0 2em 0' }}>
+      <Box className={styles.mainContainer} sx={{ padding: "2em 0 2em 0" }}>
         <Grid container spacing={2}>
           <Grid item xs={12} md={6}>
-            <Typography variant='h2' className={styles.title}>
+            <Typography variant="h2" className={styles.title}>
               OUR BRANCH LOCATIONS
             </Typography>
-            <img
-              src='/assests/india-map.png'
-              style={{ width: '100%' }}
-              alt='branch'
+            <Image
+              src="/assests/india-map.png"
+              style={{ width: "100%" }}
+              alt="branch"
             />
           </Grid>
           <Grid item xs={12} md={6}>
-            <Typography variant='h2' className={styles.title}>
+            <Typography variant="h2" className={styles.title}>
               OUR BRANCH OFFICES
             </Typography>
             {value && (
               <>
                 <Tabs
                   value={value}
-                  indicatorColor={''}
+                  indicatorColor={""}
                   onChange={handleChange}
                   sx={{
-                    '& .MuiTabs-flexContainer': {
-                      overflowX: 'scroll',
-                      '& > -webkit-scrollbar': {
-                        display: 'none'
-                      }
-                    }
+                    "& .MuiTabs-flexContainer": {
+                      overflowX: "scroll",
+                      "& > -webkit-scrollbar": {
+                        display: "none",
+                      },
+                    },
                   }}
                   className={styles.tabsContainer}
                 >
@@ -114,25 +115,25 @@ function index ({ collegeList }) {
                                 ></iframe>
                               </Box>
                               <Typography
-                                variant='body1'
-                                sx={{ marginTop: '8px' }}
+                                variant="body1"
+                                sx={{ marginTop: "8px" }}
                               >
                                 {item.branchAddress}
                               </Typography>
-                              <Box display='flex' alignItems='center'>
+                              <Box display="flex" alignItems="center">
                                 {item.branchMobNo.map((item, i) => (
                                   <Box
                                     key={i}
                                     className={styles.mobNoContainer}
                                   >
-                                    <Phone sx={{ fontSize: '18px', mr: 1 }} />
+                                    <Phone sx={{ fontSize: "18px", mr: 1 }} />
                                     <Typography
-                                      variant='body1'
-                                      sx={{ padding: '10px 30px 10px 0px' }}
+                                      variant="body1"
+                                      sx={{ padding: "10px 30px 10px 0px" }}
                                     >
                                       <a
                                         href={`tel:${item.mobNum}`}
-                                        target='_blank'
+                                        target="_blank"
                                       >
                                         {item.mobNum}
                                       </a>
@@ -147,26 +148,26 @@ function index ({ collegeList }) {
               </>
             )}
             <Box className={styles.mobNoContainer}>
-              <EmailOutline sx={{ fontSize: '18px', mr: 1 }} />
+              <EmailOutline sx={{ fontSize: "18px", mr: 1 }} />
               <Typography
-                variant='body1'
-                sx={{ padding: '10px 30px 10px 0px' }}
+                variant="body1"
+                sx={{ padding: "10px 30px 10px 0px" }}
               >
-                <a href='mailto:info@new-lyf.com' target='_blank'>
+                <a href="mailto:info@new-lyf.com" target="_blank">
                   info@new-lyf.com
                 </a>
               </Typography>
             </Box>
             <CollegeModal
               collegeList={collegeList}
-              title='Contact'
-              btnText='Enquire Now'
+              title="Contact"
+              btnText="Enquire Now"
             />
           </Grid>
         </Grid>
       </Box>
     </Box>
-  )
+  );
 }
 
-export default index
+export default index;

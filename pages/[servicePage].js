@@ -9,6 +9,7 @@ import TOC from "../components/Shared/TOC";
 import CollegeModal from "../components/Shared/CollegeModal";
 import Testimonials from "../components/HomePage/Testimonials";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const apiHost = process.env.NEXT_PUBLIC_API_HOST;
 
@@ -68,7 +69,7 @@ function servicePage(props) {
           </Grid>
           <Grid item xs={12}>
             {"bannerImage" in data && (
-              <img
+              <Image
                 src={urlFor(data.bannerImage)}
                 className="banner"
                 alt={data.title}

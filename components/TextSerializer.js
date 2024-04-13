@@ -1,38 +1,39 @@
-import { urlFor } from '../lib/client'
-import { PortableText } from '@portabletext/react'
+import { urlFor } from "../lib/client";
+import { PortableText } from "@portabletext/react";
+import Image from "next/image";
 
-function TextSerializer (props) {
-  const { data, className } = props
-  const addId = children => {
-    const str = children
+function TextSerializer(props) {
+  const { data, className } = props;
+  const addId = (children) => {
+    const str = children;
     const strUnderscores =
       str.length > 0 &&
       str
         .toString()
-        .replace(/[\s0-9-()&:?]/g, '_')
-        .toLowerCase()
-    return strUnderscores
-  }
+        .replace(/[\s0-9-()&:?]/g, "_")
+        .toLowerCase();
+    return strUnderscores;
+  };
 
   const serializers = {
     types: {
       image: ({ value }) => (
-        <img
+        <Image
           src={urlFor(value)}
           style={{
-            display: 'flex',
-            width: '100%',
-            margin: '0 auto',
-            alt: 'serializers'
+            display: "flex",
+            width: "100%",
+            margin: "0 auto",
+            alt: "serializers",
           }}
         />
       ),
       code: ({ value }) => (
         <div
-          style={{ overflowX: 'scroll' }}
+          style={{ overflowX: "scroll" }}
           dangerouslySetInnerHTML={{ __html: value.code }}
         />
-      )
+      ),
     },
     block: {
       p: ({ children }) => <p>{children}</p>,
@@ -62,20 +63,20 @@ function TextSerializer (props) {
           {children}
         </h6>
       ),
-      blockquote: ({ children }) => <blockquote>{children}</blockquote>
+      blockquote: ({ children }) => <blockquote>{children}</blockquote>,
     },
     list: {
       bullet: ({ children }) => <ul>{children}</ul>,
-      number: ({ children }) => <ol>{children}</ol>
+      number: ({ children }) => <ol>{children}</ol>,
     },
     listItem: {
       bullet: ({ children }) => (
-        <li style={{ paddingBottom: '7px' }}>{children}</li>
-      )
-    }
-  }
+        <li style={{ paddingBottom: "7px" }}>{children}</li>
+      ),
+    },
+  };
 
-  return <PortableText value={data} components={serializers} />
+  return <PortableText value={data} components={serializers} />;
 }
 
-export default TextSerializer
+export default TextSerializer;

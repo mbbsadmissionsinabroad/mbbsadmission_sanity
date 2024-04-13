@@ -195,6 +195,7 @@ function index(props) {
                 alt="mbbs-admission"
                 width={2000}
                 height={1000}
+                priority
               />
             </Grid>
             {/* <Grid

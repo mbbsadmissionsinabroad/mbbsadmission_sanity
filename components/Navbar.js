@@ -244,29 +244,31 @@ function Navbar({ headerData }) {
                     unmountOnExit
                     sx={{ paddingLeft: "10px" }}
                   >
-                    {navItems.map((item, i) => (
-                      <List component="div" disablePadding key={item._id}>
-                        <Link href={item.slug}>
-                          <a style={{ color: "#000" }}>
-                            <Box
-                              display="flex"
-                              alignItems="center"
-                              onClick={handleClose}
-                              sx={{ mb: 1 }}
-                            >
-                              {item.image && (
-                                <img
-                                  src={urlFor(item.image)}
-                                  className={styles.menuImg}
-                                  alt={item.title}
-                                />
-                              )}
-                              <Typography variant="body1">
-                                {item.title}
-                              </Typography>
-                            </Box>
-                          </a>
-                        </Link>
+                    {navItems.map((navItem, i) => (
+                      <List component="div" disablePadding key={navItem._id}>
+                        <ListItem key={navItem._id}>
+                          <Link href={navItem.slug}>
+                            <a style={{ color: "#000" }}>
+                              <Box
+                                display="flex"
+                                alignItems="center"
+                                onClick={handleClose}
+                                sx={{ mb: 1 }}
+                              >
+                                {navItem.image && (
+                                  <Image
+                                    src={urlFor(navItem.image)}
+                                    className={styles.menuImg}
+                                    alt={navItem.title}
+                                  />
+                                )}
+                                <Typography variant="body1">
+                                  {navItem.title}
+                                </Typography>
+                              </Box>
+                            </a>
+                          </Link>
+                        </ListItem>
                       </List>
                     ))}
                   </Collapse>

@@ -45,6 +45,7 @@ function index() {
           alt="mbbs-admission"
           width={1800}
           height={900}
+          priority
         />
       </div>
     </Grid>
