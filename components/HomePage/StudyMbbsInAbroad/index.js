@@ -40,7 +40,7 @@ function index() {
           <Typography
             variant="h1"
             className={styles.title}
-            sx={{ color: "primary.main" }}
+            sx={{ color: "#1c1c84" }}
           >
             WHY STUDY MBBS IN ABROAD?
           </Typography>

@@ -242,9 +242,10 @@ function index({
               <form onSubmit={handleSubmit}>
                 <TextField
                   variant="outlined"
+                  role="dialog"
                   value={name}
                   label="Name"
-                  aria-label="Name"
+                  aria-label="Entered Name"
                   name="name"
                   fullWidth
                   onChange={handleFields}
@@ -254,7 +255,8 @@ function index({
                 <TextField
                   variant="outlined"
                   value={email}
-                  aria-label="Email"
+                  role="dialog"
+                  aria-label="Entered Email"
                   label="Email"
                   name="email"
                   fullWidth
@@ -266,7 +268,8 @@ function index({
                   defaultCountry={"in"}
                   fullWidth
                   required
-                  aria-label="num"
+                  role="dialog"
+                  aria-label="phone num entered"
                   variant="outlined"
                   value={num}
                   name="num"
@@ -282,9 +285,10 @@ function index({
                       <InputLabel>Course / Job Interested</InputLabel>
                       <Select
                         value={country}
+                        role="dialog"
                         label="Course / Job Interested"
                         name="country"
-                        aira-label="country"
+                        aira-label="Entered country"
                         onChange={handleFields}
                         required
                       >
@@ -297,7 +301,10 @@ function index({
                       </Select>
                     </FormControl>
                     <FormControl fullWidth sx={{ mb: 2 }} required>
-                      <InputLabel aria-label="Study / Job Country">
+                      <InputLabel
+                        role="dialog"
+                        aria-label="Study / Job Country"
+                      >
                         Study / Job Country
                       </InputLabel>
                       <Select
@@ -332,6 +339,7 @@ function index({
                       {...params}
                       required
                       label="Resident Country"
+                      role="dialog"
                       aria-label="Resident Country"
                     />
                   )}
@@ -345,6 +353,7 @@ function index({
                   sx={{ mb: 2 }}
                   freeSolo
                   value={residentState}
+                  role="dialog"
                   aria-label="State / Province"
                   options={stateList?.map((option) => option)}
                   renderInput={(params) => (
@@ -365,6 +374,7 @@ function index({
                     checked={pPolicy}
                     onChange={handlePpolicy}
                     name="agree"
+                    role="dialog"
                     aria-label="agree"
                     id="agree"
                   />

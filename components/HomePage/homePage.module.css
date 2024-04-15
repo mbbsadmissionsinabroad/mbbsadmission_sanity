@@ -9,7 +9,14 @@
 
 .subTitle {
   font-size: 1.75rem;
+  margin-top: 2rem;
   color: #000;
+}
+
+@media only screen and (max-width: 1026px) {
+  #fadeshow1 {
+      display: none;
+  }
 }
 
 .circleNum {
@@ -49,7 +56,7 @@
 }
 
 .mileStonesBg {
-  background: linear-gradient(90deg, #71e2b3, #58d1c3 35%, #48bcd1);
+  background: #1c1c84;
   padding: 15px;
   margin: 30px 0px;
 }

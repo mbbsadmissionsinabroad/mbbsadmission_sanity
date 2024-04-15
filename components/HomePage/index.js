@@ -16,7 +16,7 @@ import Image from "next/image";
 
 const studyAbroadList = [
   "Free Counseling",
-  "Guaranteed Admission In Top Universities/Colleges",
+  "Guaranteed Admission In Top- Universities/Colleges",
   "Low Admission Fees",
   "100% Visa Clearance Assistance",
   "No Donation & Capitation Fees",
@@ -165,7 +165,7 @@ function index(props) {
           <Typography
             variant="h2"
             className={styles.title}
-            sx={{ color: "primary.main" }}
+            sx={{ color: "#1c1c84" }}
           >
             Mbbs In Abroad
           </Typography>
@@ -189,48 +189,53 @@ function index(props) {
               alignItems: "center",
             }}
           >
-            <Grid item xs={12} md={12}>
+            {/* <Grid item xs={12} md={12}>
               <Image
                 src={"/assests/looking-for-mbbs-2.jpeg"}
                 alt="mbbs-admission"
                 width={2000}
                 height={1000}
               />
-            </Grid>
+            </Grid> */}
             {/* <Grid
               item
               xs={12}
               md={5.5}
               sx={{ display: "flex", alignItems: "center" }}
             > */}
-            {/* <Box>
-                <Typography
-                  variant="h3"
-                  className={styles.subTitle}
-                  gutterBottom
-                >
-                  "Don't Worry We Are Here To Assist You"
-                </Typography>
-                <Typography variant="body1" gutterBottom>
-                  Grab the top abroad education consultant to fulfill your
-                  aspiration with:
-                </Typography>
-                {studyAbroadList.map((item, index) => (
-                  <Box
-                    sx={{ display: "flex", alignItems: "center" }}
-                    key={index}
+            <Grid item xs={12} md={6}>
+              <Image
+                src={"/assests/doctor-image.jpeg"}
+                alt="mbbs-admission"
+                width={400}
+                height={400}
+                sx={{
+                  display: "flex",
+                  alignItems: "center",
+                }}
+              />
+            </Grid>
+            <Box>
+              <Typography variant="h3" className={styles.subTitle} gutterBottom>
+                "Don't Worry We Are Here To Assist You"
+              </Typography>
+              <Typography variant="body1" gutterBottom>
+                Grab the top abroad education consultant to fulfill your
+                aspiration with:
+              </Typography>
+              {studyAbroadList.map((item, index) => (
+                <Box sx={{ display: "flex", alignItems: "center" }} key={index}>
+                  <Typography
+                    className={styles.circleNum}
+                    sx={{ color: "#1c1c84" }}
+                    variant="body1"
                   >
-                    <Typography
-                      className={styles.circleNum}
-                      sx={{ color: "primary.main" }}
-                      variant="body1"
-                    >
-                      {index + 1}
-                    </Typography>
-                    <Typography variant="body1">{item}</Typography>
-                  </Box>
-                ))}
-              </Box> */}
+                    {index + 1}
+                  </Typography>
+                  <Typography variant="body1">{item}</Typography>
+                </Box>
+              ))}
+            </Box>
           </Grid>
         </Grid>
       </Grid>
