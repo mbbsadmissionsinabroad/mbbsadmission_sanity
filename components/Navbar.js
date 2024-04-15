@@ -54,7 +54,7 @@ function Navbar({ headerData }) {
   };
 
   return (
-    <Box>
+    <Box className="z-20">
       <TopBar />
       <Grid
         container
@@ -337,7 +337,7 @@ function Navbar({ headerData }) {
         <Box display="flex" alignItems="center" sx={{ a: { color: "#fff" } }}>
           <Phone sx={{ mr: 1 }} />
           <a href="tel:8050575767" target="_blank">
-            <Typography variant="body1" sx={{ fontWeight: 500 }}>
+            <Typography variant="body1" sx={{ fontWeight: 500, zIndex: 11 }}>
               +91 (805) 057-5767
             </Typography>
           </a>

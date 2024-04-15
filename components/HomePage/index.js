@@ -11,17 +11,7 @@ import StaticComponent from "./StaticComponent";
 import Faq from "./Faq";
 import TextSerializer from "../TextSerializer";
 import styles from "./homePage.module.css";
-import CollegeModal from "../../components/Shared/CollegeModal";
-import Image from "next/image";
-
-const studyAbroadList = [
-  "Free Counseling",
-  "Guaranteed Admission In Top- Universities/Colleges",
-  "Low Admission Fees",
-  "100% Visa Clearance Assistance",
-  "No Donation & Capitation Fees",
-  "All Documentation Support",
-];
+import LookingForMBBS from "../LookingForMBBS";
 
 const staticObj = {
   title: `${new Date().getFullYear()} - ${
@@ -136,32 +126,32 @@ const faq = [
 ];
 
 function index(props) {
-  useEffect(() => {
-    const popupTimeout = setTimeout(() => {
-      const isFormFilled = localStorage.getItem("isFormFilled");
-      if (isFormFilled === undefined || isFormFilled === null) {
-        setShowPopup(true);
-      } else {
-        setShowPopup(false);
-      }
-    }, 5000);
+  // useEffect(() => {
+  //   const popupTimeout = setTimeout(() => {
+  //     const isFormFilled = localStorage.getItem("isFormFilled");
+  //     if (isFormFilled === undefined || isFormFilled === null) {
+  //       setShowPopup(true);
+  //     } else {
+  //       setShowPopup(false);
+  //     }
+  //   }, 5000);
 
-    return () => {
-      clearTimeout(popupTimeout);
-    };
-  }, []);
-  const [showPopup, setShowPopup] = React.useState(false);
+  //   return () => {
+  //     clearTimeout(popupTimeout);
+  //   };
+  // }, []);
+  // const [showPopup, setShowPopup] = React.useState(false);
 
   const { testimonials, homePageContents } = props;
   return (
     <>
-      <CollegeModal
+      {/* <CollegeModal
         isHomePage={true}
         showPopup={showPopup}
         setShowPopup={setShowPopup}
-      />
+      /> */}
       <Grid container sx={{ justifyContent: "center", mb: 2 }}>
-        <Grid item xs={12}>
+        {/* <Grid item xs={12}>
           <Typography
             variant="h2"
             className={styles.title}
@@ -169,7 +159,7 @@ function index(props) {
           >
             Mbbs In Abroad
           </Typography>
-        </Grid>
+        </Grid> */}
         <Grid
           item
           xs={11}
@@ -203,7 +193,7 @@ function index(props) {
               md={5.5}
               sx={{ display: "flex", alignItems: "center" }}
             > */}
-            <Grid item xs={12} md={6}>
+            {/* <Grid item xs={12} md={6}>
               <Image
                 src={"/assests/doctor-image.jpeg"}
                 alt="mbbs-admission"
@@ -235,14 +225,15 @@ function index(props) {
                   <Typography variant="body1">{item}</Typography>
                 </Box>
               ))}
-            </Box>
+            </Box> */}
+            <LookingForMBBS />
           </Grid>
         </Grid>
       </Grid>
       {/* </Grid> */}
       <About />
       <OurServices />
-      <MileStones />
+      {/* <MileStones /> / */}
       <StudyMbbsInAbroad />
       <Faq title="HOW CAN WE ASSIST YOU" data={howCanWeAssistYou} />
       <CountriesList />

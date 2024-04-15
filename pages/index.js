@@ -1,5 +1,6 @@
 import Slider from "../components/HomePage/Slider";
 import HomePage from "../components/HomePage";
+import HomeBanner from "../components/HomeBanner";
 import Head from "next/head";
 
 function index(props) {
@@ -52,7 +53,8 @@ function index(props) {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
         />
       </Head>
-      <Slider sliderData={sliderData} />
+      <HomeBanner sliderData={sliderData} />
+      {/* <Slider sliderData={sliderData} /> */}
       <HomePage
         testimonials={testimonials}
         homePageContents={homePageContents}

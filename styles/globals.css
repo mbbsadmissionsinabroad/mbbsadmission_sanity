@@ -2,6 +2,9 @@
 @import '@fontsource/roboto/400.css';
 @import '@fontsource/roboto/500.css';
 @import '@fontsource/roboto/700.css'; */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
 
 html,
 body {
@@ -229,14 +232,14 @@ table.detailsTable thead {
   padding: 10px 0px;
   position: fixed;
   width: -webkit-fill-available;
-  z-index: 9;
+  z-index: 11;
   top: 0px;
 }
 
 .navBar {
   position: fixed;
   top: 56px;
-  z-index: 9;
+  z-index: 11;
   background: #fff;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 3px 6px, rgba(0, 0, 0, 0.23) 0px 3px 6px;
 }
@@ -258,6 +261,7 @@ table.detailsTable thead {
 .topBarContents {
   display: flex;
   justify-content: space-between;
+  z-index: 11;
   align-items: center;
   margin: 0 auto;
   width: 90%;
