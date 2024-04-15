@@ -64,6 +64,7 @@ function Index(props) {
                     <div style={{ width: "100%" }}>
                       <Image
                         src={urlFor(obj.sliderImage).url()}
+                        priority
                         alt="slider-image"
                         height={1000}
                         width={2000}

@@ -10,7 +10,7 @@ function index({ title, desc }) {
           <Typography
             variant="h2"
             className={styles.title}
-            sx={{ color: "primary.main" }}
+            sx={{ color: "#1c1c84" }}
           >
             {title}
           </Typography>

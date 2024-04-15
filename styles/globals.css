@@ -11,7 +11,7 @@ body {
 }
 
 a {
-  color: #71e2b3;
+  color: #1c1c84;
   text-decoration: none;
 }
 
@@ -69,7 +69,7 @@ table.detailsTable th {
 }
 
 table.detailsTable td {
-  color: #000;
+  color: #fff;
   font-weight: 500;
   font-size: 15px;
 }
@@ -79,8 +79,8 @@ table.detailsTable tbody tr:nth-of-type(odd) {
 }
 
 table.detailsTable thead {
-  background: linear-gradient(90deg, #71e2b3, #58d1c3 35%, #48bcd1);
-  color: #000;
+  background: #1c1c84;
+  color: #fff;
   font-weight: 600;
   font-size: 17px;
   font-family: Open Sans;
@@ -162,11 +162,12 @@ table.detailsTable thead {
 }
 
 .globalTitleBg {
-  background: linear-gradient(90deg, #71e2b3, #58d1c3 35%, #48bcd1);
+  background: #1c1c84;
+  
 }
 
 .globalTitleBg > h1 {
-  color: #000;
+  color: #fff;
   font-size: 46px;
   line-height: 56px;
   font-weight: 700;
@@ -222,7 +223,7 @@ table.detailsTable thead {
 }
 
 .topBarBg {
-  background: linear-gradient(90deg, #71e2b3, #58d1c3 35%, #48bcd1);
+  background: #1c1c84;
   color: #fff;
   font-weight: 700;
   padding: 10px 0px;
@@ -246,7 +247,7 @@ table.detailsTable thead {
 
 .social-icon {
   padding: 10px;
-  background: #71e2b3;
+  /* background: #1c1c84; */
   background: linear-gradient(90deg, #71e2b3, #58d1c3 35%, #48bcd1);
   border-radius: 50%;
   width: 40px;
