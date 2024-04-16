@@ -126,40 +126,10 @@ const faq = [
 ];
 
 function index(props) {
-  // useEffect(() => {
-  //   const popupTimeout = setTimeout(() => {
-  //     const isFormFilled = localStorage.getItem("isFormFilled");
-  //     if (isFormFilled === undefined || isFormFilled === null) {
-  //       setShowPopup(true);
-  //     } else {
-  //       setShowPopup(false);
-  //     }
-  //   }, 5000);
-
-  //   return () => {
-  //     clearTimeout(popupTimeout);
-  //   };
-  // }, []);
-  // const [showPopup, setShowPopup] = React.useState(false);
-
   const { testimonials, homePageContents } = props;
   return (
     <>
-      {/* <CollegeModal
-        isHomePage={true}
-        showPopup={showPopup}
-        setShowPopup={setShowPopup}
-      /> */}
       <Grid container sx={{ justifyContent: "center", mb: 2 }}>
-        {/* <Grid item xs={12}>
-          <Typography
-            variant="h2"
-            className={styles.title}
-            sx={{ color: "#1c1c84" }}
-          >
-            Mbbs In Abroad
-          </Typography>
-        </Grid> */}
         <Grid
           item
           xs={11}
@@ -179,59 +149,12 @@ function index(props) {
               alignItems: "center",
             }}
           >
-            {/* <Grid item xs={12} md={12}>
-              <Image
-                src={"/assests/looking-for-mbbs-2.jpeg"}
-                alt="mbbs-admission"
-                width={2000}
-                height={1000}
-              />
-            </Grid> */}
-            {/* <Grid
-              item
-              xs={12}
-              md={5.5}
-              sx={{ display: "flex", alignItems: "center" }}
-            > */}
-            {/* <Grid item xs={12} md={6}>
-              <Image
-                src={"/assests/doctor-image.jpeg"}
-                alt="mbbs-admission"
-                width={400}
-                height={400}
-                sx={{
-                  display: "flex",
-                  alignItems: "center",
-                }}
-              />
-            </Grid>
-            <Box>
-              <Typography variant="h3" className={styles.subTitle} gutterBottom>
-                "Don't Worry We Are Here To Assist You"
-              </Typography>
-              <Typography variant="body1" gutterBottom>
-                Grab the top abroad education consultant to fulfill your
-                aspiration with:
-              </Typography>
-              {studyAbroadList.map((item, index) => (
-                <Box sx={{ display: "flex", alignItems: "center" }} key={index}>
-                  <Typography
-                    className={styles.circleNum}
-                    sx={{ color: "#1c1c84" }}
-                    variant="body1"
-                  >
-                    {index + 1}
-                  </Typography>
-                  <Typography variant="body1">{item}</Typography>
-                </Box>
-              ))}
-            </Box> */}
             <LookingForMBBS />
           </Grid>
         </Grid>
       </Grid>
       {/* </Grid> */}
-      <About />
+      {/* <About /> */}
       <OurServices />
       {/* <MileStones /> / */}
       <StudyMbbsInAbroad />
