@@ -4,9 +4,58 @@ import { Phone, EmailOutline, Whatsapp } from "mdi-material-ui";
 function TopBar() {
   return (
     <div className="topBarBg">
-      <p className="flex h-10 items-center justify-center  px-4 text-sm font-bold text-white sm:px-6 lg:px-8">
-        The Vaidya Vigyan Scholarships worth 1 Crore! (*T&C apply). Explore Now!
-      </p>
+      <Grid container alignItems="center">
+        <Grid item xs={12}>
+          <Box>
+            <Box sx={{ width: "90%" }} className="topBarContents">
+              <Box display="flex" alignItems="center">
+                <p className="text-yellow-300">
+                  The Vaidya Vigyan Scholarships worth 1 Crore! (*T&C apply).
+                  Explore Now!
+                </p>
+              </Box>
+              <Box display="flex" alignItems="center" sx={{ mr: 4 }}>
+                <Phone sx={{ mr: 1 }} />
+                <a href="tel:8050575767" target="_blank">
+                  <Typography
+                    variant="body1"
+                    sx={{ fontWeight: 500, zIndex: 11, mr: 6 }}
+                  >
+                    +91 (805) 057-5767
+                  </Typography>
+                </a>
+                <EmailOutline sx={{ mr: 1 }} />
+                <a href="mailto:info@new-lyf.com" target="_blank">
+                  <Typography variant="body1" sx={{ fontWeight: 500 }}>
+                    info@new-lyf.com
+                  </Typography>
+                </a>
+              </Box>
+              <Box display="flex" alignItems="center">
+                <a href="https://wa.me/+918050006077" target="_blank">
+                  <Button
+                    className="whatsappBtn"
+                    name="whatsappp"
+                    aria-label="whats-app"
+                    sx={{
+                      background: "#19A519",
+                      ".MuiButton-startIcon": {
+                        margin: "0px",
+                      },
+                    }}
+                    startIcon={
+                      <Whatsapp
+                        sx={{ color: "#fff", fontSize: "25px !important" }}
+                        alt="whatsapp"
+                      />
+                    }
+                  />{" "}
+                </a>
+              </Box>
+            </Box>
+          </Box>
+        </Grid>
+      </Grid>
     </div>
   );
 }

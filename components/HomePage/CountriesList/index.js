@@ -73,7 +73,7 @@ function index() {
         <Box sx={{ textAlign: "center" }}>
           <Typography
             variant="h2"
-            className={styles.title}
+            classNameName={styles.title}
             sx={{ color: "#1c1c84" }}
           >
             LIST OF COUNTRIES
@@ -116,16 +116,16 @@ function index() {
       </Grid>
       <Grid item xs={12} md={2}></Grid> */}
 
-      <section class="text-gray-600 body-font">
-        <div class="sm:px-12 px-2 py-8">
-          <div class="flex flex-wrap w-full mb-20">
-            <div class="lg:w-1/2 w-full mb-6 lg:mb-0">
-              <h1 class="sm:text-5xl text-2xl font-bold title-font mb-2 text-blue-900">
+      <section className="text-gray-600 body-font">
+        <div className="sm:px-12 px-2 py-8">
+          <div className="flex flex-wrap w-full mb-20">
+            <div className="lg:w-1/2 w-full mb-6 lg:mb-0">
+              <h1 className="sm:text-5xl text-2xl font-bold title-font mb-2 text-blue-900">
                 Most Popular Countries
               </h1>
-              <div class="h-1 w-20 bg-indigo-500 rounded"></div>
+              <div className="h-1 w-20 bg-indigo-500 rounded"></div>
             </div>
-            <p class="lg:w-1/2 w-full leading-relaxed text-gray-900">
+            <p className="lg:w-1/2 w-full leading-relaxed text-gray-900">
               Deciding where to pursue your MBBS degree is a crucial step in
               your medical education journey. Several countries have gained
               recognition for their high-quality medical education, affordable
@@ -134,19 +134,19 @@ function index() {
               for MBBS admission
             </p>
           </div>
-          <div class="flex flex-wrap -m-4">
+          <div className="flex flex-wrap -m-4">
             {countriesList.map((item, i) => (
-              <div class="xl:w-1/4 md:w-1/2 p-4 ">
+              <div className="xl:w-1/4 md:w-1/2 p-4 ">
                 <Link href={item.slug}>
-                  <div class="bg-white p-2 rounded-lg border border-gray-300 cursor-pointer">
+                  <div className="bg-white p-2 rounded-lg border border-gray-300 cursor-pointer">
                     <Image
-                      class="h-40 rounded w-full object-fill object-center mb-6"
+                      className="h-40 rounded w-full object-fill object-center mb-6"
                       src={item.img}
                       height={150}
                       width={300}
                       alt="content"
                     />
-                    <h2 class="text-md text-gray-900 font-small title-font mb-4 text-center p-4">
+                    <h2 className="text-md text-gray-900 font-small title-font mb-4 text-center p-4">
                       {item.title}
                     </h2>
                   </div>
