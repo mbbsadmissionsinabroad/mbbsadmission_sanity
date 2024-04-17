@@ -57,7 +57,7 @@ const index = ({ sliderData }) => {
         body: JSON.stringify(data),
       };
 
-      fetch("https://admission-backend.vercel.app/send-emaikl", requestOptions)
+      fetch("https://admission-backend.vercel.app/send-email", requestOptions)
         .then((res) => res.json())
         .then((data) => {
           setPhone("");
