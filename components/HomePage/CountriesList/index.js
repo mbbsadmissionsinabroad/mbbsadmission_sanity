@@ -64,6 +64,18 @@ const countriesList = [
     title: "STUDY MBBS IN KYRGYZSTAN",
     slug: "mbbs-in-kyrgyzstan",
   },
+  {
+    img: "/assests/country-flag-2/Italy.png",
+    alt: "kyrgyzstan-flag",
+    title: "STUDY MBBS IN ITALY",
+    slug: "mbbs-in-italy",
+  },
+  {
+    img: "/assests/country-flag-2/Spain.png",
+    alt: "kyrgyzstan-flag",
+    title: "STUDY MBBS IN SPAIN",
+    slug: "mbbs-admission-in-spain-for-indian-students",
+  },
 ];
 function index() {
   return (
