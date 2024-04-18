@@ -59,7 +59,7 @@ const countriesList = [
     slug: "mbbs-in-armenia",
   },
   {
-    img: "/assests/country-flag-2/Kyrgyzstan.png",
+    img: "/assests/country-flag-2/kyrgyzstan.png",
     alt: "kyrgyzstan-flag",
     title: "STUDY MBBS IN KYRGYZSTAN",
     slug: "mbbs-in-kyrgyzstan",
