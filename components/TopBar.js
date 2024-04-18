@@ -1,61 +1,23 @@
-import { Box, Grid, Typography, Button } from "@mui/material";
-import { Phone, EmailOutline, Whatsapp } from "mdi-material-ui";
+import { Typography } from "@mui/material";
+import { Phone, EmailOutline } from "mdi-material-ui";
 
 function TopBar() {
   return (
-    <div className="topBarBg">
-      <Grid container alignItems="center">
-        <Grid item xs={12}>
-          <Box>
-            <Box sx={{ width: "90%" }} className="topBarContents">
-              <Box display="flex" alignItems="center">
-                <p className="text-yellow-300">
-                  The Vaidya Vigyan Scholarships worth 1 Crore! (*T&C apply).
-                  Explore Now!
-                </p>
-              </Box>
-              <Box display="flex" alignItems="center" sx={{ mr: 4 }}>
-                <Phone sx={{ mr: 1 }} />
-                <a href="tel:8050575767" target="_blank">
-                  <Typography
-                    variant="body1"
-                    sx={{ fontWeight: 500, zIndex: 11, mr: 6 }}
-                  >
-                    +91 (805) 057-5767
-                  </Typography>
-                </a>
-                <EmailOutline sx={{ mr: 1 }} />
-                <a href="mailto:info@new-lyf.com" target="_blank">
-                  <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                    info@new-lyf.com
-                  </Typography>
-                </a>
-              </Box>
-              <Box display="flex" alignItems="center">
-                <a href="https://wa.me/+918050006077" target="_blank">
-                  <Button
-                    className="whatsappBtn"
-                    name="whatsappp"
-                    aria-label="whats-app"
-                    sx={{
-                      background: "#19A519",
-                      ".MuiButton-startIcon": {
-                        margin: "0px",
-                      },
-                    }}
-                    startIcon={
-                      <Whatsapp
-                        sx={{ color: "#fff", fontSize: "25px !important" }}
-                        alt="whatsapp"
-                      />
-                    }
-                  />{" "}
-                </a>
-              </Box>
-            </Box>
-          </Box>
-        </Grid>
-      </Grid>
+    <div className="topBarBg flex items-center">
+      <div className="flex-grow"></div>
+      <p className="flex h-10 items-center justify-center px-4 text-md font-bold text-yellow-300 sm:px-6 lg:px-8">
+        The Vaidya Vigyan Scholarships worth 1 Crore! (*T&C apply). Explore Now!
+      </p>
+      <p className="flex items-center ml-4">
+        <Phone sx={{ mr: 1 }} />
+        <a href="tel:8050575767" target="_blank">
+          <span className="text-white mr-6">+91 (805) 057-5767</span>
+        </a>
+        <EmailOutline sx={{ mr: 1 }} />
+        <a href="mailto:info@new-lyf.com" target="_blank">
+          <span className="text-white mr-4">info@new-lyf.com</span>
+        </a>
+      </p>
     </div>
   );
 }
