@@ -69,10 +69,11 @@ table.detailsTable th {
   border-style: solid;
   padding: 0.75rem;
   text-align: left;
+  color: black
 }
 
 table.detailsTable td {
-  color: #fff;
+  color: black;
   font-weight: 500;
   font-size: 15px;
 }
@@ -290,6 +291,28 @@ table.detailsTable thead {
 @keyframes bounce {
   to {
     transform: scale(1.2);
+  }
+}
+
+.textBounce {
+  -webkit-animation: tbounce 0.3s infinite alternate;
+  -moz-animation: tbounce 0.3s infinite alternate;
+  animation: tbounce 0.3s infinite alternate;
+}
+
+@-webkit-keyframes tbounce {
+  to {
+    -webkit-transform: scale(1.05);
+  }
+}
+@-moz-keyframes tbounce {
+  to {
+    -moz-transform: scale(1.05);
+  }
+}
+@keyframes tbounce {
+  to {
+    transform: scale(1.05);
   }
 }
 
