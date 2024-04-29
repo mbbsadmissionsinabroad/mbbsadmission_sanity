@@ -60,7 +60,11 @@ const Enroll = () => {
                     {step.title === "Step 1" ? (
                       <span>
                         {step.desc}{" "}
-                        <a className="text-blue-800 font-bold cursor-pointer">
+                        <a
+                          className="text-blue-900 font-bold cursor-pointer"
+                          target="_blank"
+                          href="/scholarship/scholarshipForm"
+                        >
                           here.
                         </a>
                       </span>
