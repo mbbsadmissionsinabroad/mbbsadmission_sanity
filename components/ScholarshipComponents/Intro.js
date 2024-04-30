@@ -4,10 +4,10 @@ import About from "../../pages/scholarship/assets/about.jpg";
 
 const Intro = () => {
   return (
-    <section class="text-gray-600 body-font">
-      <div class="mx-auto flex px-5 py-20 md:flex-row flex-col items-center">
-        <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <p class="sm:mb-8 leading-relaxed content-stretch p-4 sm:mx-8 text-justify text-base/loose">
+    <section className="text-gray-600 body-font">
+      <div className="mx-auto flex px-5 sm:py-20 md:flex-row flex-col items-center">
+        <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+          <p className="sm:mb-8 leading-relaxed content-stretch p-4 sm:mx-8 text-justify text-base/loose">
             Attention, future DOCTORS! The Vaidya Jyothi Scholarship, a
             prestigious endeavour by Doctor Dreams, has unfolded its online
             registration form. If you’re eager to apply, invest your quality
@@ -22,9 +22,9 @@ const Intro = () => {
             better awaits you, to accomplish your dreams.
           </p>
         </div>
-        <div class="lg:max-w-lg lg:w-full md:w-1/4 w-5/6">
+        <div className="lg:max-w-lg lg:w-full md:w-1/4 w-5/6">
           <Image
-            class="object-cover object-center rounded"
+            className="object-cover object-center rounded"
             alt="hero"
             height={300}
             width={600}

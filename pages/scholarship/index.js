@@ -1,5 +1,5 @@
 import React from "react";
-import Vaidya from "./assets/Vaidya.png";
+import Vaidya from "./assets/vaidya-new.png";
 import { useMediaQuery } from "react-responsive";
 import Image from "next/image";
 import Logo from "./assets/Logo.png";
@@ -14,11 +14,11 @@ const index = () => {
       <div className="relative">
         <Image
           src={Vaidya}
-          height={isDesktopOrTablet ? 400 : 500} // Increased height for tablet/desktop
+          height={isDesktopOrTablet ? 500 : 400} // Increased height for tablet/desktop
           className="md:w-1/4 w-5/6 h-5/6"
           alt="Vaidya Image"
         />
-        <div className="absolute inset-0 flex items-center justify-center">
+        {/* <div className="absolute inset-0 flex items-center justify-center">
           <div className="text-center">
             <div className="flex items-center justify-center md:mt-28">
               <Image
@@ -34,6 +34,7 @@ const index = () => {
             </div>
           </div>
         </div>
+      </div> */}
       </div>
       <Intro />
       <ScholarshipUniversities />
