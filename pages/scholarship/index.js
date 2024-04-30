@@ -6,6 +6,8 @@ import Logo from "./assets/Logo.png";
 import Intro from "../../components/ScholarshipComponents/Intro";
 import ScholarshipUniversities from "../../components/ScholarshipComponents/ScholarshipUniversities";
 import Enroll from "../../components/ScholarshipComponents/Enroll";
+import Benifits from "../../components/ScholarshipComponents/Benifits";
+import Accrodin from "../../components/ScholarshipComponents/Accrodin";
 
 const index = () => {
   const isDesktopOrTablet = useMediaQuery({ query: "(max-width: 767px)" });
@@ -38,7 +40,9 @@ const index = () => {
       </div>
       <Intro />
       <ScholarshipUniversities />
+      <Benifits />
       <Enroll />
+      <Accrodin />
     </>
   );
 };

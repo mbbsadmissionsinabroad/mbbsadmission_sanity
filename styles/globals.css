@@ -69,7 +69,6 @@ table.detailsTable th {
   border-style: solid;
   padding: 0.75rem;
   text-align: left;
-  color: black
 }
 
 table.detailsTable td {
@@ -82,7 +81,7 @@ table.detailsTable tbody tr:nth-of-type(odd) {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-table.detailsTable thead {
+table.detailsTable thead tr th {
   background: #1c1c84;
   color: #fff;
   font-weight: 600;

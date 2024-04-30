@@ -9,12 +9,28 @@ const ScholarshipUniversities = () => {
       flagImg: "/assests/country/Russia01.png",
       universities: [
         {
-          universityLogo: "/assests/country/Russia01.png",
+          universityLogo: "/assests/country/altal.png",
           universityName: "Altai State Medical University",
         },
         {
-          universityLogo: "/assests/country/Russia01.png",
-          universityName: "Andsivsdnik",
+          universityLogo: "/assests/country/mary.png",
+          universityName: "Mari State University University",
+        },
+        {
+          universityLogo: "/assests/country/oreal.png",
+          universityName: "Orel State Medical University",
+        },
+        {
+          universityLogo: "/assests/country/oren.png",
+          universityName: "Orenburg State Medical University",
+        },
+        {
+          universityLogo: "/assests/country/perm.png",
+          universityName: "Perm State Medical University",
+        },
+        {
+          universityLogo: "/assests/country/south.png",
+          universityName: "South Ural State Medical University",
         },
       ],
     },
@@ -24,41 +40,57 @@ const ScholarshipUniversities = () => {
       alt: "Bosnia",
       universities: [
         {
-          universityLogo: "/assests/country/Bosnia01.png",
-          universityName: "Andsivsdnik",
-        },
-        {
-          universityLogo: "/assests/country/Bosnia01.png",
-          universityName: "Andsivsdnik",
+          universityLogo: "/assests/country/sarajevo.png",
+          universityName: "University of East Sarajevo Bosnia",
         },
       ],
     },
     {
-      country: "KAZAKHSTAN",
-      flagImg: "/assests/country/Kazakhstan01.png",
-      alt: "Kazakhstan01",
+      country: "GEORGIA",
+      flagImg: "/assests/country/Georgia01.png",
+      alt: "GEORGIA",
       universities: [
         {
-          universityLogo: "",
-          universityName: "",
+          universityLogo: "/assests/country/georgian.png",
+          universityName: "Georgian National University SEU",
         },
       ],
     },
+    // {
+    //   country: "KAZAKHSTAN",
+    //   flagImg: "/assests/country/Kazakhstan01.png",
+    //   alt: "Kazakhstan01",
+    //   universities: [
+    //     {
+    //       universityLogo: "",
+    //       universityName: "",
+    //     },
+    //   ],
+    // },
     {
       country: "PHILIPPINE",
       flagImg: "/assests/country/philippine.png",
-      universities: [],
-    },
-    {
-      country: "POLAND",
-      flagImg: "/assests/country/poland01.png",
       universities: [
         {
-          universityLogo: "",
-          universityName: "",
+          universityLogo: "/assests/country/davao.png",
+          universityName: "Davao Medical School Foundation",
+        },
+        {
+          universityLogo: "/assests/country/uv.png",
+          universityName: "UV Gullas College Of Medicine",
         },
       ],
     },
+    // {
+    //   country: "POLAND",
+    //   flagImg: "/assests/country/poland01.png",
+    //   universities: [
+    //     {
+    //       universityLogo: "",
+    //       universityName: "",
+    //     },
+    //   ],
+    // },
   ];
   return (
     <div>
@@ -76,22 +108,18 @@ const ScholarshipUniversities = () => {
           <div className="flex flex-wrap -m-4">
             {countryDetails.map((item, i) => (
               <div className="p-4 md:w-1/3">
-                <div className="h-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden">
+                <div className="h-full w-full border-2 border-gray-200 border-opacity-60 rounded-lg overflow-hidden p-4 bg-gray-100">
                   <Image
-                    className="lg:h-48 md:h-36 w-full object-fill"
+                    className="lg:h-48 md:h-36 w-full object-fill p-4"
                     src={item.flagImg}
-                    height={200}
-                    width={450}
+                    height={120}
+                    width={220}
                     alt={item.alt}
                   />
                   <div className="p-6">
                     <h1 className="title-font text-xl font-semibold text-gray-900 mb-3">
                       {item.country}
                     </h1>
-                    <p className="leading-relaxed mb-3">
-                      Photo booth fam kinfolk cold-pressed sriracha leggings
-                      jianbing microdosing tousled waistcoat.
-                    </p>
                     {item.universities.map((institute, k) => (
                       <>
                         <div className="flex-grow  flex sm:items-center items-start flex-row mt-4">
@@ -104,7 +132,7 @@ const ScholarshipUniversities = () => {
                               className="w-12 h-12 rounded-full flex-shrink-0 object-cover object-center"
                             />
                           </div>
-                          <div className="flex-grow pl-6 mt-6 sm:mt-0">
+                          <div className="flex-grow pl-6 mt-2 sm:mt-0">
                             <h2 className="font-medium title-font text-gray-500 mb-1 text-sm">
                               {institute.universityName}
                             </h2>
