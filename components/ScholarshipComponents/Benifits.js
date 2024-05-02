@@ -101,7 +101,7 @@ const Benifits = () => {
               alt="hero"
               height={400}
               width={400}
-              src={"/assests/country/girl.png"}
+              src={"/assests/country/Girl2.png"}
             />
           </div>
         </div>

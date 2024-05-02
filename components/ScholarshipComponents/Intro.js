@@ -1,6 +1,6 @@
 import Image from "next/image";
 import React from "react";
-import About from "../../pages/scholarship/assets/about.jpg";
+import About from "../../public/assests/country/front.png";
 
 const Intro = () => {
   return (
@@ -26,7 +26,7 @@ const Intro = () => {
           <Image
             className="object-cover object-center rounded"
             alt="hero"
-            height={300}
+            height={380}
             width={600}
             src={About}
           />

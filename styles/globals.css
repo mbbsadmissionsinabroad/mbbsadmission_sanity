@@ -317,13 +317,13 @@ table.detailsTable thead tr th {
 
 .button-footer {
   background: linear-gradient(90deg, #71e2b3, #58d1c3 35%, #48bcd1);
-  padding: 0.5em 1.5em;
+  padding: 0.5em 1em;
   color: #fff;
   outline: none;
   height: 40px;
   width: 100%;
   border: none;
-  margin-top: 20%;
+  margin-top: 10%;
   border-radius: 1.8em 1.5em 1.5em 0;
   cursor: pointer;
 }
