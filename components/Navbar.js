@@ -128,6 +128,7 @@ function Navbar({ headerData }) {
             <a>
               <Typography
                 variant="body1"
+                className=" text-red-600 font-semibold"
                 sx={{
                   padding: "5px",
                   fontWeight: 500,
@@ -136,7 +137,7 @@ function Navbar({ headerData }) {
                   marginRight: "20px",
                 }}
               >
-                Scholarships
+                Scholarships*
               </Typography>
             </a>
           </Link>
@@ -277,6 +278,7 @@ function Navbar({ headerData }) {
               <ListItem>
                 <ListItemText
                   button="true"
+                  className="bg-red-800 text-white"
                   primary={
                     <>
                       <Typography variant="body1" sx={{ fontWeight: 500 }}>
