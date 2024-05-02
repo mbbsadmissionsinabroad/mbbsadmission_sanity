@@ -278,7 +278,7 @@ function Navbar({ headerData }) {
               <ListItem>
                 <ListItemText
                   button="true"
-                  className="bg-red-800 text-white"
+                  className="text-red-600"
                   primary={
                     <>
                       <Typography variant="body1" sx={{ fontWeight: 500 }}>
