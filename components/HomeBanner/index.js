@@ -101,12 +101,12 @@ const index = ({ sliderData }) => {
               quality={100}
             />
           ) : null}
-          <div class="mx-auto flex flex-wrap items-center">
-            <div class="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0 text-opacity-100">
-              <h1 class="title-font sm:text-5xl text-2xl font-bold text-blue-900">
+          <div className="mx-auto flex flex-wrap items-center">
+            <div className="lg:w-3/5 md:w-1/2 md:pr-16 lg:pr-0 pr-0 text-opacity-100">
+              <h1 className="title-font sm:text-5xl text-2xl font-bold text-blue-900">
                 Embark on Your Medical Journey with Our Advisory by Your Side
               </h1>
-              <p class="leading-relaxed mt-4 text-black">
+              <p className="leading-relaxed mt-4 text-black">
                 No more confusion about your career prospects will haunt you!
                 Our advisors are here to lend you effective counsel on the
                 career path you want to embark on. You are to have a clearer

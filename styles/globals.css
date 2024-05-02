@@ -72,7 +72,7 @@ table.detailsTable th {
 }
 
 table.detailsTable td {
-  color: #fff;
+  color: black;
   font-weight: 500;
   font-size: 15px;
 }
@@ -81,7 +81,7 @@ table.detailsTable tbody tr:nth-of-type(odd) {
   background-color: rgba(0, 0, 0, 0.05);
 }
 
-table.detailsTable thead {
+table.detailsTable thead tr th {
   background: #1c1c84;
   color: #fff;
   font-weight: 600;
@@ -293,15 +293,37 @@ table.detailsTable thead {
   }
 }
 
+.textBounce {
+  -webkit-animation: tbounce 0.3s infinite alternate;
+  -moz-animation: tbounce 0.3s infinite alternate;
+  animation: tbounce 0.3s infinite alternate;
+}
+
+@-webkit-keyframes tbounce {
+  to {
+    -webkit-transform: scale(1.05);
+  }
+}
+@-moz-keyframes tbounce {
+  to {
+    -moz-transform: scale(1.05);
+  }
+}
+@keyframes tbounce {
+  to {
+    transform: scale(1.05);
+  }
+}
+
 .button-footer {
   background: linear-gradient(90deg, #71e2b3, #58d1c3 35%, #48bcd1);
-  padding: 0.5em 1.5em;
+  padding: 0.5em 1em;
   color: #fff;
   outline: none;
   height: 40px;
   width: 100%;
   border: none;
-  margin-top: 20%;
+  margin-top: 10%;
   border-radius: 1.8em 1.5em 1.5em 0;
   cursor: pointer;
 }

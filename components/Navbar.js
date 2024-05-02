@@ -124,7 +124,7 @@ function Navbar({ headerData }) {
               {item.title} <MenuDown />
             </Typography>
           ))}
-          <Link href="/ausbildung">
+          <Link href="/scholarship">
             <a>
               <Typography
                 variant="body1"
@@ -136,7 +136,7 @@ function Navbar({ headerData }) {
                   marginRight: "20px",
                 }}
               >
-                Ausbildung
+                Scholarships
               </Typography>
             </a>
           </Link>
@@ -273,14 +273,14 @@ function Navbar({ headerData }) {
                 </>
               );
             })}
-            <Link href="/ausbildung">
+            <Link href="/scholarship">
               <ListItem>
                 <ListItemText
                   button="true"
                   primary={
                     <>
                       <Typography variant="body1" sx={{ fontWeight: 500 }}>
-                        Ausbildung
+                        Scholarships
                       </Typography>
                     </>
                   }
