@@ -4,16 +4,16 @@ import React from "react";
 const Benifits = () => {
   return (
     <div>
-      <section className="text-gray-600 body-font bg-blue-800 sm:px-40 px-6 mb-20">
+      <section className="text-gray-600 body-font bg-blue-800 sm:px-20 px-6 mb-20">
         <div className="flex flex-col text-center w-full">
           <h1 className="sm:text-4xl text-3xl font-bold title-font text-white sm:mt-20 mt-8">
             Benefits of our <span className="text-red-600"> Scholarship</span>
           </h1>
-          <p className="lg:w-2/3 mx-auto font-semibold leading-relaxed text-base text-gray-500">
+          <p className="lg:w-2/3 mx-auto font-semibold leading-relaxed text-base text-white">
             WHAT DO YOU GET
           </p>
         </div>
-        <div className="mx-auto flex py-24 md:flex-row flex-col items-center">
+        <div className="mx-auto flex w-full py-24 md:flex-row flex-col items-center">
           <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
             <h1 className="flex items-center title-font sm:text-4xl text-3xl mb-4 font-medium text-white">
               <Image
@@ -95,12 +95,12 @@ const Benifits = () => {
             </div>
           </div>
 
-          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+          <div className="lg:max-w-lg lg:w-full md:w-1/2 w-5/6 sm:ml-8">
             <Image
               className="object-cover object-center rounded"
               alt="hero"
-              height={400}
-              width={400}
+              height={500}
+              width={500}
               src={"/assests/country/Girl2.png"}
             />
           </div>
