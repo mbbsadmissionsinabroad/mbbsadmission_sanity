@@ -29,7 +29,7 @@ const Accrodin = () => {
     },
     {
       title: "Q: When are results of Vaidya Vigyan Scholarship announced?",
-      desc: "The results will be published in New-Lyf website www.mbbsadmissionsinabroad.com on 31st May-2024 by 3:00 pm. And also sent to your registered E-mail ID and mobile number.",
+      desc: "The results will be published in the New-Lyf website www.mbbsadmissionsinabroad.com on 31st May-2024 by 3:00 pm. And also sent to your registered E-mail ID and mobile number.",
     },
   ];
   return (
