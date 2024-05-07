@@ -17,7 +17,7 @@ const Accrodin = () => {
     },
     {
       title: "Q: What is the Scholarship Award?",
-      desc: "The Scholarship award is not a CASH reward and its not transferable. The top 100/200 meritorious students of Vaidya Vigyan Scholarship can earn fee waiver as Scholarship from Doctor dreams on the tuition fee of the Foreign Medical Universities of their choice from the above list of Foreign medical universities. Please be informed the Vaidya Vigyan Scholarship awards are not applicable to any Universities in India.",
+      desc: "The Scholarship award is not a CASH reward and its not transferable. The top 100/200 meritorious students of Vaidya Vigyan Scholarship can earn fee waiver as Scholarship from New Lyf on the tuition fee of the Foreign Medical Universities of their choice from the above list of Foreign medical universities. Please be informed the Vaidya Vigyan Scholarship awards are not applicable to any Universities in India.",
     },
     {
       title: "Q: What is the Vaidya Vigyan Scholarship exam pattern?",
@@ -29,7 +29,7 @@ const Accrodin = () => {
     },
     {
       title: "Q: When are results of Vaidya Vigyan Scholarship announced?",
-      desc: "The results will be published in the doctor dreams website www.doctordreams.in on 31st May-2024 by 3:00 pm. And also sent to your registered E-mail ID and mobile number.",
+      desc: "The results will be published in the doctor dreams website www.mbbsadmissionsinabroad.com on 31st May-2024 by 3:00 pm. And also sent to your registered E-mail ID and mobile number.",
     },
   ];
   return (
