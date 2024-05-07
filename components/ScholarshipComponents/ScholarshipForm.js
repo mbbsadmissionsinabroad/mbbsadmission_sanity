@@ -512,7 +512,7 @@ export default function Example() {
             htmlFor="postal-code"
             className="block text-sm font-medium leading-6 text-gray-900 ml-6"
           >
-            * Free till 15th May
+            * Free till 17th May
           </label>
         </div>
         <button
