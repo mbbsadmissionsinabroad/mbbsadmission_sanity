@@ -382,7 +382,7 @@ export default function Example() {
                 htmlFor="doctorName"
                 className="block text-sm font-medium leading-6 text-gray-900"
               >
-                Doctor Dreams representative Name *
+                Education Counsellor Name *
               </label>
               <div className="mt-2">
                 <input
