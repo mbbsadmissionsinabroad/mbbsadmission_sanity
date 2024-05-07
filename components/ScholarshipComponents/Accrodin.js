@@ -25,7 +25,7 @@ const Accrodin = () => {
     },
     {
       title: "Q: When is Vaidya Vigyan Scholarship Exam conducted?",
-      desc: "The Vaidya Vigyan Scholarship Exam is conducted on 12th May-2024. Timing 10:00 am to 1:00pm. You have to report 1 hour before the exam time. You have to carry BLACK BALL POINT PEN. Rough papers will be provided in the examination hall.",
+      desc: "The Vaidya Vigyan Scholarship Exam is conducted on 17th May-2024. Timing 10:00 am to 1:00pm. You have to report 1 hour before the exam time. You have to carry BLACK BALL POINT PEN. Rough papers will be provided in the examination hall.",
     },
     {
       title: "Q: When are results of Vaidya Vigyan Scholarship announced?",
