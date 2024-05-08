@@ -49,7 +49,6 @@ export default function Example() {
       "Sorry, there might be issue with server, Please try in sometime."
     );
   const handleBack = (e) => {
-    console.log("svd");
     e.preventDefault();
     setIndex(0);
   };
@@ -312,7 +311,6 @@ export default function Example() {
                       type="number"
                       required={true}
                       name="studentMobileNumber"
-                      minlength="5"
                       id="studentMobileNumber"
                       value={formData.studentMobileNumber}
                       onChange={handleChange}
@@ -353,7 +351,6 @@ export default function Example() {
                   <div className="mt-2">
                     <input
                       type="number"
-                      minlength="5"
                       required={true}
                       name="fatherMobileNumber"
                       id="fatherMobileNumber"
@@ -374,7 +371,6 @@ export default function Example() {
                   <div className="mt-2">
                     <input
                       type="number"
-                      minlength="5"
                       required={true}
                       name="motherMobileNumber"
                       id="motherMobileNumber"
