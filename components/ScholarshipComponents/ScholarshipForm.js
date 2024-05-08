@@ -146,7 +146,7 @@ export default function Example() {
         body: JSON.stringify(data),
       };
 
-      fetch("https://admission-backend.vercel.app/send-emaill", requestOptions)
+      fetch("https://admission-backend.vercel.app/send-email", requestOptions)
         .then((res) => res.json())
         .then((data) => {
           setFormData({
