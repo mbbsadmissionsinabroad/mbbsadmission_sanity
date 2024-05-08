@@ -78,6 +78,8 @@ function index({
     isHomePage === true ? setShowPopup(false) : null;
   };
 
+  const courseNames = ["MBBS", "PG", "Nursing", "Ausbildung"];
+
   useEffect(() => {
     if (!isValidPhoneNumber(num) || !isPossiblePhoneNumber(num)) {
       setPhoneErr({ err: true, message: "Please Enter Valid Phone Number" });
@@ -155,6 +157,10 @@ function index({
             Value: residentCountry.toString(),
           },
           {
+            Attribute: "Course",
+            Value: "",
+          },
+          {
             Attribute: "mx_States",
             Value: residentState.toString(),
           },
@@ -223,7 +229,7 @@ function index({
         keepMounted
         onClose={handleClose}
         fullWidth={true}
-        maxWidth="md"
+        maxWidth="lg"
         id="mbbs-admission"
         title="admission"
         aria-label="admission"
@@ -237,50 +243,138 @@ function index({
         </Box>
         <Divider />
         <Box className={styles.container}>
-          <Grid container spacing={2}>
-            <Grid item xs={12} md={12}>
-              <form onSubmit={handleSubmit}>
-                <TextField
-                  variant="outlined"
-                  role="dialog"
-                  value={name}
-                  label="Name"
-                  aria-label="Entered Name"
-                  name="name"
-                  fullWidth
-                  onChange={handleFields}
-                  required
-                  sx={{ mb: 2 }}
-                />
-                <TextField
-                  variant="outlined"
-                  value={email}
-                  role="dialog"
-                  aria-label="Entered Email"
-                  label="Email"
-                  name="email"
-                  fullWidth
-                  onChange={handleFields}
-                  required
-                  sx={{ mb: 2 }}
-                />
-                <MuiPhoneNumber
-                  defaultCountry={"in"}
-                  fullWidth
-                  required
-                  role="dialog"
-                  aria-label="phone num entered"
-                  variant="outlined"
-                  value={num}
-                  name="num"
-                  type="tel"
-                  onChange={handleFields}
-                  sx={{ mb: 2 }}
-                  error={phoneErr.err}
-                  helperText={phoneErr.message}
-                />
-                {isHomePage === false ? (
-                  <>
+          <section className="text-gray-600 body-font">
+            <div className="mx-auto flex  py-10 md:flex-row flex-col items-center">
+              <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-4 md:mb-0 items-center text-center">
+                <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-blue-900">
+                  Announcing the Vaidya Vigyan Scholarship by New-lyf
+                </h1>
+                {/* <p className="mb-8 leading-relaxed"> */}
+                <ul className="list-none">
+                  <li className="my-4 text-black font-sans">
+                    Exciting News for aspiring medical students! New-lyf
+                    presents the Vaidya Vigyan Scholarship, up to 10 LAC INR
+                  </li>
+                  <li className="my-4 text-black">
+                    Don't let financial constraints hold you back from pursuing
+                    your passion for medicine.
+                  </li>
+                  <li className="my-4 text-red-500 font-semibold">
+                    Apply now and make your dreams a reality!
+                  </li>
+                </ul>
+              </div>
+              <div className="lg:max-w-lg lg:w-full md:w-1/2 w-full">
+                <form onSubmit={handleSubmit}>
+                  <TextField
+                    variant="outlined"
+                    role="dialog"
+                    value={name}
+                    label="Name"
+                    aria-label="Entered Name"
+                    name="name"
+                    fullWidth
+                    onChange={handleFields}
+                    required
+                    sx={{ mb: 2 }}
+                  />
+                  <TextField
+                    variant="outlined"
+                    value={email}
+                    role="dialog"
+                    aria-label="Entered Email"
+                    label="Email"
+                    name="email"
+                    fullWidth
+                    onChange={handleFields}
+                    required
+                    sx={{ mb: 2 }}
+                  />
+                  <MuiPhoneNumber
+                    defaultCountry={"in"}
+                    fullWidth
+                    required
+                    role="dialog"
+                    aria-label="phone num entered"
+                    variant="outlined"
+                    value={num}
+                    name="num"
+                    type="tel"
+                    onChange={handleFields}
+                    sx={{ mb: 2 }}
+                    error={phoneErr.err}
+                    helperText={phoneErr.message}
+                  />
+                  {isHomePage === false ? (
+                    <>
+                      <FormControl fullWidth sx={{ mb: 2 }} required>
+                        <InputLabel>Course / Job Interested</InputLabel>
+                        <Select
+                          value={country}
+                          role="dialog"
+                          label="Course / Job Interested"
+                          name="country"
+                          aira-label="Entered country"
+                          onChange={handleFields}
+                          required
+                        >
+                          {collegeList !== undefined &&
+                            collegeList.map((item, i) => (
+                              <MenuItem key={i} value={item.title}>
+                                {item.title}
+                              </MenuItem>
+                            ))}
+                        </Select>
+                      </FormControl>
+                      <FormControl fullWidth sx={{ mb: 2 }} required>
+                        <InputLabel
+                          role="dialog"
+                          aria-label="Study / Job Country"
+                        >
+                          Study / Job Country
+                        </InputLabel>
+                        <Select
+                          value={college}
+                          onChange={handleCollege}
+                          input={<OutlinedInput label="Study / Job Country" />}
+                          required
+                        >
+                          {"collegeList" in list &&
+                            list.collegeList.map((item, i) => (
+                              <MenuItem
+                                key={i}
+                                value={item.title}
+                                aria-label={item.title}
+                              >
+                                {item.title}
+                              </MenuItem>
+                            ))}
+                        </Select>
+                      </FormControl>
+                    </>
+                  ) : null}
+
+                  <Autocomplete
+                    required
+                    sx={{ mb: 2 }}
+                    freeSolo
+                    value={residentCountry}
+                    options={CountryList.map((option) => option.country)}
+                    renderInput={(params) => (
+                      <TextField
+                        {...params}
+                        required
+                        label="Resident Country"
+                        role="dialog"
+                        aria-label="Resident Country"
+                      />
+                    )}
+                    onChange={(event, newValue) => {
+                      handleResidentCountry(newValue);
+                    }}
+                  />
+
+                  {isHomePage ? (
                     <FormControl fullWidth sx={{ mb: 2 }} required>
                       <InputLabel>Course / Job Interested</InputLabel>
                       <Select
@@ -292,134 +386,75 @@ function index({
                         onChange={handleFields}
                         required
                       >
-                        {collegeList !== undefined &&
-                          collegeList.map((item, i) => (
-                            <MenuItem key={i} value={item.title}>
-                              {item.title}
+                        {courseNames !== undefined &&
+                          courseNames.map((item, i) => (
+                            <MenuItem key={i} value={item}>
+                              {item}
                             </MenuItem>
                           ))}
                       </Select>
                     </FormControl>
-                    <FormControl fullWidth sx={{ mb: 2 }} required>
-                      <InputLabel
-                        role="dialog"
-                        aria-label="Study / Job Country"
-                      >
-                        Study / Job Country
-                      </InputLabel>
-                      <Select
-                        value={college}
-                        onChange={handleCollege}
-                        input={<OutlinedInput label="Study / Job Country" />}
-                        required
-                      >
-                        {"collegeList" in list &&
-                          list.collegeList.map((item, i) => (
-                            <MenuItem
-                              key={i}
-                              value={item.title}
-                              aria-label={item.title}
-                            >
-                              {item.title}
-                            </MenuItem>
-                          ))}
-                      </Select>
-                    </FormControl>
-                  </>
-                ) : null}
-
-                <Autocomplete
-                  required
-                  sx={{ mb: 2 }}
-                  freeSolo
-                  value={residentCountry}
-                  options={CountryList.map((option) => option.country)}
-                  renderInput={(params) => (
-                    <TextField
-                      {...params}
+                  ) : (
+                    <Autocomplete
                       required
-                      label="Resident Country"
+                      sx={{ mb: 2 }}
+                      freeSolo
+                      value={residentState}
                       role="dialog"
-                      aria-label="Resident Country"
+                      aria-label="State / Province"
+                      options={stateList?.map((option) => option)}
+                      renderInput={(params) => (
+                        <TextField
+                          {...params}
+                          required
+                          label="State / Province"
+                        />
+                      )}
+                      onChange={(event, newValue) => {
+                        setResidentState(newValue);
+                      }}
                     />
                   )}
-                  onChange={(event, newValue) => {
-                    handleResidentCountry(newValue);
-                  }}
-                />
 
-                <Autocomplete
-                  required
-                  sx={{ mb: 2 }}
-                  freeSolo
-                  value={residentState}
-                  role="dialog"
-                  aria-label="State / Province"
-                  options={stateList?.map((option) => option)}
-                  renderInput={(params) => (
-                    <TextField {...params} required label="State / Province" />
+                  <Stack
+                    direction="row"
+                    alignItems="center"
+                    gap={1}
+                    sx={{ mb: 2 }}
+                  >
+                    <Checkbox
+                      checked={pPolicy}
+                      onChange={handlePpolicy}
+                      name="agree"
+                      role="dialog"
+                      aria-label="agree"
+                      id="agree"
+                    />
+                    <Typography variant="h6">
+                      I Agree to the{" "}
+                      <Link href="/privacy-policy">
+                        <a target="_blank">Privacy Policy</a>
+                      </Link>
+                    </Typography>
+                  </Stack>
+                  <Button
+                    variant="contained"
+                    type="submit"
+                    name="submit form"
+                    sx={{ color: "#fff", mb: 1 }}
+                    disabled={actionBusy}
+                  >
+                    Enquire Now
+                  </Button>
+                  {success && (
+                    <h2 className="text-lg text-gray-700 title-font mb-2 font-bold">
+                      Your submission has been received
+                    </h2>
                   )}
-                  onChange={(event, newValue) => {
-                    setResidentState(newValue);
-                  }}
-                />
-
-                <Stack
-                  direction="row"
-                  alignItems="center"
-                  gap={1}
-                  sx={{ mb: 2 }}
-                >
-                  <Checkbox
-                    checked={pPolicy}
-                    onChange={handlePpolicy}
-                    name="agree"
-                    role="dialog"
-                    aria-label="agree"
-                    id="agree"
-                  />
-                  <Typography variant="h6">
-                    I Agree to the{" "}
-                    <Link href="/privacy-policy">
-                      <a target="_blank">Privacy Policy</a>
-                    </Link>
-                  </Typography>
-                </Stack>
-                <Button
-                  variant="contained"
-                  type="submit"
-                  name="submit form"
-                  sx={{ color: "#fff", mb: 1 }}
-                  disabled={actionBusy}
-                >
-                  Enquire Now
-                </Button>
-                {success && (
-                  <Typography variant="h4">
-                    Your submission has been received
-                  </Typography>
-                )}
-              </form>
-            </Grid>
-            {/* <Grid item xs={12} md={6}>
-							<Box sx={{mb: 1.5}}>
-								<Typography variant="h4" gutterBottom>
-									Contact Us:
-								</Typography>
-								<a href="tel:8050575767" target="_blank">
-									+91 (805) 057-5767
-								</a>
-							</Box>
-							<Box sx={{mb: 1.5}}>
-								<Typography variant="h4" gutterBottom>
-									For Enquiry:
-								</Typography>
-								<a href="mailto:info@new-lyf.com" target="_blank">
-									info@new-lyf.com
-								</a>
-							</Box>
-						</Grid> */}
-          </Grid>
+                </form>
+              </div>
+            </div>
+          </section>
         </Box>
       </Dialog>
       <Snackbar
