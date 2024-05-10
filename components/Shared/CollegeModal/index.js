@@ -42,7 +42,7 @@ function index({
   title,
   btnText,
   isHomePage = false,
-  showPopup = true,
+  showPopup = false,
   setShowPopup = false,
 }) {
   const [open, setOpen] = useState(false);
