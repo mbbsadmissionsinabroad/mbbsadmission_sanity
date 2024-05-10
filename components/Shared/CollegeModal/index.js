@@ -394,28 +394,29 @@ function index({
                           ))}
                       </Select>
                     </FormControl>
-                  ) : (
-                    <Autocomplete
-                      required
-                      sx={{ mb: 2 }}
-                      freeSolo
-                      value={residentState}
-                      role="dialog"
-                      aria-label="State / Province"
-                      options={stateList?.map((option) => option)}
-                      renderInput={(params) => (
-                        <TextField
-                          {...params}
-                          required
-                          label="State / Province"
-                        />
-                      )}
-                      onChange={(event, newValue) => {
-                        setResidentState(newValue);
-                      }}
-                    />
-                  )}
+                  ) : null}
 
+                  {/* // ) : (
+                  //   <Autocomplete
+                  //     required
+                  //     sx={{ mb: 2 }}
+                  //     freeSolo
+                  //     value={residentState}
+                  //     role="dialog"
+                  //     aria-label="State / Province"
+                  //     options={stateList?.map((option) => option)}
+                  //     renderInput={(params) => (
+                  //       <TextField
+                  //         {...params}
+                  //         required
+                  //         label="State / Province"
+                  //       />
+                  //     )}
+                  //     onChange={(event, newValue) => {
+                  //       setResidentState(newValue);
+                  //     }}
+                  //   />
+                  // )} */}
                   <Stack
                     direction="row"
                     alignItems="center"
