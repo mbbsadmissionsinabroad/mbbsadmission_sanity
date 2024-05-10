@@ -244,7 +244,7 @@ function index({
         <Divider />
         <Box className={styles.container}>
           <section className="text-gray-600 body-font">
-            <div className="mx-auto flex  py-10 md:flex-row flex-col items-center sm:mb-8">
+            <div className="mx-auto flex  py-10 md:flex-row flex-col">
               <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-4 md:mb-0 items-center text-center">
                 <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-blue-900">
                   Announcing the Vaidya Vigyan Scholarship by New-lyf
@@ -308,54 +308,52 @@ function index({
                     error={phoneErr.err}
                     helperText={phoneErr.message}
                   />
-                  {isHomePage === false ? (
-                    <>
-                      <FormControl fullWidth sx={{ mb: 2 }} required>
-                        <InputLabel>Course / Job Interested</InputLabel>
-                        <Select
-                          value={country}
-                          role="dialog"
-                          label="Course / Job Interested"
-                          name="country"
-                          aira-label="Entered country"
-                          onChange={handleFields}
-                          required
-                        >
-                          {collegeList !== undefined &&
-                            collegeList.map((item, i) => (
-                              <MenuItem key={i} value={item.title}>
-                                {item.title}
-                              </MenuItem>
-                            ))}
-                        </Select>
-                      </FormControl>
-                      <FormControl fullWidth sx={{ mb: 2 }} required>
-                        <InputLabel
-                          role="dialog"
-                          aria-label="Study / Job Country"
-                        >
-                          Study / Job Country
-                        </InputLabel>
-                        <Select
-                          value={college}
-                          onChange={handleCollege}
-                          input={<OutlinedInput label="Study / Job Country" />}
-                          required
-                        >
-                          {"collegeList" in list &&
-                            list.collegeList.map((item, i) => (
-                              <MenuItem
-                                key={i}
-                                value={item.title}
-                                aria-label={item.title}
-                              >
-                                {item.title}
-                              </MenuItem>
-                            ))}
-                        </Select>
-                      </FormControl>
-                    </>
-                  ) : null}
+                  <>
+                    <FormControl fullWidth sx={{ mb: 2 }} required>
+                      <InputLabel>Select Your Preferred Course</InputLabel>
+                      <Select
+                        value={country}
+                        role="dialog"
+                        label="Select Your Preferred Course"
+                        name="country"
+                        aira-label="Entered country"
+                        onChange={handleFields}
+                        required
+                      >
+                        {collegeList !== undefined &&
+                          collegeList.map((item, i) => (
+                            <MenuItem key={i} value={item.title}>
+                              {item.title}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </FormControl>
+                    {/* <FormControl fullWidth sx={{ mb: 2 }} required>
+                      <InputLabel
+                        role="dialog"
+                        aria-label="Study / Job Country"
+                      >
+                        Study / Job Country
+                      </InputLabel>
+                      <Select
+                        value={college}
+                        onChange={handleCollege}
+                        input={<OutlinedInput label="Study / Job Country" />}
+                        required
+                      >
+                        {"collegeList" in list &&
+                          list.collegeList.map((item, i) => (
+                            <MenuItem
+                              key={i}
+                              value={item.title}
+                              aria-label={item.title}
+                            >
+                              {item.title}
+                            </MenuItem>
+                          ))}
+                      </Select>
+                    </FormControl> */}
+                  </>
                   {/* <Autocomplete
                     required
                     sx={{ mb: 2 }}
