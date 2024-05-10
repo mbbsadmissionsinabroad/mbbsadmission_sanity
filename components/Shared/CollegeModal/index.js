@@ -253,13 +253,16 @@ function index({
                 <ul className="list-none">
                   <li className="my-4 text-black font-sans">
                     Exciting News for aspiring medical students! New-lyf
-                    presents the Vaidya Vigyan Scholarship, up to 10 LAC INR
+                    presents the Vaidya Vigyan Scholarship, up to{" "}
+                    <span className="font-semibold text-red-500">
+                      10 LAC INR*
+                    </span>
                   </li>
                   <li className="my-4 text-black">
                     Don't let financial constraints hold you back from pursuing
                     your passion for medicine.
                   </li>
-                  <li className="my-4 text-red-500 font-semibold">
+                  <li className="my-4 text-xl text-red-500 font-semibold">
                     Apply now and make your dreams a reality!
                   </li>
                 </ul>
@@ -278,7 +281,7 @@ function index({
                     required
                     sx={{ mb: 2 }}
                   />
-                  <TextField
+                  {/* <TextField
                     variant="outlined"
                     value={email}
                     role="dialog"
@@ -289,7 +292,7 @@ function index({
                     onChange={handleFields}
                     required
                     sx={{ mb: 2 }}
-                  />
+                  /> */}
                   <MuiPhoneNumber
                     defaultCountry={"in"}
                     fullWidth
@@ -353,8 +356,7 @@ function index({
                       </FormControl>
                     </>
                   ) : null}
-
-                  <Autocomplete
+                  {/* <Autocomplete
                     required
                     sx={{ mb: 2 }}
                     freeSolo
@@ -372,30 +374,8 @@ function index({
                     onChange={(event, newValue) => {
                       handleResidentCountry(newValue);
                     }}
-                  />
-
-                  {isHomePage ? (
-                    <FormControl fullWidth sx={{ mb: 2 }} required>
-                      <InputLabel>Course / Job Interested</InputLabel>
-                      <Select
-                        value={country}
-                        role="dialog"
-                        label="Course / Job Interested"
-                        name="country"
-                        aira-label="Entered country"
-                        onChange={handleFields}
-                        required
-                      >
-                        {courseNames !== undefined &&
-                          courseNames.map((item, i) => (
-                            <MenuItem key={i} value={item}>
-                              {item}
-                            </MenuItem>
-                          ))}
-                      </Select>
-                    </FormControl>
-                  ) : null}
-
+                  /> */}
+                  {/* / */}
                   {/* // ) : (
                   //   <Autocomplete
                   //     required
