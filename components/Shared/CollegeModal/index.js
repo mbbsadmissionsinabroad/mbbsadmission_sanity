@@ -244,8 +244,8 @@ function index({
         <Divider />
         <Box className={styles.container}>
           <section className="text-gray-600 body-font">
-            <div className="mx-auto flex  py-10 md:flex-row flex-col">
-              <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-4 md:mb-0 items-center text-center">
+            <div className="mx-auto flex  py-10 md:flex-row flex-col ">
+              <div className="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex-col md:items-start md:text-left mb-4 md:mb-0 items-center text-center hidden sm:block">
                 <h1 className="title-font sm:text-4xl text-3xl mb-4 font-medium text-blue-900">
                   Announcing the Vaidya Vigyan Scholarship by New-lyf
                 </h1>
