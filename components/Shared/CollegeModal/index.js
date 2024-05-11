@@ -309,7 +309,7 @@ function index({
                     helperText={phoneErr.message}
                   />
                   <>
-                    <FormControl fullWidth sx={{ mb: 2 }} required>
+                    {/* <FormControl fullWidth sx={{ mb: 2 }} required>
                       <InputLabel>Select Your Preferred Course</InputLabel>
                       <Select
                         value={country}
@@ -327,7 +327,7 @@ function index({
                             </MenuItem>
                           ))}
                       </Select>
-                    </FormControl>
+                    </FormControl> */}
                     {/* <FormControl fullWidth sx={{ mb: 2 }} required>
                       <InputLabel
                         role="dialog"
@@ -354,7 +354,7 @@ function index({
                       </Select>
                     </FormControl> */}
                   </>
-                  {/* <Autocomplete
+                  <Autocomplete
                     required
                     sx={{ mb: 2 }}
                     freeSolo
@@ -372,7 +372,7 @@ function index({
                     onChange={(event, newValue) => {
                       handleResidentCountry(newValue);
                     }}
-                  /> */}
+                  />
                   {/* / */}
                   {/* // ) : (
                   //   <Autocomplete
