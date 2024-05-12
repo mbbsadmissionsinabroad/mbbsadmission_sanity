@@ -5,6 +5,8 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const index = ({ sliderData }) => {
+  const URL = process.env.NEXT_PUBLIC_LEAD_URL;
+  const accessToken = process.env.NEXT_PUBLIC_LEAD_SECRET_KEY;
   const [isLoading, setIsLoading] = useState(false);
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
@@ -30,6 +32,20 @@ const index = ({ sliderData }) => {
       notifyEmptyField();
       setIsLoading(false);
     } else {
+      const data2 = {
+        fields: {
+          Name: name.toString(),
+          Phone: phone,
+          Email: email.toString(),
+          Message: message,
+        },
+        actions: [
+          {
+            type: "SYSTEM_NOTE",
+            text: "Lead Source: Contact Page",
+          },
+        ],
+      };
       const data = [
         {
           Attribute: "Name",
@@ -53,12 +69,12 @@ const index = ({ sliderData }) => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
         },
-        body: JSON.stringify(data),
+        body: JSON.stringify(data2),
       };
 
-      fetch("https://admission-backend.vercel.app/send-email", requestOptions)
-        .then((res) => res.json())
+      fetch(URL, requestOptions)
         .then((data) => {
           setPhone("");
           setName("");
