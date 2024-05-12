@@ -42,29 +42,10 @@ const index = ({ sliderData }) => {
         actions: [
           {
             type: "SYSTEM_NOTE",
-            text: "Lead Source: Contact Page",
+            text: "Lead Source: Home Page",
           },
         ],
       };
-      const data = [
-        {
-          Attribute: "Name",
-          Value: name,
-        },
-        {
-          Attribute: "Email",
-          Value: email,
-        },
-        {
-          Attribute: "Phone",
-          Value: phone,
-        },
-        {
-          Attribute: "Message",
-          Value: message,
-        },
-      ];
-
       const requestOptions = {
         method: "POST",
         headers: {
