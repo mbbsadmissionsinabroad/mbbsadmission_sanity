@@ -1,6 +1,5 @@
 import Navbar from "./Navbar";
 import Footer from "./Footer";
-import { Whatsapp } from "mdi-material-ui";
 import Image from "next/image";
 
 export default function Layout({ children, data }) {

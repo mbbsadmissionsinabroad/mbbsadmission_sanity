@@ -1,4 +1,3 @@
-import Slider from "../components/HomePage/Slider";
 import HomePage from "../components/HomePage";
 import HomeBanner from "../components/HomeBanner";
 import Head from "next/head";

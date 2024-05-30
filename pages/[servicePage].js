@@ -68,7 +68,6 @@ function servicePage(props) {
             <Typography variant="h1">{data.title}</Typography>
           </Grid>
           <Grid item xs={12}>
-            {/* src={urlFor(data[0].sliderImage).url()} */}
             {"bannerImage" in data && (
               <Image
                 src={urlFor(data.bannerImage).url()}
