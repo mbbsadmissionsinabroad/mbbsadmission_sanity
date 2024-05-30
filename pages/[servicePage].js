@@ -45,7 +45,6 @@ function servicePage(props) {
     const getUrl = res.find((item) => item.uploadFile !== null);
     router.push(getUrl.uploadFile);
   };
-  console.log("qqqqq", urlFor(data.bannerImage));
   return (
     <>
       <CollegeModal
