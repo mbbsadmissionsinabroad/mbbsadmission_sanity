@@ -9,6 +9,7 @@ import TOC from "../components/Shared/TOC";
 import CollegeModal from "../components/Shared/CollegeModal";
 import Testimonials from "../components/HomePage/Testimonials";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const apiHost = process.env.NEXT_PUBLIC_API_HOST;
 
@@ -44,6 +45,7 @@ function servicePage(props) {
     const getUrl = res.find((item) => item.uploadFile !== null);
     router.push(getUrl.uploadFile);
   };
+  console.log("qqqqq", urlFor(data.bannerImage));
   return (
     <>
       <CollegeModal
@@ -67,11 +69,15 @@ function servicePage(props) {
             <Typography variant="h1">{data.title}</Typography>
           </Grid>
           <Grid item xs={12}>
+            {/* src={urlFor(data[0].sliderImage).url()} */}
             {"bannerImage" in data && (
-              <img
-                src={urlFor(data.bannerImage)}
+              <Image
+                src={urlFor(data.bannerImage).url()}
                 className="banner"
                 alt={data.title}
+                width={1500} // Set to the actual width of your image
+                height={600} // Set to the actual height of your image
+                loading="lazy" // Explicitly set lazy loading
               />
             )}
           </Grid>
