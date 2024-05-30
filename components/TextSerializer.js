@@ -38,12 +38,11 @@ function TextSerializer(props) {
     block: {
       p: ({ children }) => <p>{children}</p>,
       h1: ({ children }) => <h1 className={className}>{children}</h1>,
-      h2: ({ children }) =>
-        children ? (
-          <h2 className={className} id={addId(children)}>
-            {children}
-          </h2>
-        ) : null,
+      h2: ({ children }) => (
+        <h2 className={className} id={addId(children)}>
+          {children}
+        </h2>
+      ),
       h3: ({ children }) => (
         <h3 className={className} id={addId(children)}>
           {children}
