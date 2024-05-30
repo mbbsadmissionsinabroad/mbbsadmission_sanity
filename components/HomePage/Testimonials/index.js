@@ -17,7 +17,7 @@ function index(props) {
     <Box sx={{ margin: "30px auto 0px auto" }}>
       <Box sx={{ textAlign: "center" }}>
         <Typography
-          variant="h2"
+          variant="h5"
           className={styles.title}
           id="testimonials"
           sx={{ color: "#1c1c84" }}
