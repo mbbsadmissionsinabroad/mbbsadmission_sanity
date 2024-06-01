@@ -9,6 +9,7 @@ import TOC from "../components/Shared/TOC";
 import CollegeModal from "../components/Shared/CollegeModal";
 import Testimonials from "../components/HomePage/Testimonials";
 import { useRouter } from "next/router";
+import Image from "next/image";
 
 const apiHost = process.env.NEXT_PUBLIC_API_HOST;
 
@@ -68,10 +69,13 @@ function servicePage(props) {
           </Grid>
           <Grid item xs={12}>
             {"bannerImage" in data && (
-              <img
-                src={urlFor(data.bannerImage)}
+              <Image
+                src={urlFor(data.bannerImage).url()}
                 className="banner"
                 alt={data.title}
+                width={1500} // Set to the actual width of your image
+                height={600} // Set to the actual height of your image
+                loading="lazy" // Explicitly set lazy loading
               />
             )}
           </Grid>
