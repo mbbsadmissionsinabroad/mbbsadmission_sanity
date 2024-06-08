@@ -18,41 +18,30 @@ function TextSerializer(props) {
   const serializers = {
     types: {
       image: ({ value }) => {
-        const url = urlFor(value);
-        const width = value.dimensions.width;
-        const height = value.dimensions.height;
-        const aspectRatio = (height / width) * 100;
-
-        return (
-          <div
+        <div
+          style={{
+            position: "relative",
+            width: "100%",
+            paddingBottom: "56.25%",
+          }}
+        >
+          <img
+            src={urlFor(value)}
+            // srcSet={`${urlFor(value).width(320)} 320w, ${urlFor(value).width(640)} 640w, ${urlFor(value).width(1024)} 1024w`}
+            sizes="(max-width: 320px) 320px, (max-width: 640px) 640px, 1024px"
+            alt={"serializers"}
             style={{
-              position: "relative",
+              position: "absolute",
+              top: 0,
+              left: 0,
               width: "100%",
-              paddingBottom: `${aspectRatio}%`,
+              height: "100%",
+              objectFit: "cover",
             }}
-          >
-            <img
-              src={url}
-              srcSet={`${urlFor(value).width(320)} 320w, ${urlFor(value).width(
-                640
-              )} 640w, ${urlFor(value).width(1024)} 1024w`}
-              sizes="(max-width: 320px) 320px, (max-width: 640px) 640px, 1024px"
-              alt="MBBS in Russia"
-              width={width}
-              height={height}
-              style={{
-                position: "absolute",
-                top: 0,
-                left: 0,
-                width: "100%",
-                height: "100%",
-                objectFit: "cover",
-              }}
-              decoding="async"
-              loading="lazy"
-            />
-          </div>
-        );
+            decoding="async"
+            loading="lazy"
+          />
+        </div>;
       },
       code: ({ value }) => (
         <div
