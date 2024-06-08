@@ -3,6 +3,7 @@ import { PortableText } from "@portabletext/react";
 
 function TextSerializer(props) {
   const { data, className } = props;
+
   const addId = (children) => {
     const str = children;
     const strUnderscores =
@@ -16,18 +17,43 @@ function TextSerializer(props) {
 
   const serializers = {
     types: {
-      image: ({ value }) => (
-        <img
-          src={urlFor(value)}
-          alt={"serializers"}
-          style={{
-            display: "flex",
-            width: "100%",
-            margin: "0 auto",
-            alt: "serializers",
-          }}
-        />
-      ),
+      image: ({ value }) => {
+        const url = urlFor(value);
+        const width = value.dimensions.width;
+        const height = value.dimensions.height;
+        const aspectRatio = (height / width) * 100;
+
+        return (
+          <div
+            style={{
+              position: "relative",
+              width: "100%",
+              paddingBottom: `${aspectRatio}%`,
+            }}
+          >
+            <img
+              src={url}
+              srcSet={`${urlFor(value).width(320)} 320w, ${urlFor(value).width(
+                640
+              )} 640w, ${urlFor(value).width(1024)} 1024w`}
+              sizes="(max-width: 320px) 320px, (max-width: 640px) 640px, 1024px"
+              alt="MBBS in Russia"
+              width={width}
+              height={height}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
+        );
+      },
       code: ({ value }) => (
         <div
           style={{ overflowX: "scroll" }}
@@ -36,7 +62,9 @@ function TextSerializer(props) {
       ),
     },
     block: {
-      p: ({ children }) => <p>{children}</p>,
+      p: ({ children }) => (
+        <p style={{ minHeight: "1em", lineHeight: "1.5" }}>{children}</p>
+      ),
       h1: ({ children }) => <h1 className={className}>{children}</h1>,
       h2: ({ children }) => (
         <h2 className={className} id={addId(children)}>
@@ -63,7 +91,9 @@ function TextSerializer(props) {
           {children}
         </h6>
       ),
-      blockquote: ({ children }) => <blockquote>{children}</blockquote>,
+      blockquote: ({ children }) => (
+        <blockquote style={{ minHeight: "1em" }}>{children}</blockquote>
+      ),
     },
     list: {
       bullet: ({ children }) => <ul>{children}</ul>,
