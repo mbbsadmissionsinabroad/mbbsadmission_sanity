@@ -17,32 +17,43 @@ function TextSerializer(props) {
 
   const serializers = {
     types: {
-      image: ({ value }) => (
-        <div
-          style={{
-            position: "relative",
-            width: "100%",
-            paddingBottom: "56.25%",
-          }}
-        >
-          <img
-            srcSet={`${urlFor(value).width(320)} 320w, ${urlFor(value).width(
-              640
-            )} 640w, ${urlFor(value).width(1024)} 1024w`}
-            sizes="(max-width: 320px) 320px, (max-width: 640px) 640px, 1024px"
-            src={urlFor(value)}
-            alt="serializers"
+      image: ({ value }) => {
+        const url = urlFor(value);
+        const width = value.dimensions.width;
+        const height = value.dimensions.height;
+        const aspectRatio = (height / width) * 100;
+
+        return (
+          <div
             style={{
-              position: "absolute",
-              top: 0,
-              left: 0,
+              position: "relative",
               width: "100%",
-              height: "100%",
-              objectFit: "cover",
+              paddingBottom: `${aspectRatio}%`,
             }}
-          />
-        </div>
-      ),
+          >
+            <img
+              src={url}
+              srcSet={`${urlFor(value).width(320)} 320w, ${urlFor(value).width(
+                640
+              )} 640w, ${urlFor(value).width(1024)} 1024w`}
+              sizes="(max-width: 320px) 320px, (max-width: 640px) 640px, 1024px"
+              alt="MBBS in Russia"
+              width={width}
+              height={height}
+              style={{
+                position: "absolute",
+                top: 0,
+                left: 0,
+                width: "100%",
+                height: "100%",
+                objectFit: "cover",
+              }}
+              decoding="async"
+              loading="lazy"
+            />
+          </div>
+        );
+      },
       code: ({ value }) => (
         <div
           style={{ overflowX: "scroll" }}
