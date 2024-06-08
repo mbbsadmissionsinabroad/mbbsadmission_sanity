@@ -125,6 +125,11 @@ const nextConfig = {
         destination: "/mbbs-admission-in-europe-from-mci-approved-university",
         permanent: true, // 301 redirection (permanent)
       },
+      {
+        source: "/mbbs-admission-in-uzbekistan-for-indian-students",
+        destination: "/mbbs-in-uzbekistan",
+        permanent: true, // 301 redirection (permanent)
+      },
     ];
   },
   reactStrictMode: true,
