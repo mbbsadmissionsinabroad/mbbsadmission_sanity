@@ -134,17 +134,23 @@ export async function getServerSideProps({ params, res }) {
   const result = await fetch(url).then((res) => res.json());
   const data = result.result[0];
 
-  const faqId =
-    data.hasOwnProperty("frequentlyAskedQuestion") &&
-    data.frequentlyAskedQuestion.map((id) => "'" + id._ref + "'").join();
+  if (!data) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const faqId = data?.frequentlyAskedQuestion?.length
+    ? data.frequentlyAskedQuestion.map((id) => `'${id._ref}'`).join()
+    : "";
   const faqQuery = encodeURIComponent(`*[_type == "faq" && _id in [${faqId}]]`);
   const faqUrl = apiHost + faqQuery;
   const faqResult = await fetch(faqUrl).then((res) => res.json());
   const faq = faqResult.result;
 
-  const youtubeId =
-    data.hasOwnProperty("youtubeEmbedUrl") &&
-    data.youtubeEmbedUrl.map((id) => "'" + id._ref + "'").join();
+  const youtubeId = data?.youtubeEmbedUrl?.length
+    ? data.youtubeEmbedUrl.map((id) => `'${id._ref}'`).join()
+    : "";
   const youtubeEmbedQuery = encodeURIComponent(
     `*[_type == "youtubeEmbed" && _id in [${youtubeId}]]`
   );
@@ -154,19 +160,13 @@ export async function getServerSideProps({ params, res }) {
   );
   const youtubeEmbedRes = youtubeEmbedResult.result;
 
-  if (!data) {
-    return {
-      notFound: true,
-    };
-  } else {
-    return {
-      props: {
-        data,
-        faq,
-        youtubeEmbedRes,
-      },
-    };
-  }
+  return {
+    props: {
+      data,
+      faq,
+      youtubeEmbedRes,
+    },
+  };
 }
 
 export default servicePage;

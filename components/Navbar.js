@@ -55,7 +55,7 @@ function Navbar({ headerData }) {
 
   return (
     <Box className="z-20">
-      <TopBar />
+      {/* <TopBar /> */}
       <Grid
         container
         sx={{ padding: "15px" }}
@@ -124,7 +124,7 @@ function Navbar({ headerData }) {
               {item.title} <MenuDown />
             </Typography>
           ))}
-          <Link href="/scholarship">
+          {/* <Link href="/scholarship">
             <a>
               <Typography
                 variant="body1"
@@ -140,7 +140,7 @@ function Navbar({ headerData }) {
                 Scholarships*
               </Typography>
             </a>
-          </Link>
+          </Link> */}
           <Link href="/learn-german-language-course-in-bangalore">
             <a>
               <Typography
@@ -274,7 +274,7 @@ function Navbar({ headerData }) {
                 </>
               );
             })}
-            <Link href="/scholarship">
+            {/* <Link href="/scholarship">
               <ListItem>
                 <ListItemText
                   button="true"
@@ -288,7 +288,7 @@ function Navbar({ headerData }) {
                   }
                 />
               </ListItem>
-            </Link>
+            </Link> */}
             <Link href="/learn-german-language-course-in-bangalore" passHref>
               <ListItem>
                 <ListItemText
